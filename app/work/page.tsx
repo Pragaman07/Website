@@ -7,6 +7,7 @@ import { ProofStrip } from "@/components/work/ProofStrip";
 import { CaseCard } from "@/components/work/CaseCard";
 import { MethodTeaser } from "@/components/work/MethodTeaser";
 import { IntakeCard } from "@/components/work/intake/IntakeCard";
+import { MidnightLine } from "@/components/eggs/MidnightSwap";
 import homeJson from "@/content/work/home.json";
 import intakeJson from "@/content/work/intake.json";
 import globalJson from "@/content/global.json";
@@ -29,11 +30,12 @@ export default function WorkHome() {
           <h1 className="type-display-xl mt-4 text-ink">
             {withAccent(home.hero.headline.text ?? "", home.hero.headline.accentPhrase)}
           </h1>
-          {home.hero.subline.pending && (
-            <div className="mt-5 max-w-md">
-              <Pending id={home.hero.subline.pending} note={home.hero.subline.note} />
-            </div>
-          )}
+          {/* sub-line slot — reserved line; egg 7 swaps it after midnight */}
+          <MidnightLine
+            normal={home.hero.subline}
+            midnight={home.hero.midnightSubline}
+            className="mt-5 max-w-md"
+          />
           <div className="mt-8 flex flex-wrap items-center gap-6">
             <Button href="#intake">{home.hero.ctaPrimary.text}</Button>
             <Button variant="secondary" href="#cases">

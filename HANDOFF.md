@@ -18,14 +18,14 @@ Pragaman Kumar Anurag — the site's owner and subject. PM-to-PM style: direct, 
 | 2 — Work mode (home, 3 case studies, Bedrock method) | ✅ gate passed; perf 86 local (noisy machine — real check = PageSpeed on deployed URL); a11y/bp 100, seo 91 | 3992df3→2cf8a63 |
 | 3 — Intake live (KV, Resend, 5-step flow, counters, admin) | ✅ verified against REAL Upstash + Resend from localhost | c165359, 2ee112a |
 | 4 — Know Me (hub, faces, Graveyard, Numbers+coffee, Save States map) | ✅ gates passed (locked tiles + 404 prod-verified; map keyboard live-tested) | 0393744, 5356649, 7da71a2 |
-| **5 — Changelog + eggs 1–7** | **NEXT** | — |
-| 6 — Polish & launch | after 5 | — |
+| 5 — Changelog + eggs 1–7 | ✅ gate passed (egg1 ≥8-flips + once/session, Esc, focus-trap; midnight verified via dev `?fakeHour=N`; 404 plot; v0.0.1 headstone; in-place re-dress; egg-found wired into coffee + DLC; all 5 sounds now exist, ~70KB, ALL placeholder audition-pending) | see log |
+| **6 — Polish & launch** | **NEXT** — spec §13 pass: contrast audit, focus/aria sweep, reduced-motion, perf budget (PageSpeed on deployed URL), OG images + metadata, 500 page, README guide for Pragaman; launch checklist in CLAUDE.md | — |
 
 **Working process (locked with Pragaman):** each phase splits into chunks; present the chunk plan, then build → verify → commit → push ONE chunk, wait for his "next". Commit messages are detailed; commit per chunk; push after each.
 
-## Phase 5 scope (agreed next)
+## Phase 5 — shipped notes
 
-Dual-dress changelog with in-place re-dress on flip (spec §9 — the transition's showroom; `/changelog` stub exists); eggs §12.1–12.7: identity_crisis.exe (rapid-flip counter ALREADY exposed by `useMode().rapidFlipCount`), console greeting, 404 = Graveyard plot (reuse `components/know/Tombstone.tsx` — built for this), coffee-counter egg-found wiring, DLC tooltip egg-found wiring (`components/eggs/DlcTooltip.tsx` has a TODO note), v0.0.1 changelog entry, after-midnight hero swap (drafts already in `work/home.json` + `know/hub.json`). Shared egg framework: `pragaman-egg-{n}` localStorage flags + `egg-found` sound on first discovery only. Sounds still to synthesize: `sparkle.wav`, `glitch.wav` (pattern: `scripts/generate-*-sound.mjs`).
+Egg framework: `lib/eggs.tsx` (`useEggFound(n)` — localStorage `pragaman-egg-{n}`, chime first time only). Eggs copy: `content/eggs.json`. Changelog: `lib/changelog.ts` loads `content/changelog/*.mdx` (frontmatter; `headstone: true` pins v0.0.1 last); `_meta.json` = page header; the `site-ships.mdx` entry is `draft: true` for the content pass. Midnight: `lib/midnight.ts` + `components/eggs/MidnightSwap.tsx`; dev-only `?fakeHour=N` fakes the clock. Eggs 8–10 remain post-v1 by design (memoji-call/full images reserved).
 
 ## Rulings (full log in DECISIONS.md — headline ones)
 

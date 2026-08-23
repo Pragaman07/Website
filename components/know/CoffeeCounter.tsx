@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Coffee } from "lucide-react";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { useSfx } from "@/lib/sound";
+import { useEggFound } from "@/lib/eggs";
 import type { NumbersContent } from "@/lib/content";
 
 /**
@@ -19,6 +20,7 @@ export function CoffeeCounter({ content }: { content: NumbersContent["coffeeCoun
   const pending = useRef(0);
   const timer = useRef<number | undefined>(undefined);
   const playSip = useSfx("coffee-sip");
+  const markFound = useEggFound();
   const reduced = useReducedMotion();
 
   useEffect(() => {
@@ -35,6 +37,7 @@ export function CoffeeCounter({ content }: { content: NumbersContent["coffeeCoun
   }, []);
 
   const sip = () => {
+    markFound(4); // egg 4 — chimes on the very first sip only
     playSip();
     setCount((c) => (c ?? 0) + 1);
     setTiltKey((k) => k + 1);

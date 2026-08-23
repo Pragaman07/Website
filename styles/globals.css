@@ -258,6 +258,28 @@ html.garnish-exit [data-garnish] {
   }
 }
 
+/* §12.1 — the 2px shake under identity_crisis.exe (reduced motion: none) */
+@keyframes egg-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+html.egg-shake body {
+  animation: egg-shake 200ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.egg-shake body {
+    animation: none;
+  }
+}
+
 /* 150ms page crossfade — reduced-motion flips and D-2 route handoffs. */
 html.page-fade body {
   animation: page-fade-in 150ms ease;

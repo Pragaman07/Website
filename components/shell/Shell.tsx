@@ -6,6 +6,8 @@ import { SoundProvider } from "@/lib/sound";
 import { Header } from "@/components/shell/Header";
 import { Footer } from "@/components/shell/Footer";
 import { TemperatureLayer } from "@/components/shell/TemperatureLayer";
+import { IdentityCrisisOverlay } from "@/components/eggs/IdentityCrisisOverlay";
+import { ConsoleGreeting } from "@/components/eggs/ConsoleGreeting";
 import type { GlobalContent } from "@/lib/content";
 
 /**
@@ -27,6 +29,8 @@ export function Shell({
     <SoundProvider>
       <ModeProvider>
         <TemperatureLayer />
+        <IdentityCrisisOverlay />
+        <ConsoleGreeting />
         {isDoor ? (
           children
         ) : (

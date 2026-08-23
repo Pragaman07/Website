@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { SaveSlotCard } from "@/components/know/SaveSlotCard";
 import { DlcTooltip } from "@/components/eggs/DlcTooltip";
+import { useEggFound } from "@/lib/eggs";
 import { cn } from "@/lib/cn";
 import type { MapCity, MapState } from "@/lib/india";
 import type { SaveStatesContent } from "@/lib/content";
@@ -36,6 +37,7 @@ export function SaveStatesClient({
   const railRefs = useRef<Array<HTMLLIElement | null>>([]);
   const svgRef = useRef<SVGSVGElement>(null);
   const reduced = useReducedMotion();
+  const markFound = useEggFound();
 
   // Draw the checkpoint path once the map scrolls into view.
   useEffect(() => {
@@ -80,9 +82,10 @@ export function SaveStatesClient({
               : { x: window.innerWidth / 2, y: window.innerHeight / 2 };
           })();
         setTooltip({ x: at.x, y: at.y, name: state.name });
+        markFound(5); // egg 5 — first-ever DLC discovery chimes
       }
     },
-    [states, reduced],
+    [states, reduced, markFound],
   );
 
   const onKeyDown = (e: React.KeyboardEvent) => {

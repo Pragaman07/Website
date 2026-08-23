@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Pending } from "@/components/ui/Pending";
+import { MidnightLine } from "@/components/eggs/MidnightSwap";
 import type { KnowHubContent } from "@/lib/content";
 
 /**
@@ -36,11 +36,12 @@ export function PolaroidHero({ hero }: { hero: KnowHubContent["hero"] }) {
             ) : null}
           </figure>
 
-          {/* Caveat annotation + wobbly arrow (decorative) */}
+          {/* Caveat annotation + wobbly arrow (decorative); egg 7 swaps
+              the line after midnight */}
           {hero.annotations[0]?.text && (
             <span
               aria-hidden
-              className="type-doodle absolute -right-6 -bottom-8 max-w-40 rotate-[3deg] text-accent md:-right-24 md:bottom-10"
+              className="absolute -right-6 -bottom-8 max-w-40 rotate-[3deg] text-accent md:-right-24 md:bottom-10"
             >
               <svg
                 width="46"
@@ -56,7 +57,11 @@ export function PolaroidHero({ hero }: { hero: KnowHubContent["hero"] }) {
                   strokeLinecap="round"
                 />
               </svg>
-              {hero.annotations[0].text}
+              <MidnightLine
+                doodle
+                normal={hero.annotations[0]}
+                midnight={hero.midnightAnnotation}
+              />
             </span>
           )}
         </div>
