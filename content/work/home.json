@@ -1,0 +1,54 @@
+{
+  "hero": {
+    "eyebrow": { "text": "TECHNICAL MARKETING MANAGER · NOBORU WORLD · PUNE", "draft": true },
+    "headline": {
+      "text": "I solve problems. I save time. I make brands famous.",
+      "accentPhrase": "famous",
+      "draft": true,
+      "note": "Accent phrase is a Content Doc decision — 'famous' is the spec's working guess."
+    },
+    "subline": { "pending": "CONTENT-DOC.hero-subline", "note": "body-l, muted, max 52ch." },
+    "midnightSubline": { "text": "You're up late. Same.", "draft": true, "note": "Egg 7 swap, 00:00–04:59 local." },
+    "ctaPrimary": { "text": "Pitch me a problem", "draft": true },
+    "ctaSecondary": { "text": "See the receipts →", "draft": true }
+  },
+  "proofStrip": {
+    "note": "Audited-only rule applies forever. Each stat links to Filing Buddy.",
+    "stats": [
+      { "factId": "fb.gsc.clicks", "render": "ORGANIC CLICKS ×7.5" },
+      { "factId": "fb.gsc.position", "render": "AVG POSITION 45 → 13.6" },
+      { "factId": "fb.ga4.organic-share", "render": "ORGANIC SHARE 39% → 75%" }
+    ]
+  },
+  "cases": {
+    "sectionEyebrow": { "text": "CASE STUDIES", "draft": true },
+    "sectionTitle": { "text": "The receipts", "draft": true },
+    "cards": [
+      {
+        "slug": "filing-buddy",
+        "tag": "GROWTH",
+        "title": "Filing Buddy",
+        "hook": { "pending": "CONTENT-DOC.fb-hook", "note": "One-line hook under the card title." },
+        "heroStat": { "factId": "fb.gsc.clicks", "render": "×7.5 CLICKS" }
+      },
+      {
+        "slug": "buddy-software",
+        "tag": "0→1 BUILD",
+        "title": "Buddy Software",
+        "hook": { "pending": "CONTENT-DOC.buddy-hook", "note": "One-line hook under the card title." },
+        "heroStat": { "factId": "buddy.departments", "render": "7 DEPTS → 1 PLATFORM" }
+      },
+      {
+        "slug": "sapiens",
+        "tag": "SOLO BUILD",
+        "title": "Sapiens",
+        "hook": { "pending": "CONTENT-DOC.sapiens-hook", "note": "One-line hook under the card title." },
+        "heroStat": { "factId": "sapiens.stores", "render": "TEAM OF 1 → 2 APP STORES" }
+      }
+    ]
+  },
+  "methodTeaser": {
+    "line": { "text": "Every problem gets the same treatment: questions until bedrock.", "draft": true },
+    "linkLabel": { "text": "How I work →", "draft": true }
+  }
+}

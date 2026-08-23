@@ -1,0 +1,19 @@
+{
+  "eyebrow": { "text": "LIFE IN NUMBERS", "draft": true },
+  "subline": { "text": "KPIs nobody asked me to track.", "draft": true },
+  "stats": [
+    {
+      "metric": "UNOFFICIAL TITLES HELD",
+      "value": "1",
+      "footnote": { "text": "\"The Everything Guy\"", "draft": true },
+      "factId": "method.title-candidate",
+      "pendingKeepKill": "OPEN-8"
+    }
+  ],
+  "chaiCounter": {
+    "label": { "text": "CHAI CONSUMED (GLOBAL, LIVE)", "draft": true },
+    "note": "Biggest card in the grid — egg 4, live KV counter."
+  },
+  "pending": "P13-P20",
+  "note": "Rest of the dashboard feeds from P13–P20 + rapid-fire. Stat shape: { metric, value, trend?, sticker?, footnote?, sparkline? }."
+}

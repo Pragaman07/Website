@@ -1,0 +1,63 @@
+{
+  "header": {
+    "title": { "text": "Pitch me a problem", "draft": true },
+    "sub": { "text": "Three questions. You'll accidentally write a mini-PRD.", "draft": true }
+  },
+  "steps": [
+    {
+      "id": "broken",
+      "question": { "text": "What's broken?", "locked": true },
+      "kind": "textarea",
+      "rows": 4,
+      "minChars": 20,
+      "placeholder": { "text": "The thing that keeps eating your week…", "draft": true }
+    },
+    {
+      "id": "hurts",
+      "question": { "text": "Who does it hurt most?", "locked": true },
+      "kind": "textarea",
+      "rows": 3,
+      "placeholder": { "pending": "CONTENT-DOC.intake-p2", "note": "Placeholder for step 2." }
+    },
+    {
+      "id": "tried",
+      "question": { "text": "What have you tried?", "locked": true },
+      "kind": "textarea",
+      "rows": 3,
+      "allowEmpty": true,
+      "emptyCta": { "text": "Nothing yet — that's why I'm here →", "draft": true },
+      "placeholder": { "pending": "CONTENT-DOC.intake-p3", "note": "Placeholder for step 3." }
+    },
+    {
+      "id": "severity",
+      "question": { "text": "How bad is it?", "locked": true },
+      "kind": "severity",
+      "options": [
+        { "value": "mild-itch", "label": "Mild itch", "locked": true },
+        { "value": "recurring-nightmare", "label": "Recurring nightmare", "locked": true },
+        { "value": "existential-threat", "label": "Existential threat", "locked": true },
+        { "value": "already-cried", "label": "I've already cried", "locked": true }
+      ]
+    },
+    {
+      "id": "email",
+      "question": { "text": "Where do I reply?", "locked": true },
+      "kind": "email",
+      "submitLabel": { "text": "File the pitch", "draft": true }
+    }
+  ],
+  "errors": {
+    "emailMissing": { "text": "Needs an email so the reply has somewhere to go.", "draft": true },
+    "tooShort": { "pending": "CONTENT-DOC.intake-err-short", "note": "Min-chars validation line, interface voice, never apologetic." },
+    "rateLimited": { "pending": "CONTENT-DOC.intake-err-rate", "note": "Rate-limit line." },
+    "serverError": { "pending": "CONTENT-DOC.intake-err-server", "note": "Submit-failed line." }
+  },
+  "success": {
+    "title": { "text": "You just wrote a mini-PRD.", "draft": true },
+    "sub": { "text": "Personal reply within 48 hours — that's the public SLA below.", "draft": true }
+  },
+  "counter": {
+    "pitchedLabel": { "text": "Problems pitched", "draft": true },
+    "repliedLabel": { "text": "Replies sent", "draft": true }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "wordmark": { "text": "pragaman", "draft": true },
+  "nav": {
+    "work": [
+      { "label": "Case studies", "href": "/work#cases", "draft": true },
+      { "label": "Method", "href": "/work/method", "draft": true },
+      { "label": "Changelog", "href": "/changelog", "draft": true },
+      { "label": "Contact", "href": "/work#intake", "draft": true }
+    ],
+    "know": [
+      { "label": "Graveyard", "href": "/know-me/graveyard", "draft": true },
+      { "label": "Numbers", "href": "/know-me/numbers", "draft": true },
+      { "label": "Save States", "href": "/know-me/save-states", "draft": true },
+      { "label": "Rent-Free", "href": "/know-me/rent-free", "draft": true },
+      { "label": "FAQ", "href": "/know-me/faq", "draft": true },
+      { "label": "Changelog", "href": "/changelog", "draft": true }
+    ]
+  },
+  "toggle": {
+    "workLabel": { "text": "WORK", "draft": true },
+    "knowLabel": { "text": "KNOW ME", "draft": true },
+    "ariaToWork": { "text": "Switch to Work mode", "draft": true },
+    "ariaToKnow": { "text": "Switch to Know Me mode", "draft": true }
+  },
+  "mute": {
+    "muteLabel": { "text": "Mute sounds", "draft": true },
+    "unmuteLabel": { "text": "Unmute sounds", "draft": true }
+  },
+  "footer": {
+    "signoff": {
+      "text": "Built with Claude Code, chai, and an unreasonable number of questions.",
+      "draft": true
+    },
+    "email": { "pending": "CONTACT-EMAIL", "note": "Personal address now; hello@pragaman.com post-domain." },
+    "calendarUrl": { "pending": "CALENDAR-URL", "note": "Google Calendar booking link." },
+    "socials": { "pending": "SOCIAL-LINKS", "note": "Links list — Content Doc / Pragaman." },
+    "knowScribble": { "pending": "CONTENT-DOC.footer-scribble", "note": "Caveat sign-off scribble, Know Me footer only." }
+  }
+}

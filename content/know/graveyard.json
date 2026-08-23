@@ -1,0 +1,7 @@
+{
+  "eyebrow": { "text": "THE GRAVEYARD", "draft": true },
+  "subline": { "text": "IDEAS, ABANDONED. REST IN PEACE.", "draft": true },
+  "items": [],
+  "pending": "P9-P12",
+  "note": "Empty until P9–P12 land → hub tile renders LOCKED and this route 404s (thin-section rule §14). Item shape: { name, born, died, epitaph, causeOfDeath }."
+}

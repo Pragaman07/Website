@@ -1,0 +1,39 @@
+{
+  "eyebrow": { "text": "SAVE STATES", "draft": true },
+  "subline": { "text": "India, as a memory card.", "draft": true },
+  "checkpoints": [
+    {
+      "slot": "01",
+      "city": "Samastipur",
+      "state": "Bihar",
+      "levelName": { "pending": "SECTION-2.samastipur-level", "note": "LEVEL: childhood — or Pragaman's own naming." },
+      "lesson": { "pending": "P1", "note": "What this level taught me." }
+    },
+    {
+      "slot": "02",
+      "city": "Ranchi",
+      "state": "Jharkhand",
+      "levelName": { "pending": "SECTION-2.ranchi-level" },
+      "lesson": { "pending": "P1" }
+    },
+    {
+      "slot": "03",
+      "city": "Bhubaneswar",
+      "state": "Odisha",
+      "levelName": { "pending": "SECTION-2.bhubaneswar-level" },
+      "lesson": { "pending": "P1" }
+    },
+    {
+      "slot": "04",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "levelName": { "pending": "SECTION-2.pune-level" },
+      "lesson": { "pending": "P1" }
+    }
+  ],
+  "visitedStates": {
+    "pending": "SECTION-2.travel-list",
+    "note": "Full visited-states list from Pragaman. Home states (Bihar, Jharkhand, Odisha, Maharashtra) render solid coral; other visited coral-tinted; rest grey (DLC egg 5). NOTE for the content session: P1's partial answer mentions a Patna childhood — clarify whether Patna joins the checkpoint path before this ships."
+  },
+  "dlcTooltip": { "text": "DLC not yet purchased (trip pending).", "draft": true }
+}

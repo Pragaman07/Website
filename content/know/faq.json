@@ -1,0 +1,7 @@
+{
+  "eyebrow": { "text": "FAQ NOBODY ASKED", "draft": true },
+  "subline": { "text": "A self-interview that goes downhill.", "draft": true },
+  "items": [],
+  "pending": "SECTION-2",
+  "note": "Empty until Section 2 + W34–W37/W40 feeders land → LOCKED tile + 404 route. Item shape: { q, a, unhinged?: boolean } — unhinged answers may render in Caveat (content-flagged per entry)."
+}

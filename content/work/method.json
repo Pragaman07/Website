@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "eyebrow": { "text": "THE METHOD", "draft": true },
+    "title": { "factId": "method.name" },
+    "line": { "text": "I don't start building until there's nothing left to ask.", "draft": true }
+  },
+  "diagram": {
+    "strata": [
+      { "n": "01", "name": "SURFACE", "line": { "text": "The fuzzy problem, as handed to me.", "draft": true } },
+      { "n": "02", "name": "QUESTIONS", "line": { "text": "Generate every possible question.", "draft": true } },
+      { "n": "03", "name": "GROUPS", "line": { "text": "Group them. Imagine the flow.", "draft": true } },
+      { "n": "04", "name": "ANSWERS", "line": { "text": "Answer from most technical → most basic.", "draft": true } },
+      { "n": "05", "name": "BEDROCK", "line": { "text": "Nothing left unexamined. Now we build.", "draft": true } }
+    ],
+    "payoff": { "text": "BUILT ON BEDROCK.", "draft": true },
+    "textAlternative": { "pending": "CONTENT-DOC.method-alt", "note": "One-paragraph text alternative of the diagram for screen readers (§13)." }
+  },
+  "rule": {
+    "factId": "method.rule",
+    "exampleLabel": { "text": "LIVE EXAMPLE: THE PROSPECT ENGINE", "draft": true },
+    "exampleFactId": "method.example",
+    "exampleNext": { "text": "Next: automating the first hello.", "draft": true }
+  },
+  "knownIssues": {
+    "header": { "text": "KNOWN ISSUES (ACTIVELY PATCHING)", "draft": true },
+    "rows": [
+      { "issue": "obsessive about completion", "status": "WONTFIX", "draft": true },
+      { "issue": "finishes early, then hovers", "status": "BY DESIGN", "draft": true },
+      { "issue": "cold when standards slip", "status": "PATCHING", "draft": true },
+      { "issue": "interrupts when excited", "status": "IN REVIEW", "draft": true }
+    ],
+    "note": "Draft rows from Design Spec §8.4 + PRD honest edges — final wording is the Content Doc's."
+  },
+  "range": {
+    "factId": "method.range",
+    "prose": { "pending": "CONTENT-DOC.range-prose", "note": "W36 first-two-weeks texture feeds prose beside the diagram." }
+  },
+  "tools": { "factId": "method.tools" }
+}

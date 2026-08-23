@@ -1,0 +1,51 @@
+{
+  "slug": "filing-buddy",
+  "title": "Filing Buddy",
+  "tags": ["GROWTH", "SEO + AEO", "JUL '25–JUL '26", "AS AN INTERN"],
+  "framing": { "text": "The year before me vs. my first year.", "draft": true },
+  "problem": {
+    "pending": "CONTENT-DOC.fb-problem",
+    "note": "2–3 sentence before-picture card. Facts available: position 45 = page 5, 2,500 clicks/year, 61.3% paid. Client-belief beat pending W13a-2."
+  },
+  "moves": [
+    { "n": "01", "name": "Depth over breadth", "line": { "text": "Researched and ranked target keywords, identified content pillars, built content depth instead of spreading thin.", "draft": true } },
+    { "n": "02", "name": "The publishing engine", "line": { "text": "Standardized the entire blog-writing process; regular blog + glossary cadence.", "draft": true } },
+    { "n": "03", "name": "Universal search optimization", "line": { "text": "One content strategy pushed across Google, social platforms, and AI answers.", "draft": true }, "note": "Always spelled out — never a branded acronym." },
+    { "n": "04", "name": "The technical overhaul", "line": { "text": "Fixed site technical issues, raised audit score, attacked loading speed.", "draft": true } }
+  ],
+  "resultsStrip": {
+    "sourceLine": "SOURCE: GSC + GA4, AUDITED",
+    "stats": [
+      { "factId": "fb.gsc.clicks", "render": "×7.5 CLICKS" },
+      { "factId": "fb.gsc.position", "render": "POSITION 45 → 13.6" },
+      { "factId": "fb.ga4.organic-share", "render": "ORGANIC SHARE 39% → 75%" },
+      { "factId": "fb.gsc.ai-overview", "render": "213K AI OVERVIEW IMPRESSIONS" }
+    ]
+  },
+  "inversionViz": {
+    "beforeFactId": "fb.ga4.paid-share",
+    "afterFactId": "fb.ga4.organic-share",
+    "note": "Two stacked bars: BEFORE 61.3% paid / 38.7% organic → AFTER 25.2% / 74.8%. Organic = coral, paid = muted 30%."
+  },
+  "tables": {
+    "gsc": {
+      "title": { "text": "GSC — 12-month totals", "draft": true },
+      "factIds": ["fb.gsc.impressions", "fb.gsc.clicks", "fb.gsc.position", "fb.gsc.top10", "fb.gsc.ai-overview"]
+    },
+    "ga4": {
+      "title": { "text": "GA4 — same windows", "draft": true },
+      "factIds": ["fb.ga4.organic-traffic", "fb.ga4.organic-share", "fb.ga4.paid-share", "fb.ga4.new-users", "fb.ga4.active-users", "fb.ga4.engagement-sitewide", "fb.ga4.pageviews"],
+      "footnote": { "text": "Engagement time is site-wide here; the organic-segment figure (2m30s) appears only in the benchmark row. Scoped two ways, never mixed.", "draft": true }
+    }
+  },
+  "benchmark": {
+    "factIds": ["fb.bm.impressions", "fb.bm.clicks", "fb.bm.top10", "fb.bm.position", "fb.bm.organic-traffic", "fb.bm.organic-share", "fb.bm.new-organic", "fb.bm.engagement-organic", "fb.bm.engagement-rate"],
+    "caption": { "text": "8 of 9 ahead of 2026 B2B benchmarks. The ninth is a tie. I'm working on it.", "draft": true }
+  },
+  "socialStrip": { "factIds": ["fb.social.linkedin", "fb.social.instagram"] },
+  "receipt": {
+    "label": "FB 1-Year Report",
+    "file": { "pending": "FB-REPORT-PDF", "note": "PDF not yet in repo — Pragaman to supply. Downloadable + embedded." },
+    "caption": { "text": "CLIENT NAMED. NO NDA. REAL DASHBOARDS.", "draft": true }
+  }
+}

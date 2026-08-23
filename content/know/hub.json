@@ -1,0 +1,54 @@
+{
+  "hero": {
+    "headline": { "text": "Same person, fewer buzzwords.", "draft": true },
+    "intro": { "pending": "SECTION-2", "note": "Short Satoshi intro — feeds from Section 2 answers." },
+    "photo": { "pending": "PHOTO-HERO", "note": "Real photo, not AI. Memoji placeholder in polaroid frame until it arrives." },
+    "annotations": [
+      { "text": "actual smile, not LinkedIn smile", "draft": true },
+      { "pending": "CONTENT-DOC.hero-annotation-2", "note": "2–3 Caveat annotations max." }
+    ],
+    "midnightAnnotation": { "text": "why are we both awake", "draft": true, "note": "Egg 7 swap, 00:00–04:59 local." }
+  },
+  "levels": [
+    {
+      "level": "01",
+      "slug": "graveyard",
+      "glyph": "🪦",
+      "title": "The Graveyard",
+      "tease": { "text": "Ideas that didn't make it.", "draft": true }
+    },
+    {
+      "level": "02",
+      "slug": "numbers",
+      "glyph": "📊",
+      "title": "Life in Numbers",
+      "tease": { "text": "KPIs nobody asked me to track.", "draft": true }
+    },
+    {
+      "level": "03",
+      "slug": "save-states",
+      "glyph": "🗺",
+      "title": "Save States",
+      "tease": { "text": "India as a memory card.", "draft": true }
+    },
+    {
+      "level": "04",
+      "slug": "rent-free",
+      "glyph": "📌",
+      "title": "Rent-Free",
+      "tease": { "text": "Things living in my head.", "draft": true }
+    },
+    {
+      "level": "05",
+      "slug": "faq",
+      "glyph": "❓",
+      "title": "FAQ Nobody Asked",
+      "tease": { "text": "A self-interview that goes downhill.", "draft": true }
+    }
+  ],
+  "statusChips": {
+    "unlocked": { "text": "UNLOCKED", "draft": true },
+    "locked": { "text": "LOCKED — CONTENT DLC PENDING", "draft": true }
+  },
+  "breadcrumb": { "text": "← Level select", "draft": true }
+}

@@ -1,0 +1,35 @@
+{
+  "slug": "sapiens",
+  "title": "Sapiens",
+  "tags": ["SOLO BUILD", "MOBILE APP", "IN UAT"],
+  "framing": { "factId": "sapiens.oneliner", "note": "The adopted one-liner is the framing line." },
+  "moves": [
+    { "n": "01", "name": "One sentence → a scoped MVP", "line": { "pending": "CONTENT-DOC.sapiens-m1" } },
+    { "n": "02", "name": "Stack chosen solo", "line": { "factId": "sapiens.stack" } },
+    { "n": "03", "name": "Built with AI as the only teammate", "line": { "pending": "CONTENT-DOC.sapiens-m3" } },
+    { "n": "04", "name": "Shipped to both app stores", "line": { "pending": "CONTENT-DOC.sapiens-m4" } }
+  ],
+  "resultsStrip": {
+    "sourceLine": "SOURCE: SHIPPED, VERIFIABLE",
+    "stats": [
+      { "factId": "sapiens.team", "render": "TEAM OF 1" },
+      { "factId": "sapiens.stores", "render": "2 APP STORES" },
+      { "factId": "sapiens.stack-adopted", "render": "STACK ADOPTED COMPANY-WIDE" },
+      { "factId": "sapiens.status", "render": "IDEA → APP, SOLO" }
+    ]
+  },
+  "pullQuotes": {
+    "note": "This page's texture — verbatim W24–28 lines, display-s Bricolage 700, coral 3px left rule.",
+    "quotes": [
+      { "text": "AI doesn't remove the struggle, it relocates it.", "sourceRef": "W27", "pendingKeepKill": "OPEN-8" },
+      { "text": "AI amplifies whoever has the clearest thinking; it doesn't substitute for it.", "sourceRef": "W27", "pendingKeepKill": "OPEN-8" },
+      { "text": "AI can answer any question — but when you're solo, figuring out which questions exist is entirely your job.", "sourceRef": "W25", "pendingKeepKill": "OPEN-8" },
+      { "text": "When there's a bug in production, there's exactly one person to blame, and unfortunately I know him personally.", "sourceRef": "W24", "pendingKeepKill": "OPEN-8" }
+    ]
+  },
+  "linkOut": {
+    "url": "https://sapiens.club",
+    "label": { "text": "sapiens.club", "draft": true },
+    "screenshot": { "pending": "SAPIENS-SCREENSHOT", "note": "Real screenshot later; placeholder thumbnail until then." }
+  }
+}

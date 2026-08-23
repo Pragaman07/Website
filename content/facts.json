@@ -1,0 +1,467 @@
+{
+  "_authority": "Machine-readable mirror of PRD v0.2 §7 + audited tables §4.2–4.5. Components render numbers ONLY from here. Rulings after doc-freeze live in /DECISIONS.md.",
+  "_updated": "2026-08-23",
+  "facts": [
+    {
+      "id": "identity.name",
+      "value": "Pragaman Kumar Anurag",
+      "source": "CLAUDE.md"
+    },
+    {
+      "id": "identity.title",
+      "value": "Technical Marketing Manager",
+      "source": "PRD§7"
+    },
+    {
+      "id": "identity.company",
+      "value": "Noboru World",
+      "source": "PRD§7"
+    },
+    {
+      "id": "identity.location",
+      "value": "Pune",
+      "source": "PRD§7"
+    },
+    {
+      "id": "identity.manages",
+      "label": "MANAGES",
+      "value": "3",
+      "note": "people",
+      "source": "PRD§7"
+    },
+    {
+      "id": "identity.education",
+      "value": "B.Tech, KIIT — completed Apr 2026",
+      "source": "PRD§7"
+    },
+    {
+      "id": "identity.internship-start",
+      "value": "1 Jul 2025",
+      "source": "PRD§7"
+    },
+    {
+      "id": "identity.fulltime-start",
+      "value": "1 Jul 2026",
+      "source": "PRD§7"
+    },
+    {
+      "id": "identity.journey",
+      "value": "Samastipur → Ranchi → Bhubaneswar → Pune",
+      "source": "PRD§7"
+    },
+    {
+      "id": "identity.age",
+      "value": "22",
+      "note": "Basis of the changelog version scheme v{age}.{month} (v22.8 = age 22, August).",
+      "source": "Design Spec D-3 + handoff v2"
+    },
+
+    {
+      "id": "fb.window.before",
+      "label": "BEFORE",
+      "value": "Jul '24 – Jun '25",
+      "note": "The year before Pragaman — 12-month total window.",
+      "source": "PRD§7"
+    },
+    {
+      "id": "fb.window.after",
+      "label": "AFTER",
+      "value": "Jul '25 – Jul '26",
+      "note": "His internship year — 12-month total window.",
+      "source": "PRD§7"
+    },
+
+    {
+      "id": "fb.gsc.impressions",
+      "label": "TOTAL IMPRESSIONS",
+      "before": "1.5M",
+      "after": "8.82M",
+      "change": "+488%",
+      "source": "GSC, FB 1-Year Report"
+    },
+    {
+      "id": "fb.gsc.clicks",
+      "label": "ORGANIC CLICKS",
+      "before": "2,500",
+      "after": "18.8K",
+      "change": "+652%",
+      "display": { "change": "×7.5" },
+      "source": "GSC, FB 1-Year Report"
+    },
+    {
+      "id": "fb.gsc.position",
+      "label": "AVG POSITION",
+      "before": "45",
+      "after": "13.6",
+      "change": "+31.4 positions",
+      "source": "GSC, FB 1-Year Report"
+    },
+    {
+      "id": "fb.gsc.top10",
+      "label": "TOP-10 KEYWORDS",
+      "before": "128",
+      "after": "700+",
+      "change": "+446%",
+      "source": "GSC, FB 1-Year Report"
+    },
+    {
+      "id": "fb.gsc.ai-overview",
+      "label": "AI OVERVIEW IMPRESSIONS",
+      "before": "0",
+      "after": "213K",
+      "change": "AEO proof",
+      "note": "Since May '26.",
+      "source": "GSC, FB 1-Year Report"
+    },
+    {
+      "id": "fb.gsc.ctr",
+      "label": "CTR",
+      "before": "0.16%",
+      "after": "0.2%",
+      "note": "LOCKED OUT of featured copy — accurate but reads weak without context. Lives here so nobody re-derives it.",
+      "source": "GSC, FB 1-Year Report"
+    },
+
+    {
+      "id": "fb.ga4.organic-traffic",
+      "label": "ORGANIC TRAFFIC",
+      "before": "19,986",
+      "after": "57,478",
+      "change": "+187.6%",
+      "source": "GA4, FB 1-Year Report"
+    },
+    {
+      "id": "fb.ga4.organic-share",
+      "label": "ORGANIC SHARE",
+      "before": "38.7%",
+      "after": "74.8%",
+      "change": "the inversion",
+      "display": { "before": "39%", "after": "75%" },
+      "source": "GA4, FB 1-Year Report"
+    },
+    {
+      "id": "fb.ga4.paid-share",
+      "label": "PAID SHARE",
+      "before": "61.3%",
+      "after": "25.2%",
+      "change": "−36.1 pts",
+      "source": "GA4, FB 1-Year Report"
+    },
+    {
+      "id": "fb.ga4.new-users",
+      "label": "NEW USERS",
+      "before": "59,954",
+      "after": "110,653",
+      "change": "+84.6%",
+      "scope": "TOTAL new users. D2 ruling: never conflate with +366% (new ORGANIC users).",
+      "source": "GA4, FB 1-Year Report"
+    },
+    {
+      "id": "fb.ga4.new-organic-users",
+      "label": "NEW ORGANIC USERS",
+      "change": "+366%",
+      "scope": "NEW ORGANIC users only — scoped as such wherever shown (D2 ruling). Benchmark row.",
+      "source": "GA4, FB 1-Year Report"
+    },
+    {
+      "id": "fb.ga4.active-users",
+      "label": "TOTAL ACTIVE USERS",
+      "before": "39,765",
+      "after": "56,114",
+      "change": "+41.1%",
+      "source": "GA4, FB 1-Year Report"
+    },
+    {
+      "id": "fb.ga4.engagement-sitewide",
+      "label": "AVG ENGAGEMENT TIME (SITE-WIDE)",
+      "before": "71s",
+      "after": "130s",
+      "change": "+83.1%",
+      "scope": "SITE-WIDE scope. D1 ruling: never mixed with the organic-segment 2m30s.",
+      "source": "GA4, FB 1-Year Report"
+    },
+    {
+      "id": "fb.ga4.engagement-organic",
+      "label": "AVG ENGAGEMENT TIME (ORGANIC)",
+      "value": "2m30s",
+      "scope": "ORGANIC segment only — benchmark row only (D1 ruling).",
+      "source": "GA4, FB 1-Year Report"
+    },
+    {
+      "id": "fb.ga4.pageviews",
+      "label": "TOTAL PAGE VIEWS",
+      "before": "107,331",
+      "after": "171,864",
+      "change": "+60.1%",
+      "source": "GA4, FB 1-Year Report"
+    },
+
+    {
+      "id": "fb.runrate.impressions",
+      "label": "IMPRESSIONS RUN-RATE",
+      "value": "1M+/month",
+      "scope": "Run-rate reached Jan 2026. Copy never mixes run-rates with the 12-month totals.",
+      "source": "PRD§7 + FB 1-Year Report"
+    },
+    {
+      "id": "fb.runrate.clicks",
+      "label": "CLICKS RUN-RATE",
+      "value": "~6K/month",
+      "scope": "Run-rate reached Jan 2026. Same totals-vs-run-rate rule.",
+      "source": "PRD§4.2 (W16)"
+    },
+
+    {
+      "id": "fb.social.linkedin",
+      "label": "LINKEDIN FOLLOWERS",
+      "before": "90",
+      "after": "2,600",
+      "change": "+2,510",
+      "note": "Organic, 365 days. #2 in new-follower growth vs named competitors incl. RegisterKaro, IndiaFilings, Startupwala — 92 posts vs competitors' 100s.",
+      "source": "FB 1-Year Report"
+    },
+    {
+      "id": "fb.social.instagram",
+      "label": "INSTAGRAM (OCT '25–AUG '26)",
+      "value": "458K views · 562K reach · 2,037 follows",
+      "source": "FB 1-Year Report"
+    },
+
+    {
+      "id": "fb.bm.impressions",
+      "label": "IMPRESSIONS GROWTH",
+      "standard": "+20–30%",
+      "value": "+488%",
+      "verdict": "outperform",
+      "source": "FB 1-Year Report vs 2026 B2B Service SEO standards"
+    },
+    {
+      "id": "fb.bm.clicks",
+      "label": "CLICKS GROWTH",
+      "standard": "+15–25%",
+      "value": "+652%",
+      "verdict": "outperform",
+      "source": "FB 1-Year Report vs 2026 B2B Service SEO standards"
+    },
+    {
+      "id": "fb.bm.top10",
+      "label": "TOP-10 KEYWORDS",
+      "standard": "+20–50 kw",
+      "value": "+446%",
+      "verdict": "outperform",
+      "source": "FB 1-Year Report vs 2026 B2B Service SEO standards"
+    },
+    {
+      "id": "fb.bm.position",
+      "label": "AVG POSITION",
+      "standard": "30.61 median",
+      "value": "13.6",
+      "verdict": "outperform",
+      "source": "FB 1-Year Report vs 2026 B2B Service SEO standards"
+    },
+    {
+      "id": "fb.bm.organic-traffic",
+      "label": "ORGANIC TRAFFIC GROWTH",
+      "standard": "+15–30%",
+      "value": "+187.6%",
+      "verdict": "outperform",
+      "source": "FB 1-Year Report vs 2026 B2B Service SEO standards"
+    },
+    {
+      "id": "fb.bm.organic-share",
+      "label": "ORGANIC SHARE",
+      "standard": "60–70%",
+      "value": "74.8%",
+      "verdict": "outperform",
+      "source": "FB 1-Year Report vs 2026 B2B Service SEO standards"
+    },
+    {
+      "id": "fb.bm.new-organic",
+      "label": "NEW ORGANIC USERS GROWTH",
+      "standard": "+15–25%",
+      "value": "+366%",
+      "verdict": "outperform",
+      "scope": "New ORGANIC users (D2).",
+      "source": "FB 1-Year Report vs 2026 B2B Service SEO standards"
+    },
+    {
+      "id": "fb.bm.engagement-organic",
+      "label": "AVG ENGAGEMENT TIME (ORGANIC)",
+      "standard": "1m00–1m30",
+      "value": "2m30s",
+      "verdict": "outperform",
+      "scope": "Organic segment (D1).",
+      "source": "FB 1-Year Report vs 2026 B2B Service SEO standards"
+    },
+    {
+      "id": "fb.bm.engagement-rate",
+      "label": "ORGANIC ENGAGEMENT RATE",
+      "standard": "52.43%",
+      "value": "51.95%",
+      "verdict": "on-par",
+      "note": "THE yellow row. Stays visible — one honest yellow makes eight greens believable (locked).",
+      "source": "FB 1-Year Report vs 2026 B2B Service SEO standards"
+    },
+
+    {
+      "id": "fb.client-belief",
+      "pending": "W13a-2",
+      "note": "What the client believed was possible before Pragaman started — CS1 opening beat.",
+      "source": "PRD§4.2 (open)"
+    },
+    {
+      "id": "fb.flat-months",
+      "pending": "W15a",
+      "note": "How many months flat before the January 2026 turn — CS1 doubt period.",
+      "source": "PRD§4.2 (open)"
+    },
+    {
+      "id": "fb.aeo-playbook",
+      "value": "LLM-friendly language and structure · robots.txt modified · E-E-A-T content · YMYL standards · PAA + FAQ integration · explained with examples and illustrations",
+      "pending": "OPEN-7",
+      "note": "List awaits Pragaman's fact-check that every item was actually done (open item 7) before CS1 copy finalizes.",
+      "source": "PRD§4.2 (W17)"
+    },
+
+    {
+      "id": "buddy.departments",
+      "label": "DEPARTMENTS",
+      "value": "7",
+      "source": "W19 — ruled 7 by Pragaman, 23 Aug 2026 (DECISIONS.md)"
+    },
+    {
+      "id": "buddy.functions",
+      "value": "GST · Taxation · Accounting · Finance · Compliance · Sales",
+      "note": "The six director functions interviewed in Indore (W5). Count of departments is 7 — see buddy.departments.",
+      "source": "PRD§4.3 (W5)"
+    },
+    {
+      "id": "buddy.stakeholders",
+      "label": "STAKEHOLDERS INTERVIEWED",
+      "value": "20+",
+      "source": "PRD§4.3 (W20)"
+    },
+    {
+      "id": "buddy.task-time",
+      "label": "TASK TIME",
+      "before": "10 min",
+      "after": "2 min",
+      "note": "\"A 2-minute task took 10\" — manual chaos before; the platform collapsed it.",
+      "source": "PRD§4.3 (W19)"
+    },
+    {
+      "id": "buddy.anchor",
+      "value": "Sent alone to the client's office in Indore in month one as an intern; a week of stakeholder interviews; came back with the PRD.",
+      "source": "PRD§4.3 (W5)"
+    },
+    {
+      "id": "buddy.scale",
+      "pending": "OPEN-1",
+      "note": "Hard scale numbers (users/departments served) — results strip stays interim until these land.",
+      "source": "PRD§4.3 (open)"
+    },
+    {
+      "id": "buddy.conflict-story",
+      "pending": "W21",
+      "note": "The department-conflict story.",
+      "source": "PRD§4.3 (open)"
+    },
+    {
+      "id": "buddy.portal-pride",
+      "pending": "W23",
+      "note": "The client-portal pride point.",
+      "source": "PRD§4.3 (open)"
+    },
+
+    {
+      "id": "sapiens.oneliner",
+      "value": "The anti-social-network — real people helping real people nearby: no money, no profiles, no feeds. Launching in India, 2026.",
+      "note": "Adopted from sapiens.club (locked).",
+      "source": "PRD§7"
+    },
+    {
+      "id": "sapiens.stack",
+      "label": "STACK",
+      "value": "Next.js · Supabase · Sanity · Vercel",
+      "source": "PRD§7"
+    },
+    {
+      "id": "sapiens.stack-adopted",
+      "value": "Stack adopted company-wide for other client sites",
+      "note": "Flagship proof point.",
+      "source": "PRD§7"
+    },
+    {
+      "id": "sapiens.team",
+      "label": "TEAM OF",
+      "value": "1",
+      "source": "PRD§4.4"
+    },
+    {
+      "id": "sapiens.stores",
+      "label": "APP STORES",
+      "value": "2",
+      "note": "Apple + Android, shipped solo.",
+      "source": "PRD§7"
+    },
+    {
+      "id": "sapiens.status",
+      "value": "MVP complete — in testing",
+      "source": "PRD§7"
+    },
+    {
+      "id": "sapiens.credit",
+      "value": "Idea credited to \"my boss\" — never named",
+      "note": "LOCKED. The name never appears anywhere on the site.",
+      "source": "PRD§7"
+    },
+
+    {
+      "id": "method.name",
+      "value": "The Bedrock Method",
+      "source": "PRD§7"
+    },
+    {
+      "id": "method.rule",
+      "value": "If I do something 3–4 times, I build a system for it.",
+      "note": "Verbatim — do not edit.",
+      "source": "PRD§4.5"
+    },
+    {
+      "id": "method.example",
+      "value": "The prospect engine — self-built lead-finder qualifying companies by condition, populating outreach lists.",
+      "note": "Next step: automating the personalized first contact.",
+      "source": "PRD§4.5 (W9)"
+    },
+    {
+      "id": "method.tools",
+      "pending": "F5",
+      "note": "Tool split — Claude / Claude Code / Cursor / v0, one line each.",
+      "source": "PRD§4.5 (open)"
+    },
+    {
+      "id": "method.range",
+      "value": "Client handling · brand strategy · software PRDs · UI/UX · vendor management · marketing & sales funnels · PR · social · video shoots · technical SEO · design-to-deploy websites · managing people before graduating",
+      "source": "PRD§4.5 (W3)"
+    },
+    {
+      "id": "method.title-candidate",
+      "value": "The Everything Guy",
+      "note": "Candidate unofficial title from W40 — placement TBD, pending Takes keep/kill.",
+      "source": "PRD§4.5 (W40)"
+    },
+
+    {
+      "id": "origin.pitch",
+      "value": "Cloud-kitchen pitch planned overnight with girlfriend, presented \"like an MBA student\"",
+      "note": "Approved for the origin story. Family details remain off-limits.",
+      "source": "PRD§7"
+    },
+    {
+      "id": "changelog.v0",
+      "value": "v0.0.1 — born in Samastipur. Initial commit.",
+      "note": "Egg 6 — fixed final entry in Know Me changelog dress.",
+      "source": "PRD§5.7 + Design Spec §12.6"
+    }
+  ]
+}

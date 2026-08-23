@@ -1,0 +1,30 @@
+{
+  "slug": "buddy-software",
+  "title": "Buddy Software",
+  "tags": ["0→1 BUILD", "SAAS", "CA WORKFLOWS"],
+  "framing": { "text": "Sent to Indore alone in month one. Came back with the PRD.", "draft": true },
+  "anchorScene": {
+    "pending": "CONTENT-DOC.buddy-anchor",
+    "note": "This page opens with the Indore scene as narrative, not a stat — oversized body-l first paragraph. Facts: buddy.anchor, buddy.functions, buddy.stakeholders."
+  },
+  "moves": [
+    { "n": "01", "name": "A week of interviews, 7 departments", "line": { "pending": "CONTENT-DOC.buddy-m1", "note": "Count ruled 7 (DECISIONS.md)." } },
+    { "n": "02", "name": "One PRD from twenty voices", "line": { "pending": "CONTENT-DOC.buddy-m2" } },
+    { "n": "03", "name": "Ops ↔ dev alignment", "line": { "pending": "CONTENT-DOC.buddy-m3" } },
+    { "n": "04", "name": "Delivery + UAT", "line": { "pending": "CONTENT-DOC.buddy-m4" } }
+  ],
+  "beforeAfter": {
+    "beforeCaption": { "text": "7 sheets, 1 master, everything manual. 2-minute tasks took 10.", "draft": true },
+    "afterCaption": { "text": "One system. One source of truth.", "draft": true },
+    "note": "Static SVG, ink + coral only. Excel/WhatsApp/email tangle → single platform block."
+  },
+  "resultsStrip": {
+    "sourceLine": "INTERIM — HARD SCALE NUMBERS PENDING",
+    "stats": [
+      { "factId": "buddy.departments", "render": "7 DEPARTMENTS → 1 PLATFORM" },
+      { "factId": "buddy.stakeholders", "render": "20+ STAKEHOLDERS INTERVIEWED" },
+      { "factId": "buddy.task-time", "render": "2-MIN TASKS, NOT 10" }
+    ],
+    "pending": "OPEN-1"
+  }
+}
