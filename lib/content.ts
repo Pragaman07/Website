@@ -76,6 +76,7 @@ export type GlobalContent = {
     ariaToKnow: CopyString;
   };
   mute: { muteLabel: CopyString; unmuteLabel: CopyString };
+  errors: { title: CopyString; retry: CopyString };
   footer: {
     signoff: CopyString;
     email: CopyString;

@@ -6,6 +6,7 @@ import {
   Black_Ops_One,
 } from "next/font/google";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import "@/styles/globals.css";
 import global from "@/content/global.json";
 import { Shell } from "@/components/shell/Shell";
@@ -59,7 +60,14 @@ const stencil = Black_Ops_One({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      (process.env.VERCEL_PROJECT_PRODUCTION_URL
+        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+        : "http://localhost:3000"),
+  ),
   title: global.wordmark.text,
+  // Per-route descriptions are Content-Doc copy (§13) — added in that pass.
 };
 
 /**
@@ -86,6 +94,7 @@ export default function RootLayout({
       </head>
       <body>
         <Shell content={global as GlobalContent}>{children}</Shell>
+        <Analytics />
       </body>
     </html>
   );

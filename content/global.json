@@ -26,6 +26,10 @@
     "muteLabel": { "text": "Mute sounds", "draft": true },
     "unmuteLabel": { "text": "Unmute sounds", "draft": true }
   },
+  "errors": {
+    "title": { "text": "Something broke on my side.", "draft": true },
+    "retry": { "text": "Try again", "draft": true }
+  },
   "footer": {
     "signoff": {
       "text": "Built with Claude Code, coffee, and an unreasonable number of questions.",
