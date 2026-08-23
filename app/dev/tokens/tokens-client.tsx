@@ -53,7 +53,14 @@ export function TokensClient() {
   useEffect(() => {
     document.documentElement.dataset.mode = mode;
     return () => {
-      document.documentElement.dataset.mode = "work";
+      // Restore whatever the real mode system had (this page is dev-only).
+      let stored: string | null = null;
+      try {
+        stored = localStorage.getItem("pragaman-mode");
+      } catch {
+        /* fall through to work */
+      }
+      document.documentElement.dataset.mode = stored === "know" ? "know" : "work";
     };
   }, [mode]);
 

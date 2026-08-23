@@ -1,26 +1,175 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useReducedMotion } from "motion/react";
+import { useMode, type Mode } from "@/lib/mode";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Pending } from "@/components/ui/Pending";
-import global from "@/content/global.json";
+import { cn } from "@/lib/cn";
+import door from "@/content/door.json";
 
 /**
- * `/` is The Door (Design Spec §3.1) — built in Phase 1 together with the
- * shell, toggle, and temperature transition. This scaffold placeholder only
- * proves the token pipeline; it ships nowhere.
+ * §3.1 — The Door. Full viewport, 50/50 split (stacked on mobile).
+ * Hover eases the hovered half to 56% (600ms); entering expands the chosen
+ * door to fill the viewport (500ms), sets the mode, then the home fades up.
+ * First visit only — the boot script redirects returning visitors.
+ * No sound here (locked trigger list).
  */
-export default function Home() {
+export default function DoorPage() {
+  const { setMode } = useMode();
+  const router = useRouter();
+  const reduced = useReducedMotion();
+  const [hovered, setHovered] = useState<Mode | null>(null);
+  const [entering, setEntering] = useState<Mode | null>(null);
+
+  const enter = (choice: Mode) => {
+    if (entering) return;
+    setMode(choice);
+    const go = () => {
+      document.documentElement.classList.add("page-fade");
+      router.push(choice === "work" ? "/work" : "/know-me");
+      window.setTimeout(
+        () => document.documentElement.classList.remove("page-fade"),
+        300,
+      );
+    };
+    if (reduced) {
+      go();
+    } else {
+      setEntering(choice);
+      window.setTimeout(go, 500);
+    }
+  };
+
+  const basis = (half: Mode): string => {
+    if (entering) return entering === half ? "100%" : "0%";
+    if (hovered) return hovered === half ? "56%" : "44%";
+    return "50%";
+  };
+
   return (
-    <main className="container-site flex min-h-screen flex-col items-start justify-center gap-4 py-24">
-      <h1 className="type-display-m">
-        {global.wordmark.text}
-        <span className="text-accent">.</span>
-      </h1>
-      <MonoLabel bold>PHASE 0 · SCAFFOLD &amp; TOKENS</MonoLabel>
-      <div className="max-w-md">
-        <Pending
-          id="PHASE-1.door"
-          note="The Door renders here once the shell phase lands. Token test page: /dev/tokens (dev only)."
-        />
+    <main className="relative flex h-dvh flex-col overflow-hidden md:flex-row">
+      {/* Work door — page-level (work) token scope */}
+      <DoorHalf
+        mode="work"
+        basis={basis("work")}
+        collapsed={entering === "know"}
+        onEnter={() => enter("work")}
+        onHover={(on) => setHovered(on ? "work" : null)}
+        eyebrow={door.work.eyebrow.text}
+        title={door.work.title.text}
+        line={door.work.line}
+        underline
+      />
+
+      {/* Framing line on the center seam */}
+      <div className="pointer-events-none absolute inset-0 z-10 grid place-items-center p-6">
+        <p
+          className={cn(
+            "type-display-m max-w-md rounded-card border border-line bg-surface px-8 py-5 text-center text-ink shadow-m transition-opacity duration-300",
+            entering && "opacity-0",
+          )}
+        >
+          {door.framing.text}
+        </p>
       </div>
+
+      {/* Know Me door — subtree carries know tokens legitimately */}
+      <DoorHalf
+        mode="know"
+        basis={basis("know")}
+        collapsed={entering === "work"}
+        onEnter={() => enter("know")}
+        onHover={(on) => setHovered(on ? "know" : null)}
+        eyebrow={door.know.eyebrow.text}
+        title={door.know.title.text}
+        line={door.know.line}
+        confetti
+      />
     </main>
+  );
+}
+
+/* Static sticker-dot confetti (§3.1): 6 dots, know palette, decorative. */
+const CONFETTI: Array<{ top: string; left: string; size: number; token: string }> = [
+  { top: "14%", left: "18%", size: 10, token: "var(--teal)" },
+  { top: "26%", left: "72%", size: 8, token: "var(--sun)" },
+  { top: "44%", left: "38%", size: 7, token: "var(--purple)" },
+  { top: "62%", left: "80%", size: 10, token: "var(--teal)" },
+  { top: "74%", left: "24%", size: 8, token: "var(--purple)" },
+  { top: "86%", left: "60%", size: 9, token: "var(--sun)" },
+];
+
+function DoorHalf({
+  mode,
+  basis,
+  collapsed,
+  onEnter,
+  onHover,
+  eyebrow,
+  title,
+  line,
+  underline,
+  confetti,
+}: {
+  mode: Mode;
+  basis: string;
+  collapsed: boolean;
+  onEnter: () => void;
+  onHover: (on: boolean) => void;
+  eyebrow?: string;
+  title?: string;
+  line: { pending?: string; text?: string; note?: string };
+  underline?: boolean;
+  confetti?: boolean;
+}) {
+  return (
+    <div
+      data-mode={mode}
+      className="relative overflow-hidden bg-bg transition-[flex-basis] duration-[600ms] ease-out"
+      style={{ flexBasis: basis, flexGrow: 0, flexShrink: 1 }}
+    >
+      {confetti && (
+        <span aria-hidden>
+          {CONFETTI.map((dot, i) => (
+            <span
+              key={i}
+              className="absolute rounded-pill"
+              style={{
+                top: dot.top,
+                left: dot.left,
+                width: dot.size,
+                height: dot.size,
+                background: dot.token,
+              }}
+            />
+          ))}
+        </span>
+      )}
+      <button
+        type="button"
+        onClick={onEnter}
+        onMouseEnter={() => onHover(true)}
+        onMouseLeave={() => onHover(false)}
+        onFocus={() => onHover(true)}
+        onBlur={() => onHover(false)}
+        className={cn(
+          "door-cursor flex h-full w-full flex-col items-center justify-center gap-3 p-8 text-center",
+          collapsed && "opacity-0",
+        )}
+      >
+        <MonoLabel bold>{eyebrow}</MonoLabel>
+        <span className="type-display-l text-ink">
+          {title}
+          {underline && <span className="mx-auto mt-2 block h-1 w-16 rounded-pill bg-accent" />}
+        </span>
+        {line.text ? (
+          <span className="type-body text-muted">{line.text}</span>
+        ) : line.pending ? (
+          <Pending id={line.pending} note={line.note} />
+        ) : null}
+      </button>
+    </div>
   );
 }

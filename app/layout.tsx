@@ -8,6 +8,8 @@ import {
 import localFont from "next/font/local";
 import "@/styles/globals.css";
 import global from "@/content/global.json";
+import { Shell } from "@/components/shell/Shell";
+import type { GlobalContent } from "@/lib/content";
 
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -53,6 +55,15 @@ export const metadata: Metadata = {
   title: global.wordmark.text,
 };
 
+/**
+ * No-flash mode boot (§2.1 + CLAUDE.md mode system), runs before paint:
+ * 1. marks JS availability (.reveal guard),
+ * 2. deep links force their mode (/work → work, /know-me → know) and persist,
+ * 3. `/` with a stored mode redirects to that home — no door flash,
+ * 4. otherwise data-mode = stored mode, defaulting to work.
+ */
+const bootScript = `(function(){var d=document.documentElement;d.classList.add("js");var m=null;try{m=localStorage.getItem("pragaman-mode")}catch(e){}if(m!=="work"&&m!=="know")m=null;var p=location.pathname;var f=(p==="/work"||p.indexOf("/work/")===0)?"work":((p==="/know-me"||p.indexOf("/know-me/")===0)?"know":null);if(f&&f!==m){m=f;try{localStorage.setItem("pragaman-mode",m)}catch(e){}}d.setAttribute("data-mode",m||"work");if(p==="/"&&m){location.replace(m==="work"?"/work":"/know-me")}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -64,16 +75,11 @@ export default function RootLayout({
       className={`${display.variable} ${satoshi.variable} ${mono.variable} ${doodle.variable} ${stencil.variable}`}
     >
       <head>
-        {/* Phase 1 replaces this with the full no-flash mode boot script.
-            For now it only marks JS availability so .reveal never hides
-            content from no-JS visitors. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.add("js")`,
-          }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <Shell content={global as GlobalContent}>{children}</Shell>
+      </body>
     </html>
   );
 }

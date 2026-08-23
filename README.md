@@ -38,4 +38,6 @@ Bricolage Grotesque / Space Mono / Caveat / Black Ops One via `next/font/google`
 
 ## Build phases
 
-0 ✅ Scaffold & tokens · 1 Shell & toggle · 2 Work mode · 3 Intake live · 4 Know Me · 5 Changelog + eggs · 6 Polish & launch. Gates in CLAUDE.md; the domain attaches only when the launch checklist is green.
+0 ✅ Scaffold & tokens · 1 ✅ Shell & toggle · 2 Work mode · 3 Intake live · 4 Know Me · 5 Changelog + eggs · 6 Polish & launch. Gates in CLAUDE.md; the domain attaches only when the launch checklist is green.
+
+Phase 1 notes: the flip sound (`public/sounds/flip.wav`) is a synthesized placeholder (see `public/sounds/LICENSES.md`) — audition it and replace the file to taste, same name, no code changes. Toggle faces are placeholder SVGs until the real headshot + memoji arrive.

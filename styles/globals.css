@@ -11,7 +11,8 @@
    Sticker tokens (teal/purple/sun) exist ONLY in know scope — using
    them in Work mode fails visibly, by design. */
 :root,
-:root[data-mode="work"] {
+:root[data-mode="work"],
+[data-mode="work"] {
   --bg: #fafaf7;
   --surface: #ffffff;
   --ink: #16181d;
@@ -21,7 +22,11 @@
   --accent-deep: #e85546;
 }
 
-:root[data-mode="know"] {
+/* Attribute selector (not just :root) so a subtree can carry a mode —
+   the Door's Know Me half uses [data-mode="know"] to get sticker tokens
+   legitimately without raw hex in components. */
+:root[data-mode="know"],
+[data-mode="know"] {
   --bg: #fff4e4;
   --surface: #fffdf9;
   --ink: #16181d;
@@ -197,6 +202,81 @@ body {
   .prose-col {
     max-width: 68ch;
   }
+}
+
+/* ---------- §3.3 THE temperature transition ---------- */
+/* While html.mode-shifting is present (~700ms), themed surfaces interpolate
+   their colors — 400ms starting 100ms in, so the bloom leads the shift.
+   Garnish elements are excluded: motion drives them frame-by-frame. */
+@media (prefers-reduced-motion: no-preference) {
+  html.mode-shifting body,
+  html.mode-shifting main,
+  html.mode-shifting header,
+  html.mode-shifting footer,
+  html.mode-shifting nav,
+  html.mode-shifting [class*="bg-"],
+  html.mode-shifting [class*="text-"],
+  html.mode-shifting [class*="border-"] {
+    transition:
+      background-color 400ms ease 100ms,
+      border-color 400ms ease 100ms,
+      color 400ms ease 100ms,
+      fill 400ms ease 100ms,
+      box-shadow 400ms ease 100ms !important;
+  }
+  html.mode-shifting [data-garnish],
+  html.mode-shifting [data-garnish] * {
+    transition: none !important;
+  }
+}
+
+/* Know Me garnish: hidden in Work, staggered entrance when the cream
+   arrives, and a fast exit BEFORE the room cools on know → work
+   (html.garnish-exit) — Work never shows a sticker mid-transition. */
+[data-garnish] {
+  opacity: 0;
+  transform: rotate(0deg) translateY(4px);
+  transition:
+    opacity 300ms var(--ease-out),
+    transform 300ms var(--ease-out);
+  transition-delay: var(--garnish-delay, 250ms);
+}
+:root[data-mode="know"] [data-garnish] {
+  opacity: 1;
+  transform: rotate(var(--garnish-rotate, 2deg)) translateY(0);
+}
+html.garnish-exit [data-garnish] {
+  opacity: 0 !important;
+  transform: rotate(0deg) translateY(0) !important;
+  transition:
+    opacity 180ms ease !important;
+  transition-delay: 0ms !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-garnish] {
+    transition: none;
+  }
+}
+
+/* 150ms page crossfade — reduced-motion flips and D-2 route handoffs. */
+html.page-fade body {
+  animation: page-fade-in 150ms ease;
+}
+@keyframes page-fade-in {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* §3.1 — the Door's arrow cursor */
+.door-cursor {
+  cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><text x='2' y='20' font-size='18' fill='%2316181D'>→</text></svg>")
+      14 14,
+    pointer;
 }
 
 /* ---------- §5 Scroll reveal (the only scroll-linked motion on the site) ---------- */

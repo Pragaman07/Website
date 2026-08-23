@@ -1,4 +1,4 @@
-import type { ElementType, ReactNode } from "react";
+import type { ElementType, HTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 /**
@@ -11,6 +11,7 @@ export function MonoLabel({
   accent = false,
   className,
   children,
+  ...rest
 }: {
   as?: ElementType;
   bold?: boolean;
@@ -18,7 +19,7 @@ export function MonoLabel({
   accent?: boolean;
   className?: string;
   children: ReactNode;
-}) {
+} & HTMLAttributes<HTMLElement>) {
   return (
     <Tag
       className={cn(
@@ -27,6 +28,7 @@ export function MonoLabel({
         accent ? "text-accent-deep" : "text-muted",
         className,
       )}
+      {...rest}
     >
       {children}
     </Tag>
