@@ -8,6 +8,9 @@ import { ResultsStrip } from "@/components/work/ResultsStrip";
 import { DataTable } from "@/components/work/DataTable";
 import { BenchmarkTable } from "@/components/work/BenchmarkTable";
 import { InversionViz } from "@/components/work/InversionViz";
+import { WorkflowBeforeAfter } from "@/components/work/WorkflowBeforeAfter";
+import { LinkOutCard } from "@/components/work/LinkOutCard";
+import { PullQuote } from "@/components/work/PullQuote";
 import { ReceiptCard } from "@/components/work/ReceiptCard";
 import { getFact } from "@/lib/content";
 import sharedJson from "@/content/work/case-study.json";
@@ -73,7 +76,7 @@ export function CaseStudyLayout({
         <Reveal className="mt-10">
           <div className="max-w-[68ch]">
             {meta.anchorScene.text ? (
-              <p className="type-body-l text-ink first-letter:float-left first-letter:mr-2 first-letter:font-[var(--font-display)] first-letter:text-5xl first-letter:font-bold">
+              <p className="type-body-l text-ink first-letter:float-left first-letter:mr-2 first-letter:text-5xl first-letter:font-bold first-letter:[font-family:var(--font-display)]">
                 {meta.anchorScene.text}
               </p>
             ) : meta.anchorScene.pending ? (
@@ -134,7 +137,23 @@ export function CaseStudyLayout({
         </Reveal>
       )}
 
+      {meta.beforeAfter && (
+        <Reveal className="mt-12">
+          <WorkflowBeforeAfter content={meta.beforeAfter} />
+        </Reveal>
+      )}
+
       <article className="prose-col mt-12">{children}</article>
+
+      {meta.pullQuotes && (
+        <div className="prose-col">
+          {meta.pullQuotes.quotes.map((quote) => (
+            <PullQuote key={quote.sourceRef + quote.text.slice(0, 16)} sourceRef={quote.sourceRef}>
+              {quote.text}
+            </PullQuote>
+          ))}
+        </div>
+      )}
 
       {meta.tables && (
         <div className="mt-14 flex flex-col gap-8">
@@ -161,6 +180,12 @@ export function CaseStudyLayout({
       {meta.socialStrip && (
         <Reveal className="mt-8">
           <StatStrip factIds={meta.socialStrip.factIds} />
+        </Reveal>
+      )}
+
+      {meta.linkOut && (
+        <Reveal className="mt-8">
+          <LinkOutCard linkOut={meta.linkOut} />
         </Reveal>
       )}
 
