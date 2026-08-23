@@ -20,12 +20,17 @@ export function MonoLabel({
   className?: string;
   children: ReactNode;
 } & HTMLAttributes<HTMLElement>) {
+  // Default color only when the caller didn't set one — Tailwind class
+  // ORDER in the stylesheet (not in the list) decides ties, so a caller's
+  // text-accent could silently lose to our text-muted.
+  const hasColor = accent || (className?.includes("text-") ?? false);
   return (
     <Tag
       className={cn(
         "type-mono-label",
         bold && "font-bold",
-        accent ? "text-accent-deep" : "text-muted",
+        accent && "text-accent-deep",
+        !hasColor && "text-muted",
         className,
       )}
       {...rest}

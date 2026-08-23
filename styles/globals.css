@@ -30,7 +30,9 @@
   --bg: #fff4e4;
   --surface: #fffdf9;
   --ink: #16181d;
-  --muted: #6b7280;
+  /* darkened vs Work's #6B7280: on cream that one is 4.44:1 — a hair
+     under AA. #616a76 clears 4.9:1 (contrast ruling, DECISIONS.md). */
+  --muted: #616a76;
   --line: #f0e4d0;
   --accent: #ff6b5e;
   --accent-deep: #e85546;
@@ -174,7 +176,9 @@ body {
   .type-mono-label {
     font-family: var(--font-mono);
     font-weight: 400;
-    font-size: 11px;
+    /* spec 1.2 says 11px; 12px passes the legibility floor Lighthouse
+       enforces at 13's >=95 gate (contrast-family ruling, DECISIONS.md) */
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     font-variant-numeric: tabular-nums;

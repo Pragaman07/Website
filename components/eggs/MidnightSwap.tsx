@@ -26,8 +26,10 @@ export function MidnightLine({
   const text = isMidnight ? midnight.text : normal.text;
 
   if (doodle) {
+    // Caveat 700: at 20px that clears WCAG's large-bold threshold, which
+    // deep coral passes on cream (3.31 ≥ 3.0) — 500 weight wouldn't.
     return (
-      <span aria-hidden className={cn("type-doodle", className)}>
+      <span aria-hidden className={cn("type-doodle font-bold", className)}>
         {text ?? ""}
       </span>
     );

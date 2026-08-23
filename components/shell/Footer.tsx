@@ -40,7 +40,7 @@ export function Footer({ content }: { content: GlobalContent }) {
               <span
                 data-garnish
                 style={{ "--garnish-rotate": "-2deg" } as React.CSSProperties}
-                className="type-doodle text-accent"
+                className="type-doodle font-bold text-accent-deep"
                 aria-hidden
               >
                 {footer.knowScribble.text}

@@ -125,7 +125,9 @@ export function BedrockDiagram({ diagram }: { diagram: MethodContent["diagram"] 
                     </MonoLabel>
                   </span>
                 ) : (
-                  <MonoLabel bold accent={false} className="block text-muted">
+                  /* ink, not muted — the deeper strata tints eat muted's
+                     contrast (3.2:1 on band 04) */
+                  <MonoLabel bold className="block text-ink">
                     {band.n} · {band.name}
                   </MonoLabel>
                 )}

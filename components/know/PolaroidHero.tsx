@@ -41,7 +41,7 @@ export function PolaroidHero({ hero }: { hero: KnowHubContent["hero"] }) {
           {hero.annotations[0]?.text && (
             <span
               aria-hidden
-              className="absolute -right-6 -bottom-8 max-w-40 rotate-[3deg] text-accent md:-right-24 md:bottom-10"
+              className="absolute -right-6 -bottom-8 max-w-40 rotate-[3deg] text-accent-deep md:-right-24 md:bottom-10"
             >
               <svg
                 width="46"

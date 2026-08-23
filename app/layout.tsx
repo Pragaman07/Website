@@ -94,7 +94,8 @@ export default function RootLayout({
       </head>
       <body>
         <Shell content={global as GlobalContent}>{children}</Shell>
-        <Analytics />
+        {/* Only on Vercel — locally the insights script 404s the console */}
+        {process.env.VERCEL ? <Analytics /> : null}
       </body>
     </html>
   );
