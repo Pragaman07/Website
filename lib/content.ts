@@ -218,6 +218,7 @@ export type IntakeStep = {
 export type IntakeContent = {
   header: { title: CopyString; sub: CopyString };
   steps: IntakeStep[];
+  nav: { next: CopyString; back: CopyString };
   errors: Record<string, CopyString>;
   success: { title: CopyString; sub: CopyString };
   counter: { pitchedLabel: CopyString; repliedLabel: CopyString };

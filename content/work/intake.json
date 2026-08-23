@@ -46,11 +46,16 @@
       "submitLabel": { "text": "File the pitch", "draft": true }
     }
   ],
+  "nav": {
+    "next": { "text": "Next →", "draft": true },
+    "back": { "text": "← Back", "draft": true }
+  },
   "errors": {
     "emailMissing": { "text": "Needs an email so the reply has somewhere to go.", "draft": true },
-    "tooShort": { "pending": "CONTENT-DOC.intake-err-short", "note": "Min-chars validation line, interface voice, never apologetic." },
-    "rateLimited": { "pending": "CONTENT-DOC.intake-err-rate", "note": "Rate-limit line." },
-    "serverError": { "pending": "CONTENT-DOC.intake-err-server", "note": "Submit-failed line." }
+    "tooShort": { "text": "Needs at least 20 characters — say a bit more.", "draft": true },
+    "needed": { "text": "Needs an answer before we move on.", "draft": true },
+    "rateLimited": { "text": "One pitch a minute — give it a moment.", "draft": true },
+    "serverError": { "text": "The pitch didn't go through. Try again.", "draft": true }
   },
   "success": {
     "title": { "text": "You just wrote a mini-PRD.", "draft": true },
