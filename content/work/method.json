@@ -32,6 +32,7 @@
     "note": "Draft rows from Design Spec §8.4 + PRD honest edges — final wording is the Content Doc's."
   },
   "range": {
+    "eyebrow": { "text": "RANGE AT NOBORU", "draft": true },
     "factId": "method.range",
     "prose": { "pending": "CONTENT-DOC.range-prose", "note": "W36 first-two-weeks texture feeds prose beside the diagram." }
   },

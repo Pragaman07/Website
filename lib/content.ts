@@ -196,7 +196,7 @@ export type MethodContent = {
     rows: Array<{ issue: string; status: string; draft?: boolean }>;
     note?: string;
   };
-  range: { factId: string; prose: CopyString };
+  range: { eyebrow: CopyString; factId: string; prose: CopyString };
   tools: { factId: string };
 };
 
