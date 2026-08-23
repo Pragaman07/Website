@@ -23,14 +23,24 @@ npm run dev
 - Post-freeze rulings live in [DECISIONS.md](DECISIONS.md). `/docs` is never edited.
 - `NEXT_PUBLIC_SHOW_PENDING=true` shows placeholders on deployed builds (set on Vercel **Preview** only, never Production).
 
-## Env vars (Phase 3+, `.env.local`)
+## Env vars (`.env.local`, see `.env.example`)
 
 | Var | What |
 |---|---|
-| `KV_REST_API_URL` / `KV_REST_API_TOKEN` | Upstash Redis (Vercel Marketplace) — counters, intake, rate limiting |
-| `RESEND_API_KEY` | Intake email delivery |
+| `KV_REST_API_URL` / `KV_REST_API_TOKEN` | Upstash Redis (Vercel Marketplace integration; `UPSTASH_REDIS_REST_*` names also accepted) — counters, intake storage, rate limiting |
+| `RESEND_API_KEY` | Intake email delivery (sandbox delivers only to the Resend signup email until a domain is verified) |
 | `INTAKE_TO_EMAIL` | Where pitches land |
-| `ADMIN_KEY` | `x-admin-key` header for setting the replied counter |
+| `ADMIN_KEY` | `x-admin-key` header for the admin counter route |
+
+Dev without KV credentials uses an in-memory store (flow fully testable, resets on restart); production without them returns 503 from the intake/counter routes.
+
+### Updating the replied counter (after answering pitches)
+
+```bash
+curl -X POST https://<your-domain>/api/admin/counters -H "content-type: application/json" -H "x-admin-key: $ADMIN_KEY" -d '{"replied": 5}'
+```
+
+Pitches are also stored in KV as `intake:{ulid}` — the email includes each record's key.
 
 ## Fonts
 
