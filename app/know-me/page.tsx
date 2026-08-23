@@ -1,37 +1,25 @@
-import { MonoLabel } from "@/components/ui/MonoLabel";
-import { Pending } from "@/components/ui/Pending";
+import { PolaroidHero } from "@/components/know/PolaroidHero";
+import { LevelGrid } from "@/components/know/LevelGrid";
+import { lockedKnowSlugs } from "@/lib/know";
+import hubJson from "@/content/know/hub.json";
+import type { KnowHubContent } from "@/lib/content";
 
-/** Know Me hub — full build lands in Phase 4 (Design Spec §11). The
- *  sticker chips below are decorative garnish so the §3.3 stagger has
- *  something real to choreograph until the level grid exists. */
+const hub = hubJson as KnowHubContent;
+
+export const metadata = { title: "know me — pragaman" };
+
+/** Know Me hub (§11.0–11.1): playful hero → the level-select grid. */
 export default function KnowMeHub() {
   return (
-    <main className="container-site py-24">
-      <span aria-hidden className="mb-4 flex items-center gap-2">
-        {(["var(--teal)", "var(--purple)", "var(--sun)"] as const).map((token, i) => (
-          <span
-            key={token}
-            data-garnish
-            className="inline-block h-3 w-3 rounded-pill"
-            style={
-              {
-                background: token,
-                "--garnish-delay": `${250 + i * 40}ms`,
-                "--garnish-rotate": "0deg",
-              } as React.CSSProperties
-            }
-          />
-        ))}
-      </span>
-      <MonoLabel bold accent>
-        KNOW ME MODE · SHELL LIVE
-      </MonoLabel>
-      <div className="mt-6 max-w-md">
-        <Pending
-          id="PHASE-4.know-hub"
-          note="Playful hero and the level-select grid arrive in Phase 4."
+    <main className="container-site py-16 md:py-20">
+      <PolaroidHero hero={hub.hero} />
+      <section className="mt-20 md:mt-28">
+        <LevelGrid
+          levels={hub.levels}
+          lockedSlugs={lockedKnowSlugs()}
+          chips={hub.statusChips}
         />
-      </div>
+      </section>
     </main>
   );
 }

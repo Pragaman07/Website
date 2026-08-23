@@ -230,7 +230,7 @@ export type KnowHubContent = {
   hero: {
     headline: CopyString;
     intro: CopyString;
-    photo: CopyString;
+    photo: CopyString & { src?: string; alt?: CopyString };
     annotations: CopyString[];
     midnightAnnotation: CopyString;
   };

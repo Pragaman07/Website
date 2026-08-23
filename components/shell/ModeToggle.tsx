@@ -58,20 +58,20 @@ export function ModeToggle({ content }: { content: GlobalContent["toggle"] }) {
               : { type: "spring", stiffness: 700, damping: 30, mass: 0.6 }
           }
         >
-          {/* Face crossfade at mid-slide (~90ms). Placeholder art until
-              Pragaman's real headshot + memoji arrive (PENDING: PHOTOS). */}
+          {/* Face crossfade at mid-slide (~90ms): real headshot (Work) /
+              winking memoji (Know Me) — permanent, locked (§3.2). */}
           <motion.img
-            src="/images/placeholder-headshot.svg"
+            src="/images/prag-face.jpg"
             alt=""
-            className="absolute inset-0 h-full w-full"
+            className="absolute inset-0 h-full w-full object-cover"
             initial={false}
             animate={{ opacity: isKnow ? 0 : 1 }}
             transition={{ duration: reduced ? 0 : 0.09, delay: reduced ? 0 : 0.045 }}
           />
           <motion.img
-            src="/images/placeholder-memoji.svg"
+            src="/images/memoji-face.png"
             alt=""
-            className="absolute inset-0 h-full w-full"
+            className="absolute inset-0 h-full w-full object-contain p-0.5"
             initial={false}
             animate={{ opacity: isKnow ? 1 : 0 }}
             transition={{ duration: reduced ? 0 : 0.09, delay: reduced ? 0 : 0.045 }}

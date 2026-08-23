@@ -2,7 +2,7 @@
   "hero": {
     "headline": { "text": "Same person, fewer buzzwords.", "draft": true },
     "intro": { "pending": "SECTION-2", "note": "Short Satoshi intro — feeds from Section 2 answers." },
-    "photo": { "pending": "PHOTO-HERO", "note": "Real photo, not AI. Memoji placeholder in polaroid frame until it arrives." },
+    "photo": { "src": "/images/prag.png", "alt": { "text": "Pragaman", "draft": true } },
     "annotations": [
       { "text": "actual smile, not LinkedIn smile", "draft": true },
       { "pending": "CONTENT-DOC.hero-annotation-2", "note": "2–3 Caveat annotations max." }
