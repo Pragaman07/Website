@@ -1,6 +1,8 @@
 # CLAUDE.md — pragaman.com build spec
 *v1 · 23 Aug 2026 · This file lives at the repo root. Claude Code: read this fully before writing any code.*
 
+> **SESSION CONTINUITY: read `HANDOFF.md` FIRST.** It carries the live build state (phases shipped, what's next), Pragaman's post-freeze rulings (with `DECISIONS.md`), infra/env state, and this machine's verification quirks. This spec is the contract; HANDOFF.md is where we are in it.
+
 ## What this project is
 Pragaman Kumar Anurag's two-mode personal website. **Work mode** (founders/recruiters — receipts-first case studies) and **Know Me mode** (playful, personal, game-flavored). Planned in full before this build; your job is execution, not invention.
 
