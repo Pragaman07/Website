@@ -1,20 +1,12 @@
-import { MonoLabel } from "@/components/ui/MonoLabel";
-import { Pending } from "@/components/ui/Pending";
+import { ChangelogClient } from "@/components/changelog/ChangelogClient";
+import { loadChangelog } from "@/lib/changelog";
+import metaJson from "@/content/changelog/_meta.json";
+import type { ChangelogMeta } from "@/lib/content";
 
-/** Shared route — dress follows the current mode, re-dressing IN PLACE on
- *  flip (D-2). Full dual-dress build lands in Phase 5 (Design Spec §9). */
+export const metadata = { title: "changelog — pragaman" };
+
+/** §9 — shared route; dress follows the current mode and re-dresses in
+ *  place on flip (D-2). Version scheme per D-3: v{age}.{month}. */
 export default function ChangelogPage() {
-  return (
-    <main className="container-site py-24">
-      <MonoLabel bold accent>
-        CHANGELOG · SHARED ROUTE
-      </MonoLabel>
-      <div className="mt-6 max-w-md">
-        <Pending
-          id="PHASE-5.changelog"
-          note="Dual-dress entries + in-place re-dress on flip arrive in Phase 5. Flipping here must NOT navigate — this page is the transition's showroom."
-        />
-      </div>
-    </main>
-  );
+  return <ChangelogClient entries={loadChangelog()} meta={metaJson as ChangelogMeta} />;
 }

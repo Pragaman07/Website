@@ -1,13 +1,13 @@
 # Sound licenses (Design Spec §4 · CLAUDE.md asset log)
 
-Budget: 5 files, < 100KB total, normalized. Every file logged here with source + license before launch.
+Budget: 5 files, < 100KB total, normalized. **Current total: ~70KB** (22050Hz mono WAV). Every file is a deterministic in-repo synthesis (CC0, self-generated) — **all placeholders pending Pragaman's audition**; replace any file, keep its name, zero code changes.
 
-| File | Trigger | Source | License | Status |
-|---|---|---|---|---|
-| `flip.wav` | Mode toggle | Synthesized in-repo (`scripts/generate-flip-sound.mjs`) — deterministic filtered-noise "fwip", 180ms, ~15.5KB | CC0 (self-generated) | **Placeholder — Pragaman to audition**; replace file, keep name, zero code changes |
-| `sparkle.wav` | Egg first discovery | — | — | Due Phase 5 |
-| `send.wav` | Intake submit | Synthesized in-repo (`scripts/generate-intake-sound.mjs`) — noise slide + 105Hz thunk, 500ms, ~43KB | CC0 (self-generated) | **Placeholder — Pragaman to audition** |
-| `sip.wav` | Coffee counter | Synthesized in-repo (`scripts/generate-sip-sound.mjs`) — two slurp pulses, 250ms, ~22KB | CC0 (self-generated) | **Placeholder — Pragaman to audition** |
-| `glitch.wav` | Egg 1 fake crash | — | — | Due Phase 5 |
+| File | Trigger | Generator | Size |
+|---|---|---|---|
+| `flip.wav` | Mode toggle | `scripts/generate-flip-sound.mjs` — felt "fwip", 180ms | 7.8 KB |
+| `sparkle.wav` | Egg first discovery | `scripts/generate-egg-sounds.mjs` — two-note chime, 400ms | 17.3 KB |
+| `send.wav` | Intake submit | `scripts/generate-intake-sound.mjs` — paper slide + thunk, 500ms | 21.6 KB |
+| `sip.wav` | Coffee counter | `scripts/generate-sip-sound.mjs` — two slurp pulses, 250ms | 10.8 KB |
+| `glitch.wav` | Egg 1 fake crash | `scripts/generate-egg-sounds.mjs` — chopped stutter, 300ms | 13.0 KB |
 
-Sourcing rule: Mixkit (Mixkit License) or Freesound (CC0 only), normalized ≈ −14 LUFS.
+If replacing with sourced files: Mixkit (Mixkit License) or Freesound (CC0 only), normalized ≈ −14 LUFS, log source + license here.

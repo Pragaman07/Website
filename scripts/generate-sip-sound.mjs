@@ -7,7 +7,7 @@
  */
 import { writeFileSync, mkdirSync } from "node:fs";
 
-const SR = 44100;
+const SR = 22050;
 const N = Math.round(SR * 0.25);
 
 function rng(seed) {

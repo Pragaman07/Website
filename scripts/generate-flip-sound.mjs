@@ -8,7 +8,7 @@
  */
 import { writeFileSync, mkdirSync } from "node:fs";
 
-const SAMPLE_RATE = 44100;
+const SAMPLE_RATE = 22050;
 const DURATION_S = 0.18;
 const N = Math.round(SAMPLE_RATE * DURATION_S);
 

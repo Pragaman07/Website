@@ -312,6 +312,40 @@ export type FaqContent = {
   note?: string;
 };
 
+/* ---------- eggs.json (§12) ---------- */
+
+export type EggsContent = {
+  identityCrisis: { chrome: CopyString; body: CopyString; button: CopyString };
+  console: { greeting: CopyString; bugLine: CopyString };
+  notFound: { born: CopyString; died: CopyString; epitaph: CopyString; back: CopyString };
+};
+
+/* ---------- changelog (§9, D-3) ---------- */
+
+export type ChangelogTag = "work" | "life" | "both";
+
+export type ChangelogEntry = {
+  slug: string;
+  title: string;
+  /** ISO date; the headstone's sentinel date is never displayed. */
+  date: string;
+  tags: ChangelogTag[];
+  /** D-3 scheme: v{age}.{month} — v22.8 = age 22, August. Birth = v0.0.1. */
+  version: string;
+  excerpt?: string;
+  patched: string[];
+  added: string[];
+  bugs: string[];
+  /** Egg 6: the fixed, faded final entry. */
+  headstone?: boolean;
+  draft?: boolean;
+};
+
+export type ChangelogMeta = {
+  eyebrow: CopyString;
+  title: CopyString;
+};
+
 /**
  * Thin-section rule (§14): a Know Me section with no real content renders
  * as a LOCKED tile on the hub and its route 404s.

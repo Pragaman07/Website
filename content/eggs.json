@@ -1,0 +1,24 @@
+{
+  "identityCrisis": {
+    "chrome": { "text": "identity_crisis.exe", "locked": true },
+    "body": { "text": "ERROR: identity_crisis.exe — he's both, okay?", "locked": true },
+    "button": { "text": "Accept and continue", "draft": true }
+  },
+  "console": {
+    "greeting": {
+      "text": "You opened the console. Obviously we should talk.",
+      "draft": true
+    },
+    "bugLine": {
+      "text": "Found a real bug? That's a free coffee chat.",
+      "draft": true,
+      "note": "Contact address appended once CONTACT-EMAIL resolves (hello@pragaman.com post-domain)."
+    }
+  },
+  "notFound": {
+    "born": { "text": "never", "locked": true },
+    "died": { "text": "immediately", "locked": true },
+    "epitaph": { "text": "This page was never born. Still mourned.", "draft": true },
+    "back": { "text": "Back to the living →", "draft": true }
+  }
+}
