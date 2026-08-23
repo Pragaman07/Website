@@ -10,8 +10,8 @@
       "pendingKeepKill": "OPEN-8"
     }
   ],
-  "chaiCounter": {
-    "label": { "text": "CHAI CONSUMED (GLOBAL, LIVE)", "draft": true },
+  "coffeeCounter": {
+    "label": { "text": "COFFEE CONSUMED (GLOBAL, LIVE)", "draft": true },
     "note": "Biggest card in the grid — egg 4, live KV counter."
   },
   "pending": "P13-P20",

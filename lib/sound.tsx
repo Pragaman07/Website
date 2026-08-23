@@ -5,7 +5,7 @@
  * Thin wrapper over use-sound. Mute lives in localStorage("pragaman-muted"),
  * default UNMUTED (locked). Files load only after the first user interaction
  * (autoplay-policy friendly). Sound fires ONLY on: toggle flip, egg first
- * discovery, Intake submit, chai sip. Never on scroll, hover, nav, or load.
+ * discovery, Intake submit, coffee sip. Never on scroll, hover, nav, or load.
  */
 
 import {
@@ -25,7 +25,7 @@ export const SFX = {
   "toggle-flip": { src: "/sounds/flip.wav", volume: 0.35 },
   "egg-found": { src: "/sounds/sparkle.wav", volume: 0.3 },
   "intake-submit": { src: "/sounds/send.wav", volume: 0.4 },
-  "chai-sip": { src: "/sounds/sip.wav", volume: 0.4 },
+  "coffee-sip": { src: "/sounds/sip.wav", volume: 0.4 },
   glitch: { src: "/sounds/glitch.wav", volume: 0.3 },
 } as const;
 

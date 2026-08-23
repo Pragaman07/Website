@@ -8,7 +8,7 @@ const BodySchema = z
   .object({
     replied: z.number().int().min(0).optional(),
     pitched: z.number().int().min(0).optional(),
-    chai: z.number().int().min(0).optional(),
+    coffee: z.number().int().min(0).optional(),
   })
   .refine((b) => Object.keys(b).length > 0, { message: "empty" });
 
@@ -40,7 +40,7 @@ export async function POST(req: Request) {
   const updates = parsed.data;
   if (updates.replied !== undefined) await kv.set("counter:replied", updates.replied);
   if (updates.pitched !== undefined) await kv.set("counter:pitched", updates.pitched);
-  if (updates.chai !== undefined) await kv.set("counter:chai", updates.chai);
+  if (updates.coffee !== undefined) await kv.set("counter:coffee", updates.coffee);
 
   return NextResponse.json({ ok: true, counters: await getCounters() });
 }

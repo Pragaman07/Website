@@ -272,7 +272,7 @@ export type NumbersContent = {
     factId?: string;
     pendingKeepKill?: string;
   }>;
-  chaiCounter: { label: CopyString; note?: string };
+  coffeeCounter: { label: CopyString; note?: string };
   pending?: string;
   note?: string;
 };

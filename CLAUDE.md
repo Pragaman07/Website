@@ -22,7 +22,7 @@ Also in `/docs`: `FB_1_year_Work_Report.pdf` (the downloadable receipt asset).
 5. **Every number, stat, version tag, label, and timestamp wears Space Mono.** No exceptions, both modes.
 6. **Coral never sets body-size text.** Small/interactive coral text uses `--accent-deep` (see spec §13 contrast rules).
 7. **Retired forever:** the "20X traffic" claim · navy/gold palette. **Off-limits forever:** family details · any "open to work"/hire-me signal · AI-generated imagery (real photos or placeholders only).
-8. **Sound only on:** toggle flip, easter-egg first discovery, Intake submit, chai sip. Never on scroll, hover, nav, or load.
+8. **Sound only on:** toggle flip, easter-egg first discovery, Intake submit, coffee sip. Never on scroll, hover, nav, or load.
 9. **Don't refactor beyond the task.** One phase at a time. Don't "improve" locked design decisions.
 10. **Accessibility is launch-blocking, not polish** (spec §13): reduced-motion fallbacks, keyboard paths, focus rings, aria-live counters ship WITH each component, not after.
 
@@ -35,7 +35,7 @@ Also in `/docs`: `FB_1_year_Work_Report.pdf` (the downloadable receipt asset).
 - **Motion:** `motion` (Framer Motion) for the toggle, temperature transition, egg overlays, and spring interactions; plain CSS transitions for hovers/reveals. Respect `useReducedMotion` everywhere.
 - **Sound:** `use-sound` (locked). Files in `public/sounds/` + `public/sounds/LICENSES.md` logging source + license for each.
 - **Content:** local files in `/content` — JSON for structured data, MDX for prose (changelog entries, case-study full stories) parsed with `gray-matter` + `next-mdx-remote` (or `@next/mdx` if simpler in practice — your call, keep it light, no CMS).
-- **KV store:** Upstash Redis via the Vercel Marketplace integration (serves chai counter, intake counters, intake submissions, rate limiting). Client in `lib/kv.ts`.
+- **KV store:** Upstash Redis via the Vercel Marketplace integration (serves coffee counter, intake counters, intake submissions, rate limiting). Client in `lib/kv.ts`.
 - **Email:** Resend — Intake submissions email Pragaman. **Store-then-send:** write to KV first, then email; a Resend failure must never lose a pitch.
 - **Analytics:** Vercel Analytics (privacy-light, zero-config). No cookies, no consent banner needed.
 - **Icons:** `lucide-react`, sparingly — most "icons" in this design are typography, emoji, or custom SVG.
@@ -66,8 +66,8 @@ pragaman.com/
 │   ├── not-found.tsx              # egg 3 — Graveyard plot (spec §12.3)
 │   └── api/
 │       ├── intake/route.ts        # POST: validate → KV → Resend → increment
-│       ├── chai/route.ts          # POST +1 (debounced client-side, limited server-side)
-│       ├── counters/route.ts      # GET { pitched, replied, chai }
+│       ├── coffee/route.ts          # POST +1 (debounced client-side, limited server-side)
+│       ├── counters/route.ts      # GET { pitched, replied, coffee }
 │       └── admin/counters/route.ts# POST with x-admin-key: set replied count
 ├── components/
 │   ├── shell/    # Header, Footer, ModeToggle, MuteButton, TemperatureLayer, NavPanel
@@ -76,7 +76,7 @@ pragaman.com/
 │   │             # InversionViz, WorkflowBeforeAfter, PullStat, PullQuote, ReceiptCard,
 │   │             # BedrockDiagram, KnownIssues, MethodTeaser, intake/ (IntakeCard, Step, SeverityCards, SuccessState)
 │   ├── know/     # LevelGrid, LevelTile, PolaroidHero, DoodleNote, Tombstone, MetricCard,
-│   │             # ChaiCounter, IndiaMap, SaveSlotCard, RentFreeCard, FaqAccordion, LevelFooterNav
+│   │             # CoffeeCounter, IndiaMap, SaveSlotCard, RentFreeCard, FaqAccordion, LevelFooterNav
 │   ├── changelog/# EditorialEntry, ReleaseNoteEntry, TagFilter
 │   └── eggs/     # IdentityCrisisOverlay, consoleGreeting.ts, MidnightSwap, DlcTooltip
 ├── content/                       # ALL user-facing words + facts (schemas below)
@@ -120,10 +120,10 @@ pragaman.com/
 - Thin wrapper over `use-sound`: `useSfx(id)` reads mute from `localStorage("pragaman-muted")` (default unmuted) via context. Preload after first user interaction only. Volumes per spec §4 table.
 
 ### Counters & Intake API
-- KV keys: `counter:chai` · `counter:pitched` · `counter:replied` · `intake:{ulid}` (full submission JSON) · `rl:{ip}:{route}`.
+- KV keys: `counter:coffee` · `counter:pitched` · `counter:replied` · `intake:{ulid}` (full submission JSON) · `rl:{ip}:{route}`.
 - `POST /api/intake`: honeypot check → rate limit (1/min/IP, KV token bucket in `lib/ratelimit.ts`) → validate (zod) → `intake:{ulid}` write → `INCR counter:pitched` → Resend email to Pragaman → return new counters. Client: optimistic UI, `intake-submit` sound on success only.
-- `POST /api/chai`: rate limit (10/min/IP) → `INCR counter:chai`. Client debounce 400ms + optimistic increment.
-- `GET /api/counters`: returns all three; consumed by ProofStrip-adjacent counter, Intake footer, ChaiCounter. Revalidate on focus; `aria-live="polite"` on render targets.
+- `POST /api/coffee`: rate limit (10/min/IP) → `INCR counter:coffee`. Client debounce 400ms + optimistic increment.
+- `GET /api/counters`: returns all three; consumed by ProofStrip-adjacent counter, Intake footer, CoffeeCounter. Revalidate on focus; `aria-live="polite"` on render targets.
 - `POST /api/admin/counters`: header `x-admin-key === process.env.ADMIN_KEY` → set `counter:replied`. (Pragaman updates this after answering pitches; document the curl command in README.)
 
 ### Fonts (`app/layout.tsx`)

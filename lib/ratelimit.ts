@@ -2,7 +2,7 @@ import { kv } from "@/lib/kv";
 
 /**
  * Fixed-window rate limit on KV: INCR rl:{ip}:{route}, EXPIRE on first
- * hit. Intake: 1/min/IP · chai: 10/min/IP (CLAUDE.md).
+ * hit. Intake: 1/min/IP · coffee: 10/min/IP.
  */
 export async function rateLimit(
   ip: string,

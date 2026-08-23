@@ -3,7 +3,7 @@ import { Redis } from "@upstash/redis";
 /**
  * KV client (CLAUDE.md core systems). Upstash Redis via the Vercel
  * Marketplace integration — accepts both env naming schemes. Keys:
- *   counter:chai · counter:pitched · counter:replied
+ *   counter:coffee · counter:pitched · counter:replied
  *   intake:{ulid} · rl:{ip}:{route}
  *
  * In development WITHOUT credentials, a process-local in-memory store
@@ -84,16 +84,16 @@ export const kv: Store | null = kvConfigured
     ? (globalStore.__pragamanKv ??= memoryStore())
     : null;
 
-export const COUNTER_KEYS = ["counter:pitched", "counter:replied", "counter:chai"] as const;
+export const COUNTER_KEYS = ["counter:pitched", "counter:replied", "counter:coffee"] as const;
 
-export type Counters = { pitched: number; replied: number; chai: number };
+export type Counters = { pitched: number; replied: number; coffee: number };
 
 export async function getCounters(): Promise<Counters | null> {
   if (!kv) return null;
-  const [pitched, replied, chai] = await kv.mget(...COUNTER_KEYS);
+  const [pitched, replied, coffee] = await kv.mget(...COUNTER_KEYS);
   return {
     pitched: Number(pitched) || 0,
     replied: Number(replied) || 0,
-    chai: Number(chai) || 0,
+    coffee: Number(coffee) || 0,
   };
 }
