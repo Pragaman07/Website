@@ -45,7 +45,8 @@
   "socialStrip": { "factIds": ["fb.social.linkedin", "fb.social.instagram"] },
   "receipt": {
     "label": "FB 1-Year Report",
-    "file": { "pending": "FB-REPORT-PDF", "note": "PDF not yet in repo — Pragaman to supply. Downloadable + embedded." },
+    "href": "/downloads/FB_1_year_Work_Report.pdf",
+    "size": "138 KB",
     "caption": { "text": "CLIENT NAMED. NO NDA. REAL DASHBOARDS.", "draft": true }
   }
 }

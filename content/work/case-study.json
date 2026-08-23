@@ -1,0 +1,8 @@
+{
+  "breadcrumb": { "text": "← All work", "draft": true },
+  "divider": { "text": "The full story ↓", "draft": true },
+  "intakeCta": { "text": "Have a problem like this? →", "draft": true },
+  "prevLabel": { "text": "PREV CASE", "draft": true },
+  "nextLabel": { "text": "NEXT CASE", "draft": true },
+  "downloadLabel": { "text": "Download the receipt →", "draft": true }
+}

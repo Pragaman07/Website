@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { CountUp } from "@/components/ui/CountUp";
+import { AnimatedStat } from "@/components/work/AnimatedStat";
 import { getFact, type StatRef } from "@/lib/content";
 
 /**
@@ -24,33 +24,10 @@ export function ProofStrip({ stats }: { stats: StatRef[] }) {
             className="transition-colors duration-200 hover:text-accent-deep"
             title={`Source: ${getFact(stat.factId).source}`}
           >
-            <AnimatedRender id={stat.factId} render={stat.render} />
+            <AnimatedStat id={`proof.${stat.factId}`} render={stat.render} />
           </Link>
         </span>
       ))}
     </p>
-  );
-}
-
-/**
- * Renders a strip entry, animating its final numeric token (the payoff
- * number) while the rest stays static — e.g. "ORGANIC SHARE 39% → 75%"
- * counts up the 75.
- */
-function AnimatedRender({ id, render }: { id: string; render: string }) {
-  const match = render.match(/^(.*?)(\d+(?:\.\d+)?)(%?)$/);
-  if (!match) return <>{render}</>;
-  const [, head, num, pct] = match;
-  const decimals = num.includes(".") ? num.split(".")[1].length : 0;
-  return (
-    <>
-      {head}
-      <CountUp
-        id={`proof.${id}`}
-        value={parseFloat(num)}
-        decimals={decimals}
-        suffix={pct}
-      />
-    </>
   );
 }

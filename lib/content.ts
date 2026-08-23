@@ -151,12 +151,29 @@ export type CaseMeta = {
   >;
   benchmark?: { factIds: string[]; caption: CopyString };
   socialStrip?: { factIds: string[] };
-  receipt?: { label: string; file: CopyString; caption: CopyString };
+  receipt?: {
+    label: string;
+    href?: string;
+    size?: string;
+    file?: CopyString;
+    caption: CopyString;
+  };
   pullQuotes?: {
     note?: string;
     quotes: Array<{ text: string; sourceRef: string; pendingKeepKill?: string }>;
   };
   linkOut?: { url: string; label: CopyString; screenshot: CopyString };
+};
+
+/* ---------- work/case-study.json (shared template copy, §7.0) ---------- */
+
+export type CaseStudySharedContent = {
+  breadcrumb: CopyString;
+  divider: CopyString;
+  intakeCta: CopyString;
+  prevLabel: CopyString;
+  nextLabel: CopyString;
+  downloadLabel: CopyString;
 };
 
 /* ---------- work/method.json ---------- */
