@@ -30,7 +30,7 @@ export function ReceiptCard({
         <a
           href={receipt.href}
           download
-          className="font-medium text-accent-deep underline-offset-4 transition-colors duration-200 hover:underline"
+          className="font-medium text-ink underline decoration-accent decoration-2 underline-offset-4 transition-colors duration-200 hover:text-accent-deep"
         >
           {downloadLabel.text}
         </a>

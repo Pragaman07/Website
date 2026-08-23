@@ -11,9 +11,11 @@ import global from "@/content/global.json";
 import { Shell } from "@/components/shell/Shell";
 import type { GlobalContent } from "@/lib/content";
 
+// Static 700/800 slices (Foundations v1 needs exactly these weights) —
+// the full variable+opsz file pushed hero LCP past 3s on throttled 4G.
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  axes: ["opsz"],
+  weight: ["700", "800"],
   variable: "--font-display",
   display: "swap",
 });
@@ -28,17 +30,22 @@ const satoshi = localFont({
   display: "swap",
 });
 
+// Not preloaded: stats/labels swap invisibly and are never the LCP —
+// keeps the display font first in the 4G queue for the hero.
 const mono = Space_Mono({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-mono",
   display: "swap",
+  preload: false,
 });
 
+// Know Me only — never preloaded, so Work pages don't pay for it.
 const doodle = Caveat({
   subsets: ["latin"],
   variable: "--font-doodle",
   display: "swap",
+  preload: false,
 });
 
 // Renders in exactly one place: the Graveyard title (Design Spec §11.2).

@@ -31,7 +31,7 @@ export function CaseCard({ card }: { card: CardData }) {
       </span>
       <span
         aria-hidden
-        className="hidden text-accent-deep transition-transform duration-200 ease-out group-hover:translate-x-1 motion-reduce:transition-none md:block"
+        className="hidden font-bold text-accent-deep transition-transform duration-200 ease-out group-hover:translate-x-1 motion-reduce:transition-none md:block"
       >
         →
       </span>

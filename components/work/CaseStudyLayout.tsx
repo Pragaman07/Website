@@ -90,9 +90,7 @@ export function CaseStudyLayout({
         {meta.moves.map((move, i) => (
           <Reveal key={move.n} delay={i * 60}>
             <div className="h-full rounded-card border border-line bg-surface p-6">
-              <MonoLabel bold accent>
-                {move.n}
-              </MonoLabel>
+              <MonoLabel bold>{move.n}</MonoLabel>
               <p className="type-display-s mt-2 text-ink">{move.name}</p>
               {move.line.text ? (
                 <p className="type-body mt-2 text-muted">{move.line.text}</p>
@@ -225,7 +223,7 @@ function FooterNav({ slug }: { slug: string }) {
       <p className="mt-8">
         <Link
           href="/work#intake"
-          className="font-medium text-accent-deep underline-offset-4 transition-colors duration-200 hover:underline"
+          className="font-medium text-ink underline decoration-accent decoration-2 underline-offset-4 transition-colors duration-200 hover:text-accent-deep"
         >
           {shared.intakeCta.text}
         </Link>

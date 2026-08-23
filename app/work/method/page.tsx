@@ -98,7 +98,7 @@ function accentPhrase(text: string, phrase: string): ReactNode {
   return (
     <>
       {text.slice(0, at)}
-      <span className="text-accent">{phrase}</span>
+      <span className="text-accent-deep">{phrase}</span>
       {text.slice(at + phrase.length)}
     </>
   );

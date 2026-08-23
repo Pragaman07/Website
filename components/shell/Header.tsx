@@ -47,7 +47,7 @@ export function Header({ content }: { content: GlobalContent }) {
           className="type-display-s lowercase text-ink"
         >
           {content.wordmark.text}
-          <span className="text-accent">.</span>
+          <span className="text-accent-deep">.</span>
         </Link>
 
         <div className="flex items-center gap-1 md:gap-4">
@@ -62,7 +62,7 @@ export function Header({ content }: { content: GlobalContent }) {
                       href={link.href}
                       className={cn(
                         "text-[14px] font-medium text-ink underline-offset-4 transition-colors duration-200 hover:text-accent-deep",
-                        active && "text-accent-deep underline decoration-accent decoration-2",
+                        active && "underline decoration-accent decoration-2",
                       )}
                     >
                       {link.label}

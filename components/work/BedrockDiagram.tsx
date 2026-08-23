@@ -79,7 +79,7 @@ export function BedrockDiagram({ diagram }: { diagram: MethodContent["diagram"] 
             <rect x="15" y="2" width="12" height="28" rx="1.5" fill="var(--accent)" />
             <rect x="29" y="18" width="4" height="12" rx="1" fill="var(--accent)" />
           </svg>
-          <MonoLabel bold accent>
+          <MonoLabel bold className="text-ink">
             {diagram.payoff.text}
           </MonoLabel>
         </motion.div>

@@ -19,7 +19,7 @@ export function PullStat({ id }: { id: string }) {
       </MonoLabel>
       <p className="type-mono-stat mt-2 text-ink">{value}</p>
       {fact.change && fact.before && (
-        <p className="type-mono-stat mt-1 text-accent-deep">{fact.change}</p>
+        <p className="type-mono-stat mt-1 font-bold text-ink">{fact.change}</p>
       )}
       <MonoLabel className="mt-3 block">SOURCE: {fact.source}</MonoLabel>
     </aside>

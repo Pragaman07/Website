@@ -23,17 +23,20 @@ export function Button({
   className,
   children,
 }: ButtonProps) {
+  /* §13 contrast rulings (DECISIONS.md): primary = ink on coral (5.8:1 at
+     any size); secondary = ink text with a coral underline — small
+     accent-deep text alone misses AA (3.45:1). */
   const styles =
     variant === "primary"
       ? cn(
-          "inline-block rounded-btn bg-accent px-5 py-3 font-medium text-white",
+          "inline-block rounded-btn bg-accent px-5 py-3 font-bold text-ink",
           "transition-[background-color,transform] duration-200 ease-out",
           "hover:-translate-y-0.5 hover:bg-accent-deep",
           "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
         )
       : cn(
-          "inline-block font-medium text-accent-deep underline-offset-4",
-          "transition-colors duration-200 hover:underline",
+          "inline-block font-medium text-ink underline decoration-accent decoration-2 underline-offset-4",
+          "transition-colors duration-200 hover:text-accent-deep",
         );
 
   if (href) {

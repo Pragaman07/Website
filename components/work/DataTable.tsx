@@ -59,7 +59,7 @@ export function DataTable({
                   <td className="type-mono-stat px-5 py-3.5 text-right text-ink">
                     {fact.after ?? fact.value ?? "—"}
                   </td>
-                  <td className="type-mono-stat px-5 py-3.5 text-right font-bold text-accent-deep">
+                  <td className="type-mono-stat px-5 py-3.5 text-right font-bold text-ink">
                     {fact.change ?? "—"}
                   </td>
                 </tr>

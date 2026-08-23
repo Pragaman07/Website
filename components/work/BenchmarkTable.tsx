@@ -60,7 +60,7 @@ export function BenchmarkTable({
                             onPar ? "border border-accent bg-transparent" : "bg-accent",
                           )}
                         />
-                        <MonoLabel bold accent={!onPar}>
+                        <MonoLabel bold className="text-ink">
                           {onPar ? "ON PAR" : "OUTPERFORM"}
                         </MonoLabel>
                       </span>

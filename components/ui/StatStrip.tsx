@@ -18,7 +18,7 @@ export function StatStrip({ factIds }: { factIds: string[] }) {
             </MonoLabel>
             <p className="type-mono-stat mt-2 text-ink">{value}</p>
             {fact.change && fact.before && (
-              <p className="type-mono-stat mt-1 text-accent-deep">{fact.change}</p>
+              <p className="type-mono-stat mt-1 font-bold text-ink">{fact.change}</p>
             )}
             {fact.note && <p className="type-body-s mt-2 text-muted">{fact.note}</p>}
           </div>
