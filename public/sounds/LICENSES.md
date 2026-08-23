@@ -7,7 +7,7 @@ Budget: 5 files, < 100KB total, normalized. Every file logged here with source +
 | `flip.wav` | Mode toggle | Synthesized in-repo (`scripts/generate-flip-sound.mjs`) — deterministic filtered-noise "fwip", 180ms, ~15.5KB | CC0 (self-generated) | **Placeholder — Pragaman to audition**; replace file, keep name, zero code changes |
 | `sparkle.wav` | Egg first discovery | — | — | Due Phase 5 |
 | `send.wav` | Intake submit | Synthesized in-repo (`scripts/generate-intake-sound.mjs`) — noise slide + 105Hz thunk, 500ms, ~43KB | CC0 (self-generated) | **Placeholder — Pragaman to audition** |
-| `sip.wav` | Coffee counter | — | — | Due Phase 4 |
+| `sip.wav` | Coffee counter | Synthesized in-repo (`scripts/generate-sip-sound.mjs`) — two slurp pulses, 250ms, ~22KB | CC0 (self-generated) | **Placeholder — Pragaman to audition** |
 | `glitch.wav` | Egg 1 fake crash | — | — | Due Phase 5 |
 
 Sourcing rule: Mixkit (Mixkit License) or Freesound (CC0 only), normalized ≈ −14 LUFS.
