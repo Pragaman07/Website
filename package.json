@@ -9,6 +9,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@svg-maps/india": "^2.0.0",
     "@upstash/redis": "^1.38.2",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.33.0",

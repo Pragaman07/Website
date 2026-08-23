@@ -289,6 +289,7 @@ export type SaveStatesContent = {
   }>;
   visitedStates: CopyString;
   dlcTooltip: CopyString;
+  mapCredit: CopyString;
 };
 
 export type RentFreeContent = {

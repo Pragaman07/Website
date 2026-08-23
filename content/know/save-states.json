@@ -35,5 +35,6 @@
     "pending": "SECTION-2.travel-list",
     "note": "Full visited-states list from Pragaman. Home states (Bihar, Jharkhand, Odisha, Maharashtra) render solid coral; other visited coral-tinted; rest grey (DLC egg 5). NOTE for the content session: P1's partial answer mentions a Patna childhood — clarify whether Patna joins the checkpoint path before this ships."
   },
-  "dlcTooltip": { "text": "DLC not yet purchased (trip pending).", "draft": true }
+  "dlcTooltip": { "text": "DLC not yet purchased (trip pending).", "draft": true },
+  "mapCredit": { "text": "MAP: @SVG-MAPS/INDIA · CC BY 4.0", "draft": true }
 }

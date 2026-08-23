@@ -42,6 +42,10 @@ curl -X POST https://<your-domain>/api/admin/counters -H "content-type: applicat
 
 Pitches are also stored in KV as `intake:{ulid}` — the email includes each record's key.
 
+## Map
+
+India map: [`@svg-maps/india`](https://www.npmjs.com/package/@svg-maps/india), **CC BY 4.0** (credited on the Save States page). Depiction per Pragaman's ruling (DECISIONS.md): the whole of Jammu & Kashmir renders as part of India — the map's single undivided J&K path.
+
 ## Fonts
 
 Bricolage Grotesque / Space Mono / Caveat / Black Ops One via `next/font/google`; **Satoshi** self-hosted in `public/fonts/satoshi/` (Fontshare — license: `FFL.txt` in the same folder).
