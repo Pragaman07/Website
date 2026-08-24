@@ -23,7 +23,7 @@ export function ResultsStrip({
           </p>
         ))}
       </div>
-      <MonoLabel className="mt-6 block" style={{ color: "var(--muted)" }}>
+      <MonoLabel className="mt-6 block" style={{ color: "var(--muted-on-ink)" }}>
         {results.sourceLine}
       </MonoLabel>
     </div>

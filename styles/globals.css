@@ -17,6 +17,10 @@
   --surface: #ffffff;
   --ink: #16181d;
   --muted: #6b7280;
+  /* secondary text on --ink surfaces: --muted is 3.7:1 there — fails AA
+     for mono-label sizes. #9ca3af clears 7:1 (contrast ruling, DECISIONS.md).
+     Ink is identical in both modes, so know inherits this value. */
+  --muted-on-ink: #9ca3af;
   --line: #eceae4;
   --accent: #ff6b5e;
   --accent-deep: #e85546;
@@ -61,6 +65,7 @@
   --color-surface: var(--surface);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
+  --color-muted-on-ink: var(--muted-on-ink);
   --color-line: var(--line);
   --color-accent: var(--accent);
   --color-accent-deep: var(--accent-deep);
