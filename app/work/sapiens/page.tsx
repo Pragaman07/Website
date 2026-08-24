@@ -1,7 +1,8 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { CaseStudyLayout } from "@/components/work/CaseStudyLayout";
 import { storyComponents } from "@/components/work/mdx-components";
-import { loadStory } from "@/lib/mdx";
+import { loadStory, storyHasProse } from "@/lib/mdx";
+import { SHOW_PENDING } from "@/lib/flags";
 import metaJson from "@/content/work/case-studies/sapiens/meta.json";
 import type { CaseMeta } from "@/lib/content";
 
@@ -13,9 +14,10 @@ export const metadata = { title: `${meta.title} — pragaman` };
  *  W24–28 lines are the page's texture (verbatim pull quotes). */
 export default function SapiensPage() {
   const { content } = loadStory("sapiens");
+  const showStory = SHOW_PENDING || storyHasProse(content);
   return (
     <CaseStudyLayout meta={meta}>
-      <MDXRemote source={content} components={storyComponents} />
+      {showStory ? <MDXRemote source={content} components={storyComponents} /> : null}
     </CaseStudyLayout>
   );
 }

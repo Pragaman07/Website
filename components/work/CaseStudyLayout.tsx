@@ -141,7 +141,7 @@ export function CaseStudyLayout({
         </Reveal>
       )}
 
-      <article className="prose-col mt-12">{children}</article>
+      {children ? <article className="prose-col mt-12">{children}</article> : null}
 
       {meta.pullQuotes && (
         <div className="prose-col">
