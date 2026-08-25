@@ -289,6 +289,10 @@ export type SaveStatesContent = {
     lesson: CopyString;
   }>;
   visitedStates: CopyString;
+  /** Visited-beyond-home states (exact @svg-maps/india English names) —
+      coral-tinted on the map, no DLC tooltip. Feeds from
+      SECTION-2.travel-list; stays empty until Pragaman's list lands. */
+  visited?: string[];
   dlcTooltip: CopyString;
   mapCredit: CopyString;
 };

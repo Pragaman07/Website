@@ -21,4 +21,11 @@ await sharp("public/images/memoji-fun.png")
   .png()
   .toFile("public/images/memoji-face.png");
 
-console.log("prag-face.jpg + memoji-face.png written");
+// Same memoji at sticker size — Know Me hub polaroid corner (§11.1 garnish).
+await sharp("public/images/memoji-fun.png")
+  .trim()
+  .resize(160, 186, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
+  .png()
+  .toFile("public/images/memoji-sticker.png");
+
+console.log("prag-face.jpg + memoji-face.png + memoji-sticker.png written");

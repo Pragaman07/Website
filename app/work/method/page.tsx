@@ -32,14 +32,16 @@ export default function MethodPage() {
       {/* §8.2 the diagram — extra top room for the payoff glyph */}
       <section className="mt-24 md:mt-28">
         <BedrockDiagram diagram={method.diagram} />
-        {method.diagram.textAlternative.pending && (
+        {method.diagram.textAlternative.text ? (
+          <p className="sr-only">{method.diagram.textAlternative.text}</p>
+        ) : method.diagram.textAlternative.pending ? (
           <div className="mt-4 max-w-md">
             <Pending
               id={method.diagram.textAlternative.pending}
               note={method.diagram.textAlternative.note}
             />
           </div>
-        )}
+        ) : null}
       </section>
 
       {/* §8.3 the 3–4× rule */}
@@ -80,9 +82,11 @@ export default function MethodPage() {
             ))}
           </ul>
           <div className="mt-6 flex max-w-md flex-col gap-3">
-            {method.range.prose.pending && (
+            {method.range.prose.text ? (
+              <p className="type-body text-muted">{method.range.prose.text}</p>
+            ) : method.range.prose.pending ? (
               <Pending id={method.range.prose.pending} note={method.range.prose.note} />
-            )}
+            ) : null}
             {tools.pending && <Pending id={tools.pending} note={tools.note} />}
           </div>
         </section>

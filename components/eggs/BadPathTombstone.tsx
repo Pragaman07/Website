@@ -39,6 +39,15 @@ export function BadPathTombstone() {
             {eggs.notFound.back.text}
           </Link>
         </p>
+        {/* the memoji pays its respects — §12.3 relaxes playfulness here */}
+        <img
+          src="/images/memoji-face.png"
+          alt=""
+          aria-hidden
+          width={40}
+          height={40}
+          className="mx-auto mt-4 w-10 opacity-80"
+        />
       </Tombstone>
     </div>
   );

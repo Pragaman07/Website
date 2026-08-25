@@ -37,13 +37,21 @@ export function Footer({ content }: { content: GlobalContent }) {
           <p className="type-body-s text-muted">{footer.signoff.text}</p>
           {mode === "know" &&
             (footer.knowScribble.text ? (
-              <span
-                data-garnish
-                style={{ "--garnish-rotate": "-2deg" } as React.CSSProperties}
-                className="type-doodle font-bold text-accent-deep"
-                aria-hidden
-              >
-                {footer.knowScribble.text}
+              <span className="flex items-center gap-2" aria-hidden>
+                <img
+                  src="/images/memoji-face.png"
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="h-6 w-6"
+                />
+                <span
+                  data-garnish
+                  style={{ "--garnish-rotate": "-2deg" } as React.CSSProperties}
+                  className="type-doodle font-bold text-accent-deep"
+                >
+                  {footer.knowScribble.text}
+                </span>
               </span>
             ) : footer.knowScribble.pending ? (
               <Pending id={footer.knowScribble.pending} note={footer.knowScribble.note} />

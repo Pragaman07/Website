@@ -14,6 +14,16 @@ export function PolaroidHero({ hero }: { hero: KnowHubContent["hero"] }) {
       <Confetti />
       <div className="flex flex-col items-center gap-10 md:flex-row md:items-start md:gap-14">
         <div className="relative shrink-0">
+          {/* memoji sticker — top-right polaroid corner (top-left = tape,
+              bottom-right = annotation); decorative garnish, Know only */}
+          <Image
+            src="/images/memoji-sticker.png"
+            alt=""
+            aria-hidden
+            width={80}
+            height={93}
+            className="absolute -right-5 -top-6 z-10 w-16 rotate-6 sm:-right-6"
+          />
           <figure className="w-64 -rotate-2 bg-white p-3 pb-10 shadow-m sm:w-72">
             {/* tape strip */}
             <span
@@ -68,16 +78,25 @@ export function PolaroidHero({ hero }: { hero: KnowHubContent["hero"] }) {
 
         <div className="max-w-xl pt-2 md:pt-8">
           <h1 className="type-display-l -rotate-1 text-ink">{hero.headline.text}</h1>
-          {hero.intro.pending && (
+          {hero.intro.text ? (
+            <p className="type-body-l mt-6 max-w-md text-muted">{hero.intro.text}</p>
+          ) : hero.intro.pending ? (
             <div className="mt-6 max-w-md">
               <Pending id={hero.intro.pending} note={hero.intro.note} />
             </div>
-          )}
-          {hero.annotations[1]?.pending && (
+          ) : null}
+          {hero.annotations[1]?.text ? (
+            <span
+              aria-hidden
+              className="type-doodle mt-4 inline-block rotate-[-2deg] text-accent-deep"
+            >
+              {hero.annotations[1].text}
+            </span>
+          ) : hero.annotations[1]?.pending ? (
             <div className="mt-4 max-w-md">
               <Pending id={hero.annotations[1].pending} note={hero.annotations[1].note} />
             </div>
-          )}
+          ) : null}
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { SaveSlotCard } from "@/components/know/SaveSlotCard";
@@ -38,6 +38,8 @@ export function SaveStatesClient({
   const svgRef = useRef<SVGSVGElement>(null);
   const reduced = useReducedMotion();
   const markFound = useEggFound();
+  // Visited-beyond-home states: coral tint, no DLC tooltip (SECTION-2 list).
+  const visited = useMemo(() => new Set(content.visited ?? []), [content.visited]);
 
   // Draw the checkpoint path once the map scrolls into view.
   useEffect(() => {
@@ -72,7 +74,7 @@ export function SaveStatesClient({
           inline: "center",
           block: "nearest",
         });
-      } else {
+      } else if (!visited.has(state.name)) {
         const at =
           point ??
           (() => {
@@ -85,7 +87,7 @@ export function SaveStatesClient({
         markFound(5); // egg 5 — first-ever DLC discovery chimes
       }
     },
-    [states, reduced, markFound],
+    [states, reduced, markFound, visited],
   );
 
   const onKeyDown = (e: React.KeyboardEvent) => {
@@ -121,6 +123,7 @@ export function SaveStatesClient({
           >
             {states.map((state, i) => {
               const home = state.slot !== undefined;
+              const seen = !home && visited.has(state.name);
               const checkpoint = home ? content.checkpoints[state.slot!] : null;
               return (
                 <path
@@ -145,7 +148,9 @@ export function SaveStatesClient({
                     "cursor-pointer transition-[fill] duration-150 focus:outline-none",
                     home
                       ? "fill-accent hover:fill-accent-deep focus-visible:fill-accent-deep"
-                      : "fill-line hover:fill-muted/40 focus-visible:fill-muted/40",
+                      : seen
+                        ? "fill-accent/35 hover:fill-accent/50 focus-visible:fill-accent/50"
+                        : "fill-line hover:fill-muted/40 focus-visible:fill-muted/40",
                   )}
                   stroke={home ? "var(--accent-deep)" : "var(--bg)"}
                   strokeWidth={home ? 1.2 : 0.8}
