@@ -38,6 +38,6 @@
     "email": { "pending": "CONTACT-EMAIL", "note": "Personal address now; hello@pragaman.com post-domain." },
     "calendarUrl": { "pending": "CALENDAR-URL", "note": "Google Calendar booking link." },
     "socials": { "pending": "SOCIAL-LINKS", "note": "Links list — Content Doc / Pragaman." },
-    "knowScribble": { "pending": "CONTENT-DOC.footer-scribble", "note": "Caveat sign-off scribble, Know Me footer only." }
+    "knowScribble": { "text": "lorem ipsum, with love ✌", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.footer-scribble: Caveat sign-off scribble, Know Me footer only." }
   }
 }

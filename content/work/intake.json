@@ -17,7 +17,7 @@
       "question": { "text": "Who does it hurt most?", "locked": true },
       "kind": "textarea",
       "rows": 3,
-      "placeholder": { "pending": "CONTENT-DOC.intake-p2", "note": "Placeholder for step 2." }
+      "placeholder": { "text": "Lorem ipsum — who feels it most…", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.intake-p2." }
     },
     {
       "id": "tried",
@@ -26,7 +26,7 @@
       "rows": 3,
       "allowEmpty": true,
       "emptyCta": { "text": "Nothing yet — that's why I'm here →", "draft": true },
-      "placeholder": { "pending": "CONTENT-DOC.intake-p3", "note": "Placeholder for step 3." }
+      "placeholder": { "text": "Lorem ipsum — spreadsheets, prayers…", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.intake-p3." }
     },
     {
       "id": "severity",

@@ -7,7 +7,7 @@
       "draft": true,
       "note": "Accent phrase is a Content Doc decision — 'famous' is the spec's working guess."
     },
-    "subline": { "pending": "CONTENT-DOC.hero-subline", "note": "body-l, muted, max 52ch." },
+    "subline": { "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.hero-subline: body-l, muted, max 52ch." },
     "midnightSubline": { "text": "You're up late. Same.", "draft": true, "note": "Egg 7 swap, 00:00–04:59 local." },
     "ctaPrimary": { "text": "Pitch me a problem", "draft": true },
     "ctaSecondary": { "text": "See the receipts →", "draft": true }
@@ -28,21 +28,21 @@
         "slug": "filing-buddy",
         "tag": "GROWTH",
         "title": "Filing Buddy",
-        "hook": { "pending": "CONTENT-DOC.fb-hook", "note": "One-line hook under the card title." },
+        "hook": { "text": "Lorem ipsum dolor sit amet, consectetur adipiscing.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.fb-hook: one-line hook under the card title." },
         "heroStat": { "factId": "fb.gsc.clicks", "render": "×7.5 CLICKS" }
       },
       {
         "slug": "buddy-software",
         "tag": "0→1 BUILD",
         "title": "Buddy Software",
-        "hook": { "pending": "CONTENT-DOC.buddy-hook", "note": "One-line hook under the card title." },
+        "hook": { "text": "Sed do eiusmod tempor incididunt ut labore.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.buddy-hook: one-line hook under the card title." },
         "heroStat": { "factId": "buddy.departments", "render": "7 DEPTS → 1 PLATFORM" }
       },
       {
         "slug": "sapiens",
         "tag": "SOLO BUILD",
         "title": "Sapiens",
-        "hook": { "pending": "CONTENT-DOC.sapiens-hook", "note": "One-line hook under the card title." },
+        "hook": { "text": "Ut enim ad minim veniam, quis nostrud.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.sapiens-hook: one-line hook under the card title." },
         "heroStat": { "factId": "sapiens.stores", "render": "TEAM OF 1 → 2 APP STORES" }
       }
     ]

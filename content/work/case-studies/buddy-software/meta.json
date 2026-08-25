@@ -4,14 +4,15 @@
   "tags": ["0→1 BUILD", "SAAS", "CA WORKFLOWS"],
   "framing": { "text": "Sent to Indore alone in month one. Came back with the PRD.", "draft": true },
   "anchorScene": {
-    "pending": "CONTENT-DOC.buddy-anchor",
-    "note": "This page opens with the Indore scene as narrative, not a stat — oversized body-l first paragraph. Facts: buddy.anchor, buddy.functions, buddy.stakeholders."
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat — placeholder for the Indore opening scene.",
+    "draft": true,
+    "note": "PLACEHOLDER — CONTENT-DOC.buddy-anchor: the Indore scene as narrative, not a stat — oversized body-l first paragraph. Facts: buddy.anchor, buddy.functions, buddy.stakeholders."
   },
   "moves": [
-    { "n": "01", "name": "A week of interviews, 7 departments", "line": { "pending": "CONTENT-DOC.buddy-m1", "note": "Count ruled 7 (DECISIONS.md)." } },
-    { "n": "02", "name": "One PRD from twenty voices", "line": { "pending": "CONTENT-DOC.buddy-m2" } },
-    { "n": "03", "name": "Ops ↔ dev alignment", "line": { "pending": "CONTENT-DOC.buddy-m3" } },
-    { "n": "04", "name": "Delivery + UAT", "line": { "pending": "CONTENT-DOC.buddy-m4" } }
+    { "n": "01", "name": "A week of interviews, 7 departments", "line": { "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit — placeholder move line.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.buddy-m1. Count ruled 7 (DECISIONS.md)." } },
+    { "n": "02", "name": "One PRD from twenty voices", "line": { "text": "Sed do eiusmod tempor incididunt ut labore — placeholder move line.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.buddy-m2." } },
+    { "n": "03", "name": "Ops ↔ dev alignment", "line": { "text": "Ut enim ad minim veniam, quis nostrud exercitation — placeholder move line.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.buddy-m3." } },
+    { "n": "04", "name": "Delivery + UAT", "line": { "text": "Duis aute irure dolor in reprehenderit — placeholder move line.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.buddy-m4." } }
   ],
   "beforeAfter": {
     "beforeCaption": { "text": "7 sheets, 1 master, everything manual. 2-minute tasks took 10.", "draft": true },

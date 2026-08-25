@@ -1,7 +1,26 @@
 {
   "eyebrow": { "text": "RENT-FREE", "draft": true },
   "subline": { "text": "Things living in my head. They don't pay.", "draft": true },
-  "items": [],
+  "items": [
+    {
+      "kind": "quote",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "kind": "song",
+      "title": "Lorem Ipsum (Placeholder Mix)",
+      "artist": "Dolor Sit Amet"
+    },
+    {
+      "kind": "quote",
+      "text": "Ut enim ad minima veniam, quis nostrum exercitationem ullam."
+    },
+    {
+      "kind": "song",
+      "title": "Consectetur Nights",
+      "artist": "The Placeholders"
+    }
+  ],
   "pending": "P21-P24",
-  "note": "Empty until P21/P24 (+ meme uploads) land → LOCKED tile + 404 route. Item shapes: meme { image, alt } · song { title, artist } · quote { text }."
+  "note": "ALL ITEMS ARE LOREM PLACEHOLDERS (Pragaman's call, 25 Aug) — real quotes/songs replace them when P21/P24 land. Meme cards are BUILT (kind: 'meme', { image, alt }) but ship only when Pragaman uploads real images — no fabricated imagery (CLAUDE.md rule 7). Item shapes: meme { image, alt } · song { title, artist } · quote { text }."
 }

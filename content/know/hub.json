@@ -1,11 +1,11 @@
 {
   "hero": {
     "headline": { "text": "Same person, fewer buzzwords.", "draft": true },
-    "intro": { "pending": "SECTION-2", "note": "Short Satoshi intro — feeds from Section 2 answers." },
+    "intro": { "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit — placeholder intro until the Section 2 answers land.", "draft": true, "note": "PLACEHOLDER — real short Satoshi intro feeds from SECTION-2." },
     "photo": { "src": "/images/prag.png", "alt": { "text": "Pragaman", "draft": true } },
     "annotations": [
       { "text": "actual smile, not LinkedIn smile", "draft": true },
-      { "pending": "CONTENT-DOC.hero-annotation-2", "note": "2–3 Caveat annotations max." }
+      { "text": "lorem ipsum, dolor ✍", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.hero-annotation-2; 2–3 Caveat annotations max." }
     ],
     "midnightAnnotation": { "text": "why are we both awake", "draft": true, "note": "Egg 7 swap, 00:00–04:59 local." }
   },

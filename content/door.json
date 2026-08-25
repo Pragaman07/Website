@@ -3,11 +3,11 @@
   "work": {
     "eyebrow": { "text": "FOR FOUNDERS & HIRING", "draft": true },
     "title": { "text": "The Work", "draft": true },
-    "line": { "pending": "CONTENT-DOC.door.work-line", "note": "One-line description under the Work door title." }
+    "line": { "text": "Lorem ipsum dolor sit amet, consectetur.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.door.work-line: one-line description under the Work door title." }
   },
   "know": {
     "eyebrow": { "text": "FOR HUMANS", "draft": true },
     "title": { "text": "The Person", "draft": true },
-    "line": { "pending": "CONTENT-DOC.door.know-line", "note": "One-line description under the Know Me door title." }
+    "line": { "text": "Lorem ipsum dolor sit, adipiscing elit.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.door.know-line: one-line description under the Know Me door title." }
   }
 }

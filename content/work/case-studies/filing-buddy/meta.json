@@ -4,8 +4,9 @@
   "tags": ["GROWTH", "SEO + AEO", "JUL '25–JUL '26", "AS AN INTERN"],
   "framing": { "text": "The year before me vs. my first year.", "draft": true },
   "problem": {
-    "pending": "CONTENT-DOC.fb-problem",
-    "note": "2–3 sentence before-picture card. Facts available: position 45 = page 5, 2,500 clicks/year, 61.3% paid. Client-belief beat pending W13a-2."
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — placeholder before-picture until the Content Doc lands.",
+    "draft": true,
+    "note": "PLACEHOLDER — CONTENT-DOC.fb-problem: 2–3 sentence before-picture card. Facts available: position 45 = page 5, 2,500 clicks/year, 61.3% paid. Client-belief beat pending W13a-2."
   },
   "moves": [
     { "n": "01", "name": "Depth over breadth", "line": { "text": "Researched and ranked target keywords, identified content pillars, built content depth instead of spreading thin.", "draft": true } },

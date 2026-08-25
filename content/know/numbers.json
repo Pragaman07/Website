@@ -8,6 +8,38 @@
       "footnote": { "text": "\"The Everything Guy\"", "draft": true },
       "factId": "method.title-candidate",
       "pendingKeepKill": "OPEN-8"
+    },
+    {
+      "metric": "LOREM COUNTER",
+      "value": "128",
+      "trend": "▲ 12%",
+      "sticker": "teal",
+      "footnote": { "text": "Lorem ipsum placeholder — a real stat lands with P13–P20.", "draft": true }
+    },
+    {
+      "metric": "DOLOR INDEX",
+      "value": "42",
+      "sparkline": true,
+      "footnote": { "text": "Lorem ipsum placeholder, sparkline included at no extra cost.", "draft": true }
+    },
+    {
+      "metric": "IPSUM STREAK",
+      "value": "7",
+      "trend": "▼ 3",
+      "sticker": "purple",
+      "footnote": { "text": "Placeholder — consecutive lorems, personal best.", "draft": true }
+    },
+    {
+      "metric": "AMET HOURS LOGGED",
+      "value": "3.5 hrs",
+      "trend": "▲",
+      "sticker": "sun",
+      "footnote": { "text": "Placeholder — real number arrives with Section 2.", "draft": true }
+    },
+    {
+      "metric": "CONSECTETUR RATE",
+      "value": "∞",
+      "footnote": { "text": "Placeholder — mathematically dubious, emotionally accurate.", "draft": true }
     }
   ],
   "coffeeCounter": {
@@ -15,5 +47,5 @@
     "note": "Biggest card in the grid — egg 4, live KV counter."
   },
   "pending": "P13-P20",
-  "note": "Rest of the dashboard feeds from P13–P20 + rapid-fire. Stat shape: { metric, value, trend?, sticker?, footnote?, sparkline? }."
+  "note": "ALL STATS EXCEPT THE FIRST ARE LOREM PLACEHOLDERS (Pragaman's call, 25 Aug) — the dashboard refills from P13–P20 + rapid-fire. Stat shape: { metric, value, trend?, sticker?, footnote?, sparkline? }; metric must be unique (React key + CountUp id); plain-digit values count up."
 }

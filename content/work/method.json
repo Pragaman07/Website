@@ -13,7 +13,7 @@
       { "n": "05", "name": "BEDROCK", "line": { "text": "Nothing left unexamined. Now we build.", "draft": true } }
     ],
     "payoff": { "text": "BUILT ON BEDROCK.", "draft": true },
-    "textAlternative": { "pending": "CONTENT-DOC.method-alt", "note": "One-paragraph text alternative of the diagram for screen readers (§13)." }
+    "textAlternative": { "text": "The Bedrock Method diagram: five strata drilled top to bottom. 01 Surface — the fuzzy problem, as handed to me. 02 Questions — generate every possible question. 03 Groups — group them, imagine the flow. 04 Answers — answer from most technical to most basic. 05 Bedrock — nothing left unexamined; now we build. Built on bedrock.", "draft": true, "note": "Derived verbatim from the diagram strata (§13 text alternative) — Content Doc may polish; CONTENT-DOC.method-alt." }
   },
   "rule": {
     "factId": "method.rule",
@@ -34,7 +34,7 @@
   "range": {
     "eyebrow": { "text": "RANGE AT NOBORU", "draft": true },
     "factId": "method.range",
-    "prose": { "pending": "CONTENT-DOC.range-prose", "note": "W36 first-two-weeks texture feeds prose beside the diagram." }
+    "prose": { "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt — placeholder prose until the W36 first-two-weeks texture lands.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.range-prose: W36 first-two-weeks texture feeds prose beside the diagram." }
   },
   "tools": { "factId": "method.tools" }
 }

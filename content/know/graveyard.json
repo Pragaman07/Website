@@ -1,7 +1,36 @@
 {
   "eyebrow": { "text": "THE GRAVEYARD", "draft": true },
   "subline": { "text": "IDEAS, ABANDONED. REST IN PEACE.", "draft": true },
-  "items": [],
+  "items": [
+    {
+      "name": "Lorem Ipsum Labs",
+      "born": "2018",
+      "died": "2019",
+      "epitaph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit — a placeholder idea that never left the whiteboard.",
+      "causeOfDeath": "Lorem ipsum (placeholder)"
+    },
+    {
+      "name": "Dolor Sit App",
+      "born": "2020",
+      "died": "2020",
+      "epitaph": "Sed do eiusmod tempor incididunt ut labore — lived fast, shipped never.",
+      "causeOfDeath": "Consectetur overload (placeholder)"
+    },
+    {
+      "name": "Consectetur Weekly",
+      "born": "2021",
+      "died": "2022",
+      "epitaph": "Ut enim ad minim veniam — three issues, then eternal silence.",
+      "causeOfDeath": "Eiusmod fatigue (placeholder)"
+    },
+    {
+      "name": "Adipiscing Bot",
+      "born": "2023",
+      "died": "2024",
+      "epitaph": "Quis nostrud exercitation ullamco — it answered one question, badly.",
+      "causeOfDeath": "Magna aliqua (placeholder)"
+    }
+  ],
   "pending": "P9-P12",
-  "note": "Empty until P9–P12 land → hub tile renders LOCKED and this route 404s (thin-section rule §14). Item shape: { name, born, died, epitaph, causeOfDeath }."
+  "note": "ALL ITEMS ARE LOREM PLACEHOLDERS (Pragaman's call, 25 Aug) — real dead ideas replace them when P9–P12 land. Item shape: { name, born, died, epitaph, causeOfDeath }, raw strings, names unique (React keys)."
 }

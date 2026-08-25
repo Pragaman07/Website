@@ -1,7 +1,30 @@
 {
   "eyebrow": { "text": "FAQ NOBODY ASKED", "draft": true },
   "subline": { "text": "A self-interview that goes downhill.", "draft": true },
-  "items": [],
+  "items": [
+    {
+      "q": "Lorem ipsum dolor sit amet?",
+      "a": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — placeholder answer until Section 2 lands."
+    },
+    {
+      "q": "Consectetur adipiscing elit, seriously?",
+      "a": "ut enim ad minim veniam, quis nostrud exercitation ullamco laboris — placeholder, but unhinged about it",
+      "unhinged": true
+    },
+    {
+      "q": "Sed do eiusmod tempor incididunt?",
+      "a": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur — placeholder answer number three."
+    },
+    {
+      "q": "Ut labore et dolore magna aliqua?",
+      "a": "excepteur sint occaecat cupidatat non proident, lorem lorem lorem — placeholder, the interview is going downhill as promised",
+      "unhinged": true
+    },
+    {
+      "q": "Quis nostrum exercitationem ullam?",
+      "a": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit — placeholder closer, real self-interview arrives with Section 2."
+    }
+  ],
   "pending": "SECTION-2",
-  "note": "Empty until Section 2 + W34–W37/W40 feeders land → LOCKED tile + 404 route. Item shape: { q, a, unhinged?: boolean } — unhinged answers may render in Caveat (content-flagged per entry)."
+  "note": "ALL ITEMS ARE LOREM PLACEHOLDERS (Pragaman's call, 25 Aug) — the real self-interview feeds from Section 2 + W34–W37/W40. Item shape: { q, a, unhinged?: boolean }; q must be unique (React key); unhinged renders in Caveat."
 }
