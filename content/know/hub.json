@@ -13,35 +13,35 @@
     {
       "level": "01",
       "slug": "graveyard",
-      "glyph": "🪦",
+      "glyph": "graveyard",
       "title": "The Graveyard",
       "tease": { "text": "Ideas that didn't make it.", "draft": true }
     },
     {
       "level": "02",
       "slug": "numbers",
-      "glyph": "📊",
+      "glyph": "numbers",
       "title": "Life in Numbers",
       "tease": { "text": "KPIs nobody asked me to track.", "draft": true }
     },
     {
       "level": "03",
       "slug": "save-states",
-      "glyph": "🗺",
+      "glyph": "map",
       "title": "Save States",
       "tease": { "text": "India as a memory card.", "draft": true }
     },
     {
       "level": "04",
       "slug": "rent-free",
-      "glyph": "📌",
+      "glyph": "pin",
       "title": "Rent-Free",
       "tease": { "text": "Things living in my head.", "draft": true }
     },
     {
       "level": "05",
       "slug": "faq",
-      "glyph": "❓",
+      "glyph": "faq",
       "title": "FAQ Nobody Asked",
       "tease": { "text": "A self-interview that goes downhill.", "draft": true }
     }

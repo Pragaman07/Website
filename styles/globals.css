@@ -412,6 +412,20 @@ html.page-fade body {
     pointer;
 }
 
+/* ---------- The coral wash (DECISIONS.md 3 Sep — the only gradient on the site) ---------- */
+/* ≤8% coral breathed into the ground behind the case cards and the pitch
+   block. Full-bleed sections only; the §6.1 hero stays flat. Reads as a
+   warm glow in both themes because it mixes into --bg, not a fixed tint. */
+.wash-coral {
+  background:
+    radial-gradient(
+      120% 70% at 50% 0%,
+      color-mix(in srgb, var(--accent) 8%, transparent),
+      transparent 70%
+    ),
+    var(--bg);
+}
+
 /* ---------- §5 Scroll reveal (the only scroll-linked motion on the site) ---------- */
 /* Hidden state only applies once JS marked the document (html.js), so
    no-JS visitors always see content. Reduced motion renders visible. */

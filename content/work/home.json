@@ -23,27 +23,47 @@
   "cases": {
     "sectionEyebrow": { "text": "CASE STUDIES", "draft": true },
     "sectionTitle": { "text": "The receipts", "draft": true },
+    "readLabel": { "text": "Read the case study →", "draft": true, "note": "CONTENT-DOC.cases-read-label — the card link (§6.2 as amended 3 Sep)." },
+    "featured": {
+      "slug": "filing-buddy",
+      "label": { "text": "STRONGEST RECEIPT", "draft": true, "note": "CONTENT-DOC.cases-featured-chip — chip on the raised card." }
+    },
     "cards": [
       {
         "slug": "filing-buddy",
         "tag": "GROWTH",
         "title": "Filing Buddy",
         "hook": { "text": "Lorem ipsum dolor sit amet, consectetur adipiscing.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.fb-hook: one-line hook under the card title." },
-        "heroStat": { "factId": "fb.gsc.clicks", "render": "×7.5 CLICKS" }
+        "heroStat": { "factId": "fb.gsc.clicks", "render": "×7.5 CLICKS" },
+        "receipts": [
+          { "factId": "fb.gsc.impressions", "render": "IMPRESSIONS 1.5M → 8.82M" },
+          { "factId": "fb.gsc.top10", "render": "TOP-10 KEYWORDS 128 → 700+" },
+          { "factId": "fb.gsc.ai-overview", "render": "AI OVERVIEW IMPRESSIONS 0 → 213K" }
+        ]
       },
       {
         "slug": "buddy-software",
         "tag": "0→1 BUILD",
         "title": "Buddy Software",
         "hook": { "text": "Sed do eiusmod tempor incididunt ut labore.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.buddy-hook: one-line hook under the card title." },
-        "heroStat": { "factId": "buddy.departments", "render": "7 DEPTS → 1 PLATFORM" }
+        "heroStat": { "factId": "buddy.departments", "render": "7 DEPTS → 1 PLATFORM" },
+        "receipts": [
+          { "factId": "buddy.stakeholders", "render": "20+ STAKEHOLDERS INTERVIEWED" },
+          { "factId": "buddy.task-time", "render": "TASK TIME 10 MIN → 2 MIN" },
+          { "factId": "buddy.anchor", "render": "MONTH ONE · INDORE · ONE WEEK OF INTERVIEWS" }
+        ]
       },
       {
         "slug": "sapiens",
         "tag": "SOLO BUILD",
         "title": "Sapiens",
         "hook": { "text": "Ut enim ad minim veniam, quis nostrud.", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.sapiens-hook: one-line hook under the card title." },
-        "heroStat": { "factId": "sapiens.stores", "render": "TEAM OF 1 → 2 APP STORES" }
+        "heroStat": { "factId": "sapiens.stores", "render": "TEAM OF 1 → 2 APP STORES" },
+        "receipts": [
+          { "factId": "sapiens.stack", "render": "NEXT.JS · SUPABASE · SANITY · VERCEL" },
+          { "factId": "sapiens.stack-adopted", "render": "STACK ADOPTED COMPANY-WIDE" },
+          { "factId": "sapiens.status", "render": "MVP COMPLETE · IN TESTING" }
+        ]
       }
     ]
   },

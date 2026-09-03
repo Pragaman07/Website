@@ -3,6 +3,9 @@
     "title": { "text": "Pitch me a problem", "draft": true },
     "sub": { "text": "Three questions. You'll accidentally write a mini-PRD.", "draft": true }
   },
+  "lead": {
+    "cta": { "text": "Start the pitch →", "draft": true, "note": "CONTENT-DOC.pitch-cta — the centred lead block's pill button (§10 as amended 3 Sep). The hero CTA still says \"Pitch me a problem\"." }
+  },
   "steps": [
     {
       "id": "broken",

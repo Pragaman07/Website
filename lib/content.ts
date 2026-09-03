@@ -66,6 +66,17 @@ export function allFacts(): readonly Fact[] {
 
 export type NavLink = { label: string; href: string; draft?: boolean };
 
+/** Custom glyph keys (chunk 3 — DECISIONS.md 3 Sep: emoji retired). */
+export type GlyphName =
+  | "graveyard"
+  | "numbers"
+  | "map"
+  | "pin"
+  | "faq"
+  | "coffee"
+  | "receipt"
+  | "call";
+
 export type GlobalContent = {
   wordmark: CopyString;
   nav: { work: NavLink[]; know: NavLink[] };
@@ -81,9 +92,19 @@ export type GlobalContent = {
   errors: { title: CopyString; retry: CopyString };
   footer: {
     signoff: CopyString;
+    /** Supplied 4 Sep 2026 — `text` is the address (mailto: is the component's job). */
     email: CopyString;
+    emailLabel: CopyString;
     calendarUrl: CopyString;
+    calendarLabel: CopyString;
+    /** LEGACY pending slot — superseded by socialLinks; removed with chunk 5. */
     socials: CopyString;
+    socialLinks: Array<{ label: string; href: string }>;
+    /** Column headers of the extended footer (§2.3 as amended 3 Sep). */
+    columns: { work: CopyString; know: CopyString; contact: CopyString; live: CopyString };
+    /** pitched/replied labels come from intake.json → counter; coffee is new here. */
+    counters: { coffeeLabel: CopyString };
+    buildLabel: CopyString;
     knowScribble: CopyString;
   };
 };
@@ -113,12 +134,18 @@ export type WorkHomeContent = {
   cases: {
     sectionEyebrow: CopyString;
     sectionTitle: CopyString;
+    /** Card link label (§6.2 as amended 3 Sep — card-style receipts). */
+    readLabel: CopyString;
+    /** The raised card + its chip. */
+    featured: { slug: string; label: CopyString };
     cards: Array<{
       slug: string;
       tag: string;
       title: string;
       hook: CopyString;
       heroStat: StatRef;
+      /** Three ✓ receipts per card — facts.json ids + render strings. */
+      receipts: StatRef[];
     }>;
   };
   methodTeaser: { line: CopyString; linkLabel: CopyString };
@@ -220,6 +247,8 @@ export type IntakeStep = {
 
 export type IntakeContent = {
   header: { title: CopyString; sub: CopyString };
+  /** The centred lead block above the card (§10 as amended 3 Sep). */
+  lead: { cta: CopyString };
   steps: IntakeStep[];
   nav: { next: CopyString; back: CopyString };
   errors: Record<string, CopyString>;
@@ -240,7 +269,7 @@ export type KnowHubContent = {
   levels: Array<{
     level: string;
     slug: string;
-    glyph: string;
+    glyph: GlyphName;
     title: string;
     tease: CopyString;
   }>;

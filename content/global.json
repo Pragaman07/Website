@@ -39,9 +39,23 @@
       "text": "Built with Claude Code, coffee, and an unreasonable number of questions.",
       "draft": true
     },
-    "email": { "pending": "CONTACT-EMAIL", "note": "Personal address now; hello@pragaman.com post-domain." },
-    "calendarUrl": { "pending": "CALENDAR-URL", "note": "Google Calendar booking link." },
-    "socials": { "pending": "SOCIAL-LINKS", "note": "Links list — Content Doc / Pragaman." },
+    "email": { "text": "kumaranuragpragaman@gmail.com", "note": "Supplied by Pragaman 4 Sep 2026 — personal address until hello@pragaman.com exists post-domain." },
+    "emailLabel": { "text": "Email", "draft": true },
+    "calendarUrl": { "pending": "CALENDAR-URL", "note": "Google Calendar booking link — still owed (4 Sep 2026)." },
+    "calendarLabel": { "text": "Book a call", "draft": true },
+    "socials": { "pending": "SOCIAL-LINKS", "note": "LEGACY slot — superseded by socialLinks; removed with chunk 5." },
+    "socialLinks": [
+      { "label": "Instagram", "href": "https://www.instagram.com/prag.a.man/" },
+      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/pragaman-kumar-anurag/" }
+    ],
+    "columns": {
+      "work": { "text": "WORK", "draft": true },
+      "know": { "text": "KNOW ME", "draft": true },
+      "contact": { "text": "CONTACT", "draft": true },
+      "live": { "text": "LIVE", "draft": true }
+    },
+    "counters": { "coffeeLabel": { "text": "Coffee", "draft": true, "note": "Footer readout of counter:coffee; pitched/replied labels reuse intake.json → counter." } },
+    "buildLabel": { "text": "BUILD", "draft": true, "note": "Label for the v{age}.{month} build stamp (D-3 scheme) in the footer bottom bar." },
     "knowScribble": { "text": "lorem ipsum, with love ✌", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.footer-scribble: Caveat sign-off scribble, Know Me footer only." }
   }
 }
