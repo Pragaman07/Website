@@ -26,6 +26,10 @@
     "muteLabel": { "text": "Mute sounds", "draft": true },
     "unmuteLabel": { "text": "Unmute sounds", "draft": true }
   },
+  "theme": {
+    "toDark": { "text": "Lights off", "draft": true },
+    "toLight": { "text": "Lights on", "draft": true }
+  },
   "errors": {
     "title": { "text": "Something broke on my side.", "draft": true },
     "retry": { "text": "Try again", "draft": true }

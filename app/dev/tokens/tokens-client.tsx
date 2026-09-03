@@ -7,7 +7,11 @@ import { Button } from "@/components/ui/Button";
 import { Pending } from "@/components/ui/Pending";
 import { Reveal } from "@/components/ui/Reveal";
 import { CountUp } from "@/components/ui/CountUp";
-import { getFact } from "@/lib/content";
+import { ThemeToggle } from "@/components/shell/ThemeToggle";
+import globalJson from "@/content/global.json";
+import { getFact, type GlobalContent } from "@/lib/content";
+
+const themeLabels = (globalJson as GlobalContent).theme;
 
 type Mode = "work" | "know";
 
@@ -19,6 +23,9 @@ const swatchTokens = [
   "--line",
   "--accent",
   "--accent-deep",
+  "--band",
+  "--on-band",
+  "--on-accent",
 ] as const;
 
 const stickerTokens = ["--teal", "--purple", "--sun"] as const;
@@ -31,9 +38,10 @@ const typeScale = [
   { cls: "type-body-l", label: "body-l · Satoshi 400 · 18px" },
   { cls: "type-body", label: "body · Satoshi 400 · 16px" },
   { cls: "type-body-s", label: "body-s · Satoshi 400 · 14px" },
-  { cls: "type-mono-stat-xl", label: "mono-stat-xl · Space Mono 700" },
-  { cls: "type-mono-stat", label: "mono-stat · Space Mono 700" },
-  { cls: "type-mono-label", label: "mono-label · Space Mono · 11px caps" },
+  { cls: "type-mono-stat-xl", label: "stat-xl · Bricolage 800 · display numerals" },
+  { cls: "type-mono-stat", label: "stat · Bricolage 700 · display numerals" },
+  { cls: "type-data", label: "data · Geist Mono 400 · 14px tabular" },
+  { cls: "type-mono-label", label: "mono-label · Geist Mono · 12px caps" },
 ] as const;
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -88,6 +96,10 @@ export function TokensClient() {
           Flip mode
         </button>
         <MonoLabel bold>{mode === "work" ? "WORK" : "KNOW ME"}</MonoLabel>
+        <span className="ml-4 flex items-center gap-2">
+          <ThemeToggle content={themeLabels} />
+          <MonoLabel bold>LIGHTS</MonoLabel>
+        </span>
       </div>
 
       <Section title="01 · COLOR TOKENS">
@@ -170,7 +182,7 @@ export function TokensClient() {
 
           <Card className="max-w-md p-6 shadow-s">
             <MonoLabel bold className="block">
-              PROOF STRIP · COUNT-UP · SPACE MONO
+              PROOF STRIP · COUNT-UP · BRICOLAGE NUMERALS
             </MonoLabel>
             <div className="type-mono-stat mt-3 flex flex-wrap gap-x-2 text-ink">
               <span>

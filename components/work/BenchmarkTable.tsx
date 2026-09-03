@@ -47,10 +47,10 @@ export function BenchmarkTable({
                     <th scope="row" className="type-mono-label sticky left-0 bg-surface px-5 py-3.5 font-normal text-ink">
                       {fact.label}
                     </th>
-                    <td className="type-mono-stat px-5 py-3.5 text-right font-normal text-muted">
+                    <td className="type-data px-5 py-3.5 text-right font-normal text-muted">
                       {fact.standard}
                     </td>
-                    <td className="type-mono-stat px-5 py-3.5 text-right text-ink">{fact.value}</td>
+                    <td className="type-data px-5 py-3.5 text-right text-ink">{fact.value}</td>
                     <td className="px-5 py-3.5">
                       <span className="flex items-center justify-end gap-2">
                         <span

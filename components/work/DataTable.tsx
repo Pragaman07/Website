@@ -4,7 +4,7 @@ import type { CopyString } from "@/lib/content";
 
 /**
  * §7.0 data-table styling: surface card, header row mono-label on --bg,
- * numbers right-aligned Space Mono tabular, change column bold, row hover
+ * numbers right-aligned Geist Mono tabular (type-data), change column bold, row hover
  * tint. Mobile: horizontal scroll, sticky first column, right-edge fade.
  * Scoping notes on facts render as footnote lines.
  */
@@ -53,13 +53,13 @@ export function DataTable({
                   >
                     {fact.label}
                   </th>
-                  <td className="type-mono-stat px-5 py-3.5 text-right font-normal text-muted">
+                  <td className="type-data px-5 py-3.5 text-right font-normal text-muted">
                     {fact.before ?? "—"}
                   </td>
-                  <td className="type-mono-stat px-5 py-3.5 text-right text-ink">
+                  <td className="type-data px-5 py-3.5 text-right text-ink">
                     {fact.after ?? fact.value ?? "—"}
                   </td>
-                  <td className="type-mono-stat px-5 py-3.5 text-right font-bold text-ink">
+                  <td className="type-data px-5 py-3.5 text-right font-bold text-ink">
                     {fact.change ?? "—"}
                   </td>
                 </tr>

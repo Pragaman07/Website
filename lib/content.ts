@@ -76,6 +76,8 @@ export type GlobalContent = {
     ariaToKnow: CopyString;
   };
   mute: { muteLabel: CopyString; unmuteLabel: CopyString };
+  /** Night-mode control labels (aria/title) — DECISIONS.md 3 Sep 2026. */
+  theme: { toDark: CopyString; toLight: CopyString };
   errors: { title: CopyString; retry: CopyString };
   footer: {
     signoff: CopyString;

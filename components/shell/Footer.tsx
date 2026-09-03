@@ -2,6 +2,7 @@
 
 import { useMode } from "@/lib/mode";
 import { MuteButton } from "@/components/shell/MuteButton";
+import { ThemeToggle } from "@/components/shell/ThemeToggle";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Pending } from "@/components/ui/Pending";
 import type { GlobalContent } from "@/lib/content";
@@ -28,8 +29,9 @@ export function Footer({ content }: { content: GlobalContent }) {
           {footer.socials.pending && (
             <Pending id={footer.socials.pending} note={footer.socials.note} />
           )}
-          <span className="ml-auto">
+          <span className="ml-auto flex items-center gap-1">
             <MuteButton content={content.mute} />
+            <ThemeToggle content={content.theme} />
           </span>
         </div>
 

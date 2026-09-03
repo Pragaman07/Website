@@ -63,7 +63,7 @@ export function IdentityCrisisOverlay() {
   return (
     <div
       className="fixed inset-0 z-[100] grid place-items-center p-6"
-      style={{ background: "color-mix(in srgb, var(--ink) 45%, transparent)" }}
+      style={{ background: "var(--scrim)" }}
     >
       <motion.div
         role="alertdialog"
@@ -75,22 +75,22 @@ export function IdentityCrisisOverlay() {
         className="w-full max-w-md overflow-hidden rounded-card border border-line bg-surface shadow-hover"
       >
         <div className="flex items-center justify-between bg-accent px-4 py-2.5">
-          <MonoLabel bold className="text-ink">
+          <MonoLabel bold className="text-on-accent">
             {eggs.identityCrisis.chrome.text}
           </MonoLabel>
           <span aria-hidden className="flex gap-1.5">
             {[0, 1, 2].map((i) => (
-              <span key={i} className="h-2.5 w-2.5 rounded-pill bg-ink/30" />
+              <span key={i} className="h-2.5 w-2.5 rounded-pill bg-on-accent/30" />
             ))}
           </span>
         </div>
         <div className="p-6">
-          <p className="type-mono-stat text-ink">{eggs.identityCrisis.body.text}</p>
+          <p className="type-data text-ink">{eggs.identityCrisis.body.text}</p>
           <button
             ref={buttonRef}
             type="button"
             onClick={() => setOpen(false)}
-            className="mt-6 rounded-btn bg-accent px-5 py-2.5 font-bold text-ink transition-colors duration-150 hover:bg-accent-deep"
+            className="mt-6 rounded-btn bg-accent px-5 py-2.5 font-bold text-on-accent transition-colors duration-150 hover:bg-accent-deep"
           >
             {eggs.identityCrisis.button.text}
           </button>

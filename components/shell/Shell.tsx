@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { ModeProvider } from "@/lib/mode";
+import { ThemeProvider } from "@/lib/theme";
 import { SoundProvider } from "@/lib/sound";
 import { Header } from "@/components/shell/Header";
 import { Footer } from "@/components/shell/Footer";
@@ -27,6 +28,7 @@ export function Shell({
 
   return (
     <SoundProvider>
+      <ThemeProvider>
       <ModeProvider>
         <TemperatureLayer />
         <IdentityCrisisOverlay />
@@ -41,6 +43,7 @@ export function Shell({
           </>
         )}
       </ModeProvider>
+      </ThemeProvider>
     </SoundProvider>
   );
 }

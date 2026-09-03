@@ -18,7 +18,7 @@ export default function ErrorPage({ reset }: { error: Error; reset: () => void }
         <button
           type="button"
           onClick={reset}
-          className="mt-6 rounded-btn bg-accent px-5 py-2.5 font-bold text-ink transition-colors duration-150 hover:bg-accent-deep"
+          className="mt-6 rounded-btn bg-accent px-5 py-2.5 font-bold text-on-accent transition-colors duration-150 hover:bg-accent-deep"
         >
           {errors.retry.text}
         </button>

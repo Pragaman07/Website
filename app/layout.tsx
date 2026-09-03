@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import {
   Bricolage_Grotesque,
-  Space_Mono,
+  Geist_Mono,
   Caveat,
   Black_Ops_One,
 } from "next/font/google";
@@ -31,9 +31,10 @@ const satoshi = localFont({
   display: "swap",
 });
 
-// Not preloaded: stats/labels swap invisibly and are never the LCP —
-// keeps the display font first in the 4G queue for the hero.
-const mono = Space_Mono({
+// Geist Mono — labels, tabular data, versions (Space Mono retired,
+// DECISIONS.md 3 Sep 2026; display-scale stats wear Bricolage). Not
+// preloaded: never the LCP — keeps the display font first in the 4G queue.
+const mono = Geist_Mono({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-mono",
@@ -75,9 +76,11 @@ export const metadata: Metadata = {
  * 1. marks JS availability (.reveal guard),
  * 2. deep links force their mode (/work → work, /know-me → know) and persist,
  * 3. `/` with a stored mode redirects to that home — no door flash,
- * 4. otherwise data-mode = stored mode, defaulting to work.
+ * 4. otherwise data-mode = stored mode, defaulting to work,
+ * 5. data-theme = the stored override ("pragaman-theme") else the OS
+ *    preference — night mode (DECISIONS.md 3 Sep), stamped before paint.
  */
-const bootScript = `(function(){var d=document.documentElement;d.classList.add("js");var m=null;try{m=localStorage.getItem("pragaman-mode")}catch(e){}if(m!=="work"&&m!=="know")m=null;var p=location.pathname;var f=(p==="/work"||p.indexOf("/work/")===0)?"work":((p==="/know-me"||p.indexOf("/know-me/")===0)?"know":null);if(f&&f!==m){m=f;try{localStorage.setItem("pragaman-mode",m)}catch(e){}}d.setAttribute("data-mode",m||"work");if(p==="/"&&m){location.replace(m==="work"?"/work":"/know-me")}})();`;
+const bootScript = `(function(){var d=document.documentElement;d.classList.add("js");var m=null;try{m=localStorage.getItem("pragaman-mode")}catch(e){}if(m!=="work"&&m!=="know")m=null;var p=location.pathname;var f=(p==="/work"||p.indexOf("/work/")===0)?"work":((p==="/know-me"||p.indexOf("/know-me/")===0)?"know":null);if(f&&f!==m){m=f;try{localStorage.setItem("pragaman-mode",m)}catch(e){}}d.setAttribute("data-mode",m||"work");var t=null;try{t=localStorage.getItem("pragaman-theme")}catch(e){}if(t!=="light"&&t!=="dark"){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light"}d.setAttribute("data-theme",t);if(p==="/"&&m){location.replace(m==="work"?"/work":"/know-me")}})();`;
 
 export default function RootLayout({
   children,

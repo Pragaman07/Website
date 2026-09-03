@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { useMode } from "@/lib/mode";
 import { ModeToggle } from "@/components/shell/ModeToggle";
 import { MuteButton } from "@/components/shell/MuteButton";
+import { ThemeToggle } from "@/components/shell/ThemeToggle";
 import { NavPanel } from "@/components/shell/NavPanel";
 import { cn } from "@/lib/cn";
 import type { GlobalContent } from "@/lib/content";
@@ -14,7 +15,8 @@ import type { GlobalContent } from "@/lib/content";
 /**
  * §2.2 — sticky 64px header, --bg at 92% + backdrop blur, bottom border
  * only after 24px of scroll. Nav follows the current mode; active page
- * underlined in coral (small text → accent-deep per §13).
+ * underlined in coral (small text → accent-deep per §13). Sound + theme
+ * controls sit beside the toggle on ≥md and inside the nav panel below.
  */
 export function Header({ content }: { content: GlobalContent }) {
   const { mode } = useMode();
@@ -74,7 +76,10 @@ export function Header({ content }: { content: GlobalContent }) {
           </nav>
 
           <ModeToggle content={content.toggle} />
-          <MuteButton content={content.mute} />
+          <span className="hidden items-center gap-1 md:flex">
+            <MuteButton content={content.mute} />
+            <ThemeToggle content={content.theme} />
+          </span>
 
           <button
             type="button"
@@ -89,7 +94,17 @@ export function Header({ content }: { content: GlobalContent }) {
         </div>
       </div>
 
-      <NavPanel open={panelOpen} links={links} onNavigate={() => setPanelOpen(false)} />
+      <NavPanel
+        open={panelOpen}
+        links={links}
+        onNavigate={() => setPanelOpen(false)}
+        controls={
+          <>
+            <MuteButton content={content.mute} />
+            <ThemeToggle content={content.theme} />
+          </>
+        }
+      />
     </header>
   );
 }

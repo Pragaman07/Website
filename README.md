@@ -48,7 +48,11 @@ India map: [`@svg-maps/india`](https://www.npmjs.com/package/@svg-maps/india), *
 
 ## Fonts
 
-Bricolage Grotesque / Space Mono / Caveat / Black Ops One via `next/font/google`; **Satoshi** self-hosted in `public/fonts/satoshi/` (Fontshare — license: `FFL.txt` in the same folder).
+Bricolage Grotesque / Geist Mono / Caveat / Black Ops One via `next/font/google`; **Satoshi** self-hosted in `public/fonts/satoshi/` (Fontshare — license: `FFL.txt` in the same folder). Numbers: display-scale stats wear Bricolage, tabular data and labels wear Geist Mono (`DECISIONS.md`, 3 Sep 2026 — Space Mono retired).
+
+## Night mode
+
+The site follows the OS colour scheme and the sun/moon button (header, nav panel on mobile, footer) overrides it — the choice persists in `localStorage("pragaman-theme")`. Both modes have a dark palette; the tokens live in `styles/globals.css` under `[data-theme="dark"]`. There is no sound on a theme change.
 
 ## Editing the site (Pragaman's guide — no code needed)
 

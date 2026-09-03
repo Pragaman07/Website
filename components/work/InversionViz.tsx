@@ -73,7 +73,7 @@ export function InversionViz({
                   transitionTimingFunction: "var(--ease-out)",
                 }}
               >
-                <MonoLabel bold className="whitespace-nowrap px-3 text-white">
+                <MonoLabel bold className="whitespace-nowrap px-3 text-on-accent">
                   ORGANIC {row.organic}%
                 </MonoLabel>
               </div>

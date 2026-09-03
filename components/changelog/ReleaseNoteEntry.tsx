@@ -28,7 +28,7 @@ export function ReleaseNoteEntry({
       )}
     >
       <span
-        className="type-mono-stat inline-block rounded-chip px-2 py-0.5 font-bold text-ink"
+        className="type-data inline-block rounded-chip px-2 py-0.5 font-bold text-ink"
         style={{ background: "color-mix(in srgb, var(--purple) 18%, transparent)" }}
       >
         {entry.version}

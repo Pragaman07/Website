@@ -2,9 +2,16 @@
 
 /* ============================================================
    pragaman.com — design tokens
-   Authority: Design Spec v1.1 §1 (exact values) · Foundations v1
-   Mode is carried by <html data-mode="work|know">.
+   Authority: Design Spec v1.1 §1 (exact values) · Foundations v1 ·
+   post-freeze rulings in DECISIONS.md (contrast rounds; 3 Sep 2026 revamp:
+   night mode, Space Mono retired).
+   Mode is carried by <html data-mode="work|know">,
+   theme by <html data-theme="light|dark"> — two orthogonal axes.
    ============================================================ */
+
+/* Dark variant for the rare one-off (an icon swap). Tokens do the real
+   work below, so `dark:` in components should stay rare. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 /* ---------- 1.1 Color — swapped per mode ---------- */
 /* Defaults mirror Work so a missing data-mode never renders unstyled.
@@ -17,13 +24,20 @@
   --surface: #ffffff;
   --ink: #16181d;
   --muted: #6b7280;
-  /* secondary text on --ink surfaces: --muted is 3.7:1 there — fails AA
-     for mono-label sizes. #9ca3af clears 7:1 (contrast ruling, DECISIONS.md).
-     Ink is identical in both modes, so know inherits this value. */
-  --muted-on-ink: #9ca3af;
   --line: #eceae4;
   --accent: #ff6b5e;
   --accent-deep: #e85546;
+  /* The emphasis band (results strip, bedrock stratum): ink in the light
+     theme, a raised surface in the dark one — coral on it passes in both. */
+  --band: #16181d;
+  --on-band: #fafaf7;
+  /* Secondary text on the band: --muted is 3.7:1 there — fails AA at
+     mono-label size. #9ca3af clears 7:1 (contrast ruling, DECISIONS.md). */
+  --muted-on-band: #9ca3af;
+  /* Text on coral surfaces is ink in BOTH themes (5.8:1 on coral). The
+     light theme's --ink happens to equal it; the dark theme's does not. */
+  --on-accent: #16181d;
+  --scrim: rgba(22, 24, 29, 0.45);
 }
 
 /* Attribute selector (not just :root) so a subtree can carry a mode —
@@ -40,8 +54,55 @@
   --line: #f0e4d0;
   --accent: #ff6b5e;
   --accent-deep: #e85546;
+  --band: #16181d;
+  --on-band: #fff4e4;
+  --muted-on-band: #9ca3af;
+  --on-accent: #16181d;
+  --scrim: rgba(22, 24, 29, 0.45);
   --teal: #2ec4b6;
   --purple: #7c5cff;
+  --sun: #ffc94d;
+}
+
+/* ---------- Night mode (DECISIONS.md, 3 Sep 2026) ---------- */
+/* Same two temperatures, lights off. Every text/background pair below
+   was contrast-checked: text ≥ 4.5:1, large coral ≥ 3:1 (dark is kinder
+   to coral than cream ever was). Subtree selectors keep the Door halves
+   working. */
+:root[data-theme="dark"],
+:root[data-theme="dark"][data-mode="work"],
+:root[data-theme="dark"] [data-mode="work"] {
+  --bg: #121316;
+  --surface: #1a1c21;
+  --ink: #f2f1ec;
+  --muted: #a3a8b3;
+  --line: #2a2d34;
+  --accent: #ff6b5e;
+  /* "small-text-safe coral" goes LIGHTER on dark (8.4:1), not darker */
+  --accent-deep: #ff8f84;
+  --band: #22252c;
+  --on-band: #f2f1ec;
+  --muted-on-band: #a3a8b3;
+  --on-accent: #16181d;
+  --scrim: rgba(0, 0, 0, 0.6);
+}
+:root[data-theme="dark"][data-mode="know"],
+:root[data-theme="dark"] [data-mode="know"] {
+  --bg: #1b1713;
+  --surface: #25201a;
+  --ink: #fbf3e6;
+  --muted: #b5aa9b;
+  --line: #3a312a;
+  --accent: #ff6b5e;
+  --accent-deep: #ff8f84;
+  --band: #2c2620;
+  --on-band: #fbf3e6;
+  --muted-on-band: #b5aa9b;
+  --on-accent: #16181d;
+  --scrim: rgba(0, 0, 0, 0.6);
+  --teal: #2ec4b6;
+  /* lifted from #7c5cff — that one is 3.5:1 on the dark cream */
+  --purple: #a995ff;
   --sun: #ffc94d;
 }
 
@@ -56,6 +117,16 @@
   --dur-micro: 180ms;
   --dur-move: 350ms;
   --dur-scene: 600ms;
+
+  color-scheme: light;
+}
+/* Ink-tinted shadows vanish on a dark ground — deepen them, and let native
+   controls / scrollbars follow the theme. */
+:root[data-theme="dark"] {
+  --shadow-s: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-m: 0 2px 14px rgba(0, 0, 0, 0.45);
+  --shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
 }
 
 /* ---------- Tailwind theme mapping (tokens are the truth; config stays thin) ---------- */
@@ -65,10 +136,14 @@
   --color-surface: var(--surface);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
-  --color-muted-on-ink: var(--muted-on-ink);
   --color-line: var(--line);
   --color-accent: var(--accent);
   --color-accent-deep: var(--accent-deep);
+  --color-band: var(--band);
+  --color-on-band: var(--on-band);
+  --color-muted-on-band: var(--muted-on-band);
+  --color-on-accent: var(--on-accent);
+  --color-scrim: var(--scrim);
   --color-teal: var(--teal);
   --color-purple: var(--purple);
   --color-sun: var(--sun);
@@ -96,6 +171,10 @@
 }
 
 /* ---------- Base ---------- */
+/* html carries the ground too, so overscroll never flashes white on dark */
+html {
+  background: var(--bg);
+}
 body {
   background: var(--bg);
   color: var(--ink);
@@ -163,19 +242,33 @@ body {
     font-size: 14px;
     line-height: 1.5;
   }
-  /* Every number wears Space Mono — no exceptions, both modes. */
+  /* Numbers (rule 5, amended 3 Sep 2026 — DECISIONS.md): display-scale
+     figures — hero stats, counters, card numbers — wear the display face;
+     tabular data, labels, versions and timestamps wear the mono face
+     (Geist Mono). Class names kept from the Space Mono era so 40+ call
+     sites didn't churn; the rule lives here. */
   .type-mono-stat-xl {
-    font-family: var(--font-mono);
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-weight: 800;
     font-size: clamp(26px, 4vw, 40px);
-    line-height: 1.15;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
     font-variant-numeric: tabular-nums;
   }
   .type-mono-stat {
-    font-family: var(--font-mono);
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: clamp(16px, 1.5vw, 20px);
     line-height: 1.3;
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+  /* Tabular data: table cells, version chips, error chrome. */
+  .type-data {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
     font-variant-numeric: tabular-nums;
   }
   .type-mono-label {
@@ -213,19 +306,22 @@ body {
   }
 }
 
-/* ---------- §3.3 THE temperature transition ---------- */
+/* ---------- §3.3 THE temperature transition (+ the theme switch) ---------- */
 /* While html.mode-shifting is present (~700ms), themed surfaces interpolate
    their colors — 400ms starting 100ms in, so the bloom leads the shift.
-   Garnish elements are excluded: motion drives them frame-by-frame. */
+   html.theme-shifting reuses the same easing for lights on/off (no bloom,
+   no sound — rule 8). Garnish elements are excluded: motion drives them
+   frame-by-frame. */
 @media (prefers-reduced-motion: no-preference) {
-  html.mode-shifting body,
-  html.mode-shifting main,
-  html.mode-shifting header,
-  html.mode-shifting footer,
-  html.mode-shifting nav,
-  html.mode-shifting [class*="bg-"],
-  html.mode-shifting [class*="text-"],
-  html.mode-shifting [class*="border-"] {
+  html:is(.mode-shifting, .theme-shifting),
+  html:is(.mode-shifting, .theme-shifting) body,
+  html:is(.mode-shifting, .theme-shifting) main,
+  html:is(.mode-shifting, .theme-shifting) header,
+  html:is(.mode-shifting, .theme-shifting) footer,
+  html:is(.mode-shifting, .theme-shifting) nav,
+  html:is(.mode-shifting, .theme-shifting) [class*="bg-"],
+  html:is(.mode-shifting, .theme-shifting) [class*="text-"],
+  html:is(.mode-shifting, .theme-shifting) [class*="border-"] {
     transition:
       background-color 400ms ease 100ms,
       border-color 400ms ease 100ms,
@@ -233,8 +329,8 @@ body {
       fill 400ms ease 100ms,
       box-shadow 400ms ease 100ms !important;
   }
-  html.mode-shifting [data-garnish],
-  html.mode-shifting [data-garnish] * {
+  html:is(.mode-shifting, .theme-shifting) [data-garnish],
+  html:is(.mode-shifting, .theme-shifting) [data-garnish] * {
     transition: none !important;
   }
 }
@@ -302,10 +398,16 @@ html.page-fade body {
   }
 }
 
-/* §3.1 — the Door's arrow cursor */
+/* §3.1 — the Door's arrow cursor (ink on light, warm-white on dark) */
 .door-cursor {
   cursor:
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><text x='2' y='20' font-size='18' fill='%2316181D'>→</text></svg>")
+      14 14,
+    pointer;
+}
+:root[data-theme="dark"] .door-cursor {
+  cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><text x='2' y='20' font-size='18' fill='%23F2F1EC'>→</text></svg>")
       14 14,
     pointer;
 }

@@ -1,18 +1,22 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import type { NavLink } from "@/lib/content";
 
-/** §2.2 mobile nav — slide-down panel, generous 48px tap targets. */
+/** §2.2 mobile nav — slide-down panel, generous 48px tap targets; sound +
+    theme controls ride along at the bottom (they leave the header below md). */
 export function NavPanel({
   open,
   links,
   onNavigate,
+  controls,
 }: {
   open: boolean;
   links: NavLink[];
   onNavigate: () => void;
+  controls?: ReactNode;
 }) {
   const reduced = useReducedMotion();
 
@@ -41,6 +45,11 @@ export function NavPanel({
               </li>
             ))}
           </ul>
+          {controls && (
+            <div className="container-site flex items-center gap-2 border-t border-line py-2 [&_button]:h-12 [&_button]:w-12">
+              {controls}
+            </div>
+          )}
         </motion.nav>
       )}
     </AnimatePresence>

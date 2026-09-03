@@ -261,7 +261,7 @@ export function IntakeCard({ content }: { content: IntakeContent }) {
                       {stepIndex < stepCount - 1 ? (
                         <button
                           type="submit"
-                          className="rounded-btn bg-accent px-5 py-2.5 font-bold text-ink transition-[background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:bg-accent-deep motion-reduce:transition-none"
+                          className="rounded-btn bg-accent px-5 py-2.5 font-bold text-on-accent transition-[background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:bg-accent-deep motion-reduce:transition-none"
                         >
                           {showEmptyCta ? step.emptyCta?.text : content.nav.next.text}
                         </button>
@@ -270,7 +270,7 @@ export function IntakeCard({ content }: { content: IntakeContent }) {
                           type="submit"
                           disabled={status === "submitting"}
                           className={cn(
-                            "rounded-btn bg-accent px-5 py-2.5 font-bold text-ink transition-[background-color,transform,opacity] duration-200 ease-out hover:-translate-y-0.5 hover:bg-accent-deep motion-reduce:transition-none",
+                            "rounded-btn bg-accent px-5 py-2.5 font-bold text-on-accent transition-[background-color,transform,opacity] duration-200 ease-out hover:-translate-y-0.5 hover:bg-accent-deep motion-reduce:transition-none",
                             status === "submitting" && "cursor-wait opacity-70",
                           )}
                         >

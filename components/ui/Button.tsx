@@ -12,7 +12,7 @@ type ButtonProps = {
 };
 
 /**
- * §6.1 — primary: coral, white text, 10px radius, hover → --accent-deep + 2px lift.
+ * §6.1 — primary: coral, ink text, 10px radius, hover → --accent-deep + 2px lift.
  * secondary: text link in --accent-deep (small coral text rule §13), underline on hover.
  */
 export function Button({
@@ -24,12 +24,13 @@ export function Button({
   children,
 }: ButtonProps) {
   /* §13 contrast rulings (DECISIONS.md): primary = ink on coral (5.8:1 at
-     any size); secondary = ink text with a coral underline — small
-     accent-deep text alone misses AA (3.45:1). */
+     any size) — --on-accent, which stays ink in the dark theme too;
+     secondary = ink text with a coral underline — small accent-deep text
+     alone misses AA (3.45:1). */
   const styles =
     variant === "primary"
       ? cn(
-          "inline-block rounded-btn bg-accent px-5 py-3 font-bold text-ink",
+          "inline-block rounded-btn bg-accent px-5 py-3 font-bold text-on-accent",
           "transition-[background-color,transform] duration-200 ease-out",
           "hover:-translate-y-0.5 hover:bg-accent-deep",
           "motion-reduce:transition-none motion-reduce:hover:translate-y-0",

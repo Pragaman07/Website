@@ -54,10 +54,11 @@ export function BedrockDiagram({ diagram }: { diagram: MethodContent["diagram"] 
     };
   }, [reduced, total]);
 
-  /* progressive darkness: surface = bare bg → bedrock = ink */
+  /* progressive depth: surface = bare bg → bedrock = the emphasis band
+     (ink in the light theme, a raised surface in the dark one) */
   const tint = (i: number) =>
     i === total - 1
-      ? "var(--ink)"
+      ? "var(--band)"
       : `color-mix(in srgb, var(--ink) ${[0, 5, 10, 18][i] ?? 12}%, var(--bg))`;
 
   return (
@@ -133,7 +134,7 @@ export function BedrockDiagram({ diagram }: { diagram: MethodContent["diagram"] 
                 )}
                 <p
                   className={cn("type-display-s mt-1", bedrock ? "" : "text-ink")}
-                  style={bedrock ? { color: "var(--bg)" } : undefined}
+                  style={bedrock ? { color: "var(--on-band)" } : undefined}
                 >
                   {band.line.text}
                 </p>

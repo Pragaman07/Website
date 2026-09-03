@@ -2,7 +2,8 @@ import type { ElementType, HTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 /**
- * The mono-label voice (§1.2): Space Mono 11px, 0.14em tracking, uppercase.
+ * The mono-label voice (§1.2): Geist Mono 12px, 0.14em tracking, uppercase
+ * (Space Mono retired + the 12px floor — DECISIONS.md).
  * Eyebrows, tags, version numbers, table headers — every label wears this.
  */
 export function MonoLabel({

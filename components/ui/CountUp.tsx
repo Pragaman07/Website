@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * §5 count-up — 0 → final over 800ms --ease-out on first reveal, tabular
- * figures (parent sets a mono type class), once per session per stat.
+ * figures (parent sets a stat type class), once per session per stat.
  * Reduced motion renders the final value immediately.
  */
 export function CountUp({
