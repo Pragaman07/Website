@@ -5,12 +5,14 @@ import { MuteButton } from "@/components/shell/MuteButton";
 import { ThemeToggle } from "@/components/shell/ThemeToggle";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Pending } from "@/components/ui/Pending";
+import { Memoji } from "@/components/ui/Memoji";
 import type { GlobalContent } from "@/lib/content";
 
 /**
  * §2.3 — both modes: email · calendar · socials · mute repeat · sign-off.
- * Know Me adds a Caveat scribble; Work stays clean. Contact links render
- * Pending until the Content Doc supplies them.
+ * Know Me adds a Caveat scribble with the heart-hands memoji beside it
+ * (memoji map, DECISIONS.md 3 Sep); Work stays clean. Contact links render
+ * Pending until the Content Doc supplies them (chunk 5 builds the block).
  */
 export function Footer({ content }: { content: GlobalContent }) {
   const { mode } = useMode();
@@ -40,13 +42,7 @@ export function Footer({ content }: { content: GlobalContent }) {
           {mode === "know" &&
             (footer.knowScribble.text ? (
               <span className="flex items-center gap-2" aria-hidden>
-                <img
-                  src="/images/memoji-face.png"
-                  alt=""
-                  width={24}
-                  height={24}
-                  className="h-6 w-6"
-                />
+                <Memoji name="heart" sizes="40px" className="w-10 -rotate-3" />
                 <span
                   data-garnish
                   style={{ "--garnish-rotate": "-2deg" } as React.CSSProperties}

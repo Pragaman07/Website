@@ -6,6 +6,7 @@ import { useMode } from "@/lib/mode";
 import { useSfx } from "@/lib/sound";
 import { useEggFound } from "@/lib/eggs";
 import { MonoLabel } from "@/components/ui/MonoLabel";
+import { Memoji } from "@/components/ui/Memoji";
 import eggsJson from "@/content/eggs.json";
 import type { EggsContent } from "@/lib/content";
 
@@ -84,7 +85,10 @@ export function IdentityCrisisOverlay() {
             ))}
           </span>
         </div>
-        <div className="p-6">
+        <div className="flex items-start gap-4 p-6">
+          {/* the surprised face — memoji map, DECISIONS.md 3 Sep */}
+          <Memoji name="surprise" sizes="64px" className="w-16 shrink-0 -rotate-6" />
+          <div className="min-w-0">
           <p className="type-data text-ink">{eggs.identityCrisis.body.text}</p>
           <button
             ref={buttonRef}
@@ -94,6 +98,7 @@ export function IdentityCrisisOverlay() {
           >
             {eggs.identityCrisis.button.text}
           </button>
+          </div>
         </div>
       </motion.div>
     </div>

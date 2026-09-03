@@ -3,6 +3,7 @@ import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Button } from "@/components/ui/Button";
 import { Pending } from "@/components/ui/Pending";
 import { Reveal } from "@/components/ui/Reveal";
+import { Memoji } from "@/components/ui/Memoji";
 import { ProofStrip } from "@/components/work/ProofStrip";
 import { CaseCard } from "@/components/work/CaseCard";
 import { MethodTeaser } from "@/components/work/MethodTeaser";
@@ -21,9 +22,19 @@ const globalContent = globalJson as GlobalContent;
 export default function WorkHome() {
   return (
     <main>
-      {/* §6.1 hero — flat --bg, no photo, everything in the first fold */}
+      {/* §6.1 hero — flat --bg, everything in the first fold. The hands-on-
+          waist memoji joins it (memoji map, DECISIONS.md 3 Sep — a memoji,
+          not the photo §6.1 kept out): small and top-right on mobile, a right
+          column standing on the proof strip's baseline from md up. */}
       <section className="container-site pb-16 pt-16 md:pb-20 md:pt-24">
-        <div className="max-w-[800px]">
+        <div className="md:grid md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:gap-10">
+          <Memoji
+            name="hands"
+            priority
+            sizes="(min-width: 1024px) 256px, (min-width: 768px) 224px, 128px"
+            className="mb-6 ml-auto w-32 md:order-2 md:mb-0 md:w-56 lg:w-64"
+          />
+          <div className="max-w-[800px] md:order-1">
           <MonoLabel bold as="p">
             {home.hero.eyebrow.text}
           </MonoLabel>
@@ -43,6 +54,7 @@ export default function WorkHome() {
             </Button>
           </div>
           <ProofStrip stats={home.proofStrip.stats} />
+          </div>
         </div>
       </section>
 

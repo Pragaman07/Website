@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { useReducedMotion } from "motion/react";
 import { useMode, type Mode } from "@/lib/mode";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Pending } from "@/components/ui/Pending";
+import { Memoji } from "@/components/ui/Memoji";
 import { cn } from "@/lib/cn";
 import door from "@/content/door.json";
 
@@ -14,7 +15,9 @@ import door from "@/content/door.json";
  * Hover eases the hovered half to 56% (600ms); entering expands the chosen
  * door to fill the viewport (500ms), sets the mode, then the home fades up.
  * First visit only — the boot script redirects returning visitors.
- * No sound here (locked trigger list).
+ * No sound here (locked trigger list). The Know Me half carries the
+ * full-body memoji (memoji map, DECISIONS.md 3 Sep); the Work half stays
+ * receipts-only.
  */
 export default function DoorPage() {
   const { setMode } = useMode();
@@ -85,6 +88,13 @@ export default function DoorPage() {
         eyebrow={door.know.eyebrow.text}
         title={door.know.title.text}
         line={door.know.line}
+        figure={
+          <Memoji
+            name="full"
+            sizes="(min-width: 768px) 208px, 140px"
+            className="mt-10 w-[140px] md:mt-0 md:w-52"
+          />
+        }
         confetti
       />
     </main>
@@ -112,6 +122,7 @@ function DoorHalf({
   line,
   underline,
   confetti,
+  figure,
 }: {
   mode: Mode;
   basis: string;
@@ -123,6 +134,8 @@ function DoorHalf({
   line: { pending?: string; text?: string; note?: string };
   underline?: boolean;
   confetti?: boolean;
+  /** Decorative figure above the eyebrow (the Know half's memoji). */
+  figure?: ReactNode;
 }) {
   return (
     <div
@@ -159,6 +172,7 @@ function DoorHalf({
           collapsed && "opacity-0",
         )}
       >
+        {figure}
         <MonoLabel bold>{eyebrow}</MonoLabel>
         <span className="type-display-l text-ink">
           {title}

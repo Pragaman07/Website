@@ -39,6 +39,16 @@ export function IntakeCard({ content }: { content: IntakeContent }) {
     if (interacted.current) fieldRef.current?.focus();
   }, [stepIndex]);
 
+  // Dev-only preview of the success face without pitching for real:
+  // /work?intake=success (same idea as ?fakeHour=N). Post-hydration on
+  // purpose so the server and client first render agree.
+  useEffect(() => {
+    if (process.env.NODE_ENV === "production") return;
+    if (new URLSearchParams(window.location.search).get("intake") === "success") {
+      setStatus("success");
+    }
+  }, []);
+
   const errText = (key: string) =>
     content.errors[key]?.text ?? content.errors.serverError?.text ?? "";
 
