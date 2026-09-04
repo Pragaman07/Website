@@ -1,24 +1,26 @@
 import type { ReactNode } from "react";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Button } from "@/components/ui/Button";
-import { Pending } from "@/components/ui/Pending";
 import { Reveal } from "@/components/ui/Reveal";
 import { Memoji } from "@/components/ui/Memoji";
 import { ProofStrip } from "@/components/work/ProofStrip";
-import { CaseCard } from "@/components/work/CaseCard";
+import { CaseCards } from "@/components/work/CaseCards";
 import { MethodTeaser } from "@/components/work/MethodTeaser";
-import { IntakeCard } from "@/components/work/intake/IntakeCard";
+import { PitchBlock } from "@/components/work/intake/PitchBlock";
 import { MidnightLine } from "@/components/eggs/MidnightSwap";
 import homeJson from "@/content/work/home.json";
 import intakeJson from "@/content/work/intake.json";
-import globalJson from "@/content/global.json";
-import type { GlobalContent, IntakeContent, WorkHomeContent } from "@/lib/content";
+import type { IntakeContent, WorkHomeContent } from "@/lib/content";
 
 const home = homeJson as WorkHomeContent;
 const intake = intakeJson as unknown as IntakeContent;
-const globalContent = globalJson as GlobalContent;
 
-/** Work home (Design Spec §6): hero → case cards → method teaser → Intake. */
+/**
+ * Work home (Design Spec §6): hero → case cards → method teaser → the pitch
+ * block. The receipts and the pitch sections are full-bleed on the coral
+ * wash (DECISIONS.md 3 Sep 2026 "Revamp brief — scope" — the site's only
+ * gradient); the §6.1 hero stays flat.
+ */
 export default function WorkHome() {
   return (
     <main>
@@ -58,20 +60,17 @@ export default function WorkHome() {
         </div>
       </section>
 
-      {/* §6.2 the receipts */}
-      <section id="cases" className="container-site scroll-mt-20 py-16 md:py-24">
-        <Reveal>
-          <MonoLabel bold as="p">
-            {home.cases.sectionEyebrow.text}
-          </MonoLabel>
-          <h2 className="type-display-m mt-2 text-ink">{home.cases.sectionTitle.text}</h2>
-        </Reveal>
-        <div className="mt-8 flex flex-col gap-5">
-          {home.cases.cards.map((card, i) => (
-            <Reveal key={card.slug} delay={i * 60}>
-              <CaseCard card={card} />
-            </Reveal>
-          ))}
+      {/* §6.2 the receipts — 3-up cards / mobile swipe rail (DECISIONS.md
+          3 Sep "§6.2 case cards") on the coral wash */}
+      <section id="cases" className="wash-coral scroll-mt-20">
+        <div className="container-site py-16 md:py-24">
+          <Reveal>
+            <MonoLabel bold as="p">
+              {home.cases.sectionEyebrow.text}
+            </MonoLabel>
+            <h2 className="type-display-m mt-2 text-ink">{home.cases.sectionTitle.text}</h2>
+          </Reveal>
+          <CaseCards cases={home.cases} />
         </div>
       </section>
 
@@ -82,27 +81,15 @@ export default function WorkHome() {
         </Reveal>
       </section>
 
-      {/* §6.4 contact + the Intake (§10 shell — flow goes live in Phase 3) */}
-      <section id="intake" className="container-site scroll-mt-20 py-16 md:py-24">
-        <Reveal>
-          <div className="flex flex-wrap items-start gap-4">
-            {globalContent.footer.email.pending && (
-              <Pending
-                id={globalContent.footer.email.pending}
-                note={globalContent.footer.email.note}
-              />
-            )}
-            {globalContent.footer.calendarUrl.pending && (
-              <Pending
-                id={globalContent.footer.calendarUrl.pending}
-                note={globalContent.footer.calendarUrl.note}
-              />
-            )}
-          </div>
-          <div className="mt-6">
-            <IntakeCard content={intake} />
-          </div>
-        </Reveal>
+      {/* §6.4 the pitch block — centred lead + the §10 card expanding inline
+          (DECISIONS.md 3 Sep "§10 pitch block"). The contact block now lives
+          in the footer (§2.3 as amended). */}
+      <section id="intake" className="wash-coral scroll-mt-20">
+        <div className="container-site py-16 md:py-24">
+          <Reveal>
+            <PitchBlock content={intake} />
+          </Reveal>
+        </div>
       </section>
     </main>
   );

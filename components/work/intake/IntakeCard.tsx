@@ -17,8 +17,24 @@ import type { IntakeContent, IntakeStep } from "@/lib/content";
  * interface voice, severity as radio cards, honeypot, optimistic counter,
  * success flip + intake-submit sound (success only). Keyboard-completable
  * end to end.
+ *
+ * `lead` (§10 as amended, DECISIONS.md 3 Sep 2026): the card sits under the
+ * centred pitch block, which already shows the title/sub and owns the
+ * public counter — so the card drops its own header and bottom counter,
+ * keeps "01 / 05" + the dots, and reports counters up via `onCounters`.
+ * `focusOnMount` lands focus in step 1's field when the CTA expanded us.
  */
-export function IntakeCard({ content }: { content: IntakeContent }) {
+export function IntakeCard({
+  content,
+  lead = false,
+  focusOnMount = false,
+  onCounters,
+}: {
+  content: IntakeContent;
+  lead?: boolean;
+  focusOnMount?: boolean;
+  onCounters?: (counters: Counters) => void;
+}) {
   const steps = content.steps;
   const [stepIndex, setStepIndex] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -38,6 +54,20 @@ export function IntakeCard({ content }: { content: IntakeContent }) {
   useEffect(() => {
     if (interacted.current) fieldRef.current?.focus();
   }, [stepIndex]);
+
+  // Lead mode, mounted by the pitch CTA: the click already carried intent,
+  // so focus lands in step 1's field (keyboard path, rule 10).
+  useEffect(() => {
+    if (focusOnMount) fieldRef.current?.focus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Every counter write also reaches the wrapper (lead mode feeds it into
+  // the pitch block's counter). Reverts to null stay local — nothing to show.
+  const pushCounters = (next: Counters | null) => {
+    setCounters(next);
+    if (next) onCounters?.(next);
+  };
 
   // Dev-only preview of the success face without pitching for real:
   // /work?intake=success (same idea as ?fakeHour=N). Post-hydration on
@@ -96,7 +126,7 @@ export function IntakeCard({ content }: { content: IntakeContent }) {
     setError(null);
     setStatus("submitting");
     const optimistic = counters ? { ...counters, pitched: counters.pitched + 1 } : null;
-    if (optimistic) setCounters(optimistic);
+    if (optimistic) pushCounters(optimistic);
 
     try {
       const [res] = await Promise.all([
@@ -117,17 +147,17 @@ export function IntakeCard({ content }: { content: IntakeContent }) {
 
       if (res.ok) {
         const data = (await res.json()) as { counters?: Counters };
-        if (data.counters) setCounters(data.counters);
+        if (data.counters) pushCounters(data.counters);
         setStatus("success");
         playSubmit();
         return;
       }
       setStatus("filling");
-      setCounters(counters);
+      pushCounters(counters);
       setError(errText(res.status === 429 ? "rateLimited" : "serverError"));
     } catch {
       setStatus("filling");
-      setCounters(counters);
+      pushCounters(counters);
       setError(errText("serverError"));
     }
   };
@@ -155,6 +185,26 @@ export function IntakeCard({ content }: { content: IntakeContent }) {
   const stepCount = steps.length;
   const showEmptyCta = step.kind === "textarea" && step.allowEmpty && value.trim() === "";
 
+  const stepLabel = (
+    <MonoLabel bold className={cn("whitespace-nowrap", !lead && "pt-2")}>
+      {String(stepIndex + 1).padStart(2, "0")} / {String(stepCount).padStart(2, "0")}
+    </MonoLabel>
+  );
+  const dots = (
+    <div className={cn("flex items-center gap-2", !lead && "mt-5")} aria-hidden>
+      {steps.map((s, i) => (
+        <span
+          key={s.id}
+          className={cn(
+            "h-1.5 rounded-pill transition-all duration-300 motion-reduce:transition-none",
+            i === stepIndex ? "w-6 bg-accent" : "w-1.5",
+            i < stepIndex ? "bg-accent-deep" : i > stepIndex ? "bg-line" : "",
+          )}
+        />
+      ))}
+    </div>
+  );
+
   return (
     <div>
       <div className="w-full max-w-[560px] rounded-card border border-line bg-surface p-6 shadow-m md:p-8">
@@ -162,29 +212,24 @@ export function IntakeCard({ content }: { content: IntakeContent }) {
           <SuccessState content={content.success} />
         ) : (
           <>
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <h3 className="type-display-m text-ink">{content.header.title.text}</h3>
-                <p className="type-body mt-2 text-muted">{content.header.sub.text}</p>
+            {lead ? (
+              /* the lead block above already carries title + sub */
+              <div className="flex items-center justify-between gap-4">
+                {dots}
+                {stepLabel}
               </div>
-              <MonoLabel bold className="whitespace-nowrap pt-2">
-                {String(stepIndex + 1).padStart(2, "0")} /{" "}
-                {String(stepCount).padStart(2, "0")}
-              </MonoLabel>
-            </div>
-
-            <div className="mt-5 flex items-center gap-2" aria-hidden>
-              {steps.map((s, i) => (
-                <span
-                  key={s.id}
-                  className={cn(
-                    "h-1.5 rounded-pill transition-all duration-300",
-                    i === stepIndex ? "w-6 bg-accent" : "w-1.5",
-                    i < stepIndex ? "bg-accent-deep" : i > stepIndex ? "bg-line" : "",
-                  )}
-                />
-              ))}
-            </div>
+            ) : (
+              <>
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="type-display-m text-ink">{content.header.title.text}</h3>
+                    <p className="type-body mt-2 text-muted">{content.header.sub.text}</p>
+                  </div>
+                  {stepLabel}
+                </div>
+                {dots}
+              </>
+            )}
 
             <form onSubmit={onFormSubmit} className="mt-6">
               {/* honeypot — humans never see it; bots love it */}
@@ -295,10 +340,13 @@ export function IntakeCard({ content }: { content: IntakeContent }) {
         )}
       </div>
 
-      {/* the public counter — beneath the card, aria-live */}
-      <div className="mt-4">
-        <IntakeCounter content={content.counter} override={counters} />
-      </div>
+      {/* the public counter — beneath the card, aria-live (the pitch block
+          renders its own in lead mode) */}
+      {!lead && (
+        <div className="mt-4">
+          <IntakeCounter content={content.counter} override={counters} />
+        </div>
+      )}
     </div>
   );
 }
