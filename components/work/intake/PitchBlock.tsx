@@ -70,7 +70,7 @@ export function PitchBlock({ content }: { content: IntakeContent }) {
         <Memoji
           name="call"
           sizes="(min-width: 768px) 144px, 112px"
-          className="order-first w-28 md:order-none md:col-start-3 md:row-span-2 md:row-start-3 md:ml-4 md:w-36 md:rotate-6 md:self-center md:justify-self-start"
+          className="order-first w-28 md:order-none md:col-start-3 md:row-span-2 md:row-start-3 md:ml-4 md:w-32 md:rotate-6 md:self-start md:justify-self-start lg:w-36"
         />
         <h2 className="type-display-l mt-6 max-w-[14ch] text-center text-ink md:col-span-3 md:row-start-1 md:mt-0 md:justify-self-center">
           {content.header.title.text}
@@ -102,7 +102,7 @@ export function PitchBlock({ content }: { content: IntakeContent }) {
           initial={reduced ? { opacity: 0 } : { y: 16, opacity: 0 }}
           animate={reduced ? { opacity: 1 } : { y: 0, opacity: 1 }}
           transition={{ duration: reduced ? 0.1 : 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto mt-10 max-w-[560px]"
+          className="mx-auto mt-12 max-w-[560px]"
         >
           <IntakeCard
             content={content}

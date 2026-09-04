@@ -41,15 +41,17 @@ export function CaseCard({
         featured ? "border-accent/40 shadow-m" : "border-line",
       )}
     >
-      {/* min-h keeps the title baseline level whether or not the chip is here */}
-      <div className="flex min-h-7 items-start justify-between gap-3">
-        <MonoLabel bold>{card.tag}</MonoLabel>
-        {featured && featuredLabel.text && (
-          <span className="type-mono-label rounded-pill bg-band px-2 py-1 text-on-band">
-            {featuredLabel.text}
-          </span>
-        )}
-      </div>
+      {/* the featured chip hangs on the card's top edge like a sticker, so it
+          never fights the tag for width in a narrow md column (the rail's
+          pt-3 leaves room for it above the card) */}
+      {featured && featuredLabel.text && (
+        <span className="type-mono-label absolute -top-3 right-5 whitespace-nowrap rounded-pill bg-band px-2.5 py-1 text-on-band">
+          {featuredLabel.text}
+        </span>
+      )}
+      <MonoLabel bold as="p">
+        {card.tag}
+      </MonoLabel>
 
       <h3 id={titleId} className="type-display-s mt-3 text-ink">
         {card.title}
@@ -62,7 +64,9 @@ export function CaseCard({
         </div>
       ) : null}
 
-      <p className="type-mono-stat-xl mt-6 text-balance text-ink">
+      {/* card-scale numerals: the xl size only from lg, where a column is
+          ~317px — at md (221px) it steps down so a stat holds two lines */}
+      <p className="type-mono-stat-xl mt-6 text-balance text-ink md:text-[24px] lg:text-[clamp(26px,3vw,36px)]">
         <AnimatedStat id={`cases.${card.slug}.${card.heroStat.factId}`} render={card.heroStat.render} />
       </p>
 
