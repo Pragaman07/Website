@@ -10,7 +10,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "@/styles/globals.css";
 import global from "@/content/global.json";
 import { Shell } from "@/components/shell/Shell";
-import type { GlobalContent } from "@/lib/content";
+import { getFact, type GlobalContent } from "@/lib/content";
 
 // Static 700/800 slices (Foundations v1 needs exactly these weights) —
 // the full variable+opsz file pushed hero LCP past 3s on throttled 4G.
@@ -82,6 +82,13 @@ export const metadata: Metadata = {
  */
 const bootScript = `(function(){var d=document.documentElement;d.classList.add("js");var m=null;try{m=localStorage.getItem("pragaman-mode")}catch(e){}if(m!=="work"&&m!=="know")m=null;var p=location.pathname;var f=(p==="/work"||p.indexOf("/work/")===0)?"work":((p==="/know-me"||p.indexOf("/know-me/")===0)?"know":null);if(f&&f!==m){m=f;try{localStorage.setItem("pragaman-mode",m)}catch(e){}}d.setAttribute("data-mode",m||"work");var t=null;try{t=localStorage.getItem("pragaman-theme")}catch(e){}if(t!=="light"&&t!=="dark"){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light"}d.setAttribute("data-theme",t);if(p==="/"&&m){location.replace(m==="work"?"/work":"/know-me")}})();`;
 
+/**
+ * Footer BUILD stamp — D-3's v{age}.{month} scheme (age from facts.json,
+ * month = the build month). Computed ONCE at prerender, module scope, and
+ * handed down as a prop: a client-side Date would hydrate differently.
+ */
+const buildStamp = `v${getFact("identity.age").value}.${new Date().getMonth() + 1}`;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -96,7 +103,9 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: bootScript }} />
       </head>
       <body>
-        <Shell content={global as GlobalContent}>{children}</Shell>
+        <Shell content={global as GlobalContent} buildStamp={buildStamp}>
+          {children}
+        </Shell>
         {/* Only on Vercel — locally the insights script 404s the console */}
         {process.env.VERCEL ? <Analytics /> : null}
       </body>

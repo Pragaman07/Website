@@ -18,9 +18,12 @@ import type { GlobalContent } from "@/lib/content";
  */
 export function Shell({
   content,
+  buildStamp,
   children,
 }: {
   content: GlobalContent;
+  /** D-3 build stamp (v{age}.{month}) — prerendered in app/layout.tsx, footer-bound. */
+  buildStamp: string;
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
@@ -39,7 +42,7 @@ export function Shell({
           <>
             <Header content={content} />
             {children}
-            <Footer content={content} />
+            <Footer content={content} buildStamp={buildStamp} />
           </>
         )}
       </ModeProvider>
