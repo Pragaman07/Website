@@ -8,10 +8,12 @@ import { Pending } from "@/components/ui/Pending";
 import { Reveal } from "@/components/ui/Reveal";
 import { CountUp } from "@/components/ui/CountUp";
 import { ThemeToggle } from "@/components/shell/ThemeToggle";
+import { Glyph } from "@/components/ui/Glyph";
 import globalJson from "@/content/global.json";
-import { getFact, type GlobalContent } from "@/lib/content";
+import { getFact, type GlobalContent, type GlyphName } from "@/lib/content";
 
 const themeLabels = (globalJson as GlobalContent).theme;
+const GLYPH_NAMES: GlyphName[] = ["graveyard", "numbers", "map", "pin", "faq", "coffee", "receipt", "call"];
 
 type Mode = "work" | "know";
 
@@ -227,6 +229,20 @@ export function TokensClient() {
                 </p>
               </Card>
             </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="06 · GLYPHS (CHUNK 3 — THE CUSTOM SET, 24 / 48PX)">
+        <div className="flex flex-wrap gap-6">
+          {GLYPH_NAMES.map((name) => (
+            <div key={name} className="flex flex-col items-center gap-2">
+              <span className="flex items-end gap-3 text-ink">
+                <Glyph name={name} size={24} />
+                <Glyph name={name} size={48} />
+              </span>
+              <MonoLabel>{name}</MonoLabel>
+            </div>
           ))}
         </div>
       </Section>

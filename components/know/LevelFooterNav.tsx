@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MonoLabel } from "@/components/ui/MonoLabel";
+import { Glyph } from "@/components/ui/Glyph";
 import hubJson from "@/content/know/hub.json";
 import type { KnowHubContent } from "@/lib/content";
 
@@ -7,7 +8,8 @@ const hub = hubJson as KnowHubContent;
 
 /**
  * §11.0 section-page template footer: `← PREV LEVEL · NEXT LEVEL →` as
- * mini level tiles, cycling and skipping locked sections.
+ * mini level tiles, cycling and skipping locked sections. Tiles carry their
+ * custom glyph (DECISIONS.md 3 Sep 2026 — Icons).
  */
 export function LevelFooterNav({
   current,
@@ -37,10 +39,8 @@ export function LevelFooterNav({
             <MonoLabel bold className="block">
               {label}
             </MonoLabel>
-            <span className="type-display-s mt-2 block text-ink">
-              <span aria-hidden className="mr-2">
-                {level.glyph}
-              </span>
+            <span className="type-display-s mt-2 flex items-center gap-2 text-ink">
+              <Glyph name={level.glyph} size={20} className="shrink-0" />
               {level.title}
             </span>
           </Link>

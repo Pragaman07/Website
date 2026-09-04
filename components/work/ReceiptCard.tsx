@@ -1,10 +1,11 @@
-import { FileText } from "lucide-react";
+import { Glyph } from "@/components/ui/Glyph";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Pending } from "@/components/ui/Pending";
 import type { CaseMeta, CopyString } from "@/lib/content";
 
 /**
- * §7.1 receipt block — bordered card: PDF icon, report name, size, download
+ * §7.1 receipt block — bordered card: the receipt glyph (DECISIONS.md 3 Sep
+ * 2026, Icons), report name, size, download
  * link, and the mono-label caption. The receipt is the audit source for
  * every Filing Buddy number.
  */
@@ -18,7 +19,7 @@ export function ReceiptCard({
   return (
     <div className="flex flex-wrap items-center gap-5 rounded-card border border-line bg-surface p-6 md:p-8">
       <span className="grid h-12 w-12 shrink-0 place-items-center rounded-btn bg-bg text-accent-deep">
-        <FileText size={24} aria-hidden />
+        <Glyph name="receipt" size={24} />
       </span>
       <div className="min-w-0 flex-1 basis-52">
         <p className="type-display-s text-ink">{receipt.label}</p>
