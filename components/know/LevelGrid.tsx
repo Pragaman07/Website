@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Glyph } from "@/components/ui/Glyph";
+import { Tilt } from "@/components/ui/Tilt";
+import { Rise } from "@/components/ui/Rise";
 import { cn } from "@/lib/cn";
 import { SHOW_PENDING } from "@/lib/flags";
 import type { KnowHubContent } from "@/lib/content";
@@ -10,7 +12,8 @@ type Level = KnowHubContent["levels"][number];
 /**
  * §11.0 — the level-select grid: game-tile cards, ±1° resting rotation,
  * straighten + lift on hover; each tile wears its custom glyph (DECISIONS.md
- * 3 Sep 2026 — Icons; the emoji were the spec's own placeholders). Sections without content render as
+ * 3 Sep 2026 — Icons; the emoji were the spec's own placeholders). Chunk 6:
+ * tiles rise in sequence on load and turn toward the mouse (Tilt). Sections without content render as
  * non-clickable LOCKED tiles — the placeholder system as a joke, honest.
  * Chips: sticker-tinted bg with ink text (§13 — darken text, not chip).
  */
@@ -55,6 +58,7 @@ export function LevelGrid({
 
         return (
           <li key={level.slug} className="w-full sm:w-80">
+            <Rise delay={i * 70} className="h-full">
             {locked && SHOW_PENDING ? (
               /* Dev/preview: locked tiles stay honest but click through to
                  the placeholder page for design review. Prod: inert. */
@@ -78,6 +82,7 @@ export function LevelGrid({
                 {inner}
               </div>
             ) : (
+              <Tilt>
               <Link
                 href={`/know-me/${level.slug}`}
                 className={cn(
@@ -90,7 +95,9 @@ export function LevelGrid({
               >
                 {inner}
               </Link>
+              </Tilt>
             )}
+            </Rise>
           </li>
         );
       })}

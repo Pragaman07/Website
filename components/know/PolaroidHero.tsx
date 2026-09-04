@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { Pending } from "@/components/ui/Pending";
+import { Spring } from "@/components/ui/Spring";
+import { Rise } from "@/components/ui/Rise";
 import { MidnightLine } from "@/components/eggs/MidnightSwap";
 import type { KnowHubContent } from "@/lib/content";
 
@@ -7,13 +9,15 @@ import type { KnowHubContent } from "@/lib/content";
  * §11.1 — the playful hero: real photo in a polaroid frame (−2°, sun tape
  * strip), 2–3 Caveat annotations with wobbly arrows, headline at −1°,
  * static sticker-dot confetti. Photo left / text right; stacked on mobile.
+ * Chunk 6: the polaroid drops in on a spring, the text rises after it, the
+ * dots drift, the memoji sticker breathes (all off under reduced motion).
  */
 export function PolaroidHero({ hero }: { hero: KnowHubContent["hero"] }) {
   return (
     <section className="relative">
       <Confetti />
       <div className="flex flex-col items-center gap-10 md:flex-row md:items-start md:gap-14">
-        <div className="relative shrink-0">
+        <Spring delay={0.1} from={{ y: -18, scale: 0.96, rotate: -6 }} className="relative shrink-0">
           {/* memoji sticker — top-right polaroid corner (top-left = tape,
               bottom-right = annotation); decorative garnish, Know only */}
           <Image
@@ -22,7 +26,7 @@ export function PolaroidHero({ hero }: { hero: KnowHubContent["hero"] }) {
             aria-hidden
             width={80}
             height={93}
-            className="absolute -right-5 -top-6 z-10 w-16 rotate-6 sm:-right-6"
+            className="bob absolute -right-5 -top-6 z-10 w-16 rotate-6 sm:-right-6"
           />
           <figure className="w-64 -rotate-2 bg-white p-3 pb-10 shadow-m sm:w-72">
             {/* tape strip */}
@@ -74,9 +78,9 @@ export function PolaroidHero({ hero }: { hero: KnowHubContent["hero"] }) {
               />
             </span>
           )}
-        </div>
+        </Spring>
 
-        <div className="max-w-xl pt-2 md:pt-8">
+        <Rise delay={240} className="max-w-xl pt-2 md:pt-8">
           <h1 className="type-display-l -rotate-1 text-ink">{hero.headline.text}</h1>
           {hero.intro.text ? (
             <p className="type-body-l mt-6 max-w-md text-muted">{hero.intro.text}</p>
@@ -97,7 +101,7 @@ export function PolaroidHero({ hero }: { hero: KnowHubContent["hero"] }) {
               <Pending id={hero.annotations[1].pending} note={hero.annotations[1].note} />
             </div>
           ) : null}
-        </div>
+        </Rise>
       </div>
     </section>
   );
@@ -118,14 +122,15 @@ function Confetti() {
       {DOTS.map((dot, i) => (
         <span
           key={i}
-          className="absolute rounded-pill"
+          className="drift absolute rounded-pill"
           style={{
+            "--drift-delay": `${i * 0.9}s`,
             top: dot.top,
             left: dot.left,
             width: dot.size,
             height: dot.size,
             background: dot.token,
-          }}
+          } as React.CSSProperties}
         />
       ))}
     </span>

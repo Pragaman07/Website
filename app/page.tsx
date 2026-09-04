@@ -7,6 +7,7 @@ import { useMode, type Mode } from "@/lib/mode";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Pending } from "@/components/ui/Pending";
 import { Memoji } from "@/components/ui/Memoji";
+import { Spring } from "@/components/ui/Spring";
 import { cn } from "@/lib/cn";
 import door from "@/content/door.json";
 
@@ -89,11 +90,13 @@ export default function DoorPage() {
         title={door.know.title.text}
         line={door.know.line}
         figure={
-          <Memoji
-            name="full"
-            sizes="(min-width: 768px) 208px, 140px"
-            className="mt-10 w-[140px] md:mt-0 md:w-52"
-          />
+          <Spring delay={0.15} className="mt-10 md:mt-0">
+            <Memoji
+              name="full"
+              sizes="(min-width: 768px) 208px, 140px"
+              className="bob w-[140px] md:w-52"
+            />
+          </Spring>
         }
         confetti
       />
@@ -148,14 +151,15 @@ function DoorHalf({
           {CONFETTI.map((dot, i) => (
             <span
               key={i}
-              className="absolute rounded-pill"
+              className="drift absolute rounded-pill"
               style={{
+                "--drift-delay": `${i * 0.9}s`,
                 top: dot.top,
                 left: dot.left,
                 width: dot.size,
                 height: dot.size,
                 background: dot.token,
-              }}
+              } as React.CSSProperties}
             />
           ))}
         </span>

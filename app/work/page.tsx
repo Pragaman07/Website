@@ -1,8 +1,10 @@
-import type { ReactNode } from "react";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { Memoji } from "@/components/ui/Memoji";
+import { Rise, RiseWords } from "@/components/ui/Rise";
+import { Spring } from "@/components/ui/Spring";
+import { Magnetic } from "@/components/ui/Magnetic";
 import { ProofStrip } from "@/components/work/ProofStrip";
 import { CaseCards } from "@/components/work/CaseCards";
 import { MethodTeaser } from "@/components/work/MethodTeaser";
@@ -19,7 +21,10 @@ const intake = intakeJson as unknown as IntakeContent;
  * Work home (Design Spec §6): hero → case cards → method teaser → the pitch
  * block. The receipts and the pitch sections are full-bleed on the coral
  * wash (DECISIONS.md 3 Sep 2026 "Revamp brief — scope" — the site's only
- * gradient); the §6.1 hero stays flat.
+ * gradient); the §6.1 hero stays flat. Chunk 6 choreographs the first fold:
+ * eyebrow → headline words → sub-line → CTAs → proof strip rise in sequence
+ * (CSS, LCP-safe), the memoji springs in after them and then breathes, the
+ * primary CTA is magnetic (DECISIONS.md 3 Sep, "§5 / D-7 motion budget").
  */
 export default function WorkHome() {
   return (
@@ -30,32 +35,46 @@ export default function WorkHome() {
           column standing on the proof strip's baseline from md up. */}
       <section className="container-site pb-16 pt-16 md:pb-20 md:pt-24">
         <div className="md:grid md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:gap-10">
-          <Memoji
-            name="hands"
-            priority
-            sizes="(min-width: 1024px) 256px, (min-width: 768px) 224px, 128px"
-            className="mb-6 ml-auto w-32 md:order-2 md:mb-0 md:w-56 lg:w-64"
-          />
+          <Spring delay={0.45} className="mb-6 ml-auto w-32 md:order-2 md:mb-0 md:w-56 lg:w-64">
+            <Memoji
+              name="hands"
+              priority
+              sizes="(min-width: 1024px) 256px, (min-width: 768px) 224px, 128px"
+              className="bob w-full"
+            />
+          </Spring>
           <div className="max-w-[800px] md:order-1">
-          <MonoLabel bold as="p">
-            {home.hero.eyebrow.text}
-          </MonoLabel>
-          <h1 className="type-display-xl mt-4 text-ink">
-            {withAccent(home.hero.headline.text ?? "", home.hero.headline.accentPhrase)}
-          </h1>
-          {/* sub-line slot — reserved line; egg 7 swaps it after midnight */}
-          <MidnightLine
-            normal={home.hero.subline}
-            midnight={home.hero.midnightSubline}
-            className="mt-5 max-w-md"
-          />
-          <div className="mt-8 flex flex-wrap items-center gap-6">
-            <Button href="#intake">{home.hero.ctaPrimary.text}</Button>
-            <Button variant="secondary" href="#cases">
-              {home.hero.ctaSecondary.text}
-            </Button>
-          </div>
-          <ProofStrip stats={home.proofStrip.stats} />
+            <Rise>
+              <MonoLabel bold as="p">
+                {home.hero.eyebrow.text}
+              </MonoLabel>
+            </Rise>
+            <h1 className="type-display-xl mt-4 text-ink">
+              <RiseWords
+                text={home.hero.headline.text ?? ""}
+                accentPhrase={home.hero.headline.accentPhrase}
+                startDelay={80}
+              />
+            </h1>
+            {/* sub-line slot — reserved line; egg 7 swaps it after midnight */}
+            <Rise delay={520} className="mt-5">
+              <MidnightLine
+                normal={home.hero.subline}
+                midnight={home.hero.midnightSubline}
+                className="max-w-md"
+              />
+            </Rise>
+            <Rise delay={600} className="mt-8 flex flex-wrap items-center gap-6">
+              <Magnetic>
+                <Button href="#intake">{home.hero.ctaPrimary.text}</Button>
+              </Magnetic>
+              <Button variant="secondary" href="#cases">
+                {home.hero.ctaSecondary.text}
+              </Button>
+            </Rise>
+            <Rise delay={680}>
+              <ProofStrip stats={home.proofStrip.stats} />
+            </Rise>
           </div>
         </div>
       </section>
@@ -92,19 +111,5 @@ export default function WorkHome() {
         </div>
       </section>
     </main>
-  );
-}
-
-/** Wraps the single accent phrase of the headline in coral (§6.1). */
-function withAccent(text: string, phrase?: string): ReactNode {
-  if (!phrase) return text;
-  const at = text.indexOf(phrase);
-  if (at === -1) return text;
-  return (
-    <>
-      {text.slice(0, at)}
-      <span className="text-accent-deep">{phrase}</span>
-      {text.slice(at + phrase.length)}
-    </>
   );
 }

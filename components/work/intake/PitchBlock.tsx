@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { Memoji } from "@/components/ui/Memoji";
+import { Magnetic } from "@/components/ui/Magnetic";
 import { IntakeCard } from "@/components/work/intake/IntakeCard";
 import { IntakeCounter } from "@/components/work/intake/IntakeCounter";
 import { cn } from "@/lib/cn";
@@ -70,7 +71,7 @@ export function PitchBlock({ content }: { content: IntakeContent }) {
         <Memoji
           name="call"
           sizes="(min-width: 768px) 144px, 112px"
-          className="order-first w-28 md:order-none md:col-start-3 md:row-span-2 md:row-start-3 md:ml-4 md:w-32 md:rotate-6 md:self-start md:justify-self-start lg:w-36"
+          className="bob order-first w-28 md:order-none md:col-start-3 md:row-span-2 md:row-start-3 md:ml-4 md:mt-8 md:w-32 md:rotate-6 md:self-start md:justify-self-start lg:w-36"
         />
         <h2 className="type-display-l mt-6 max-w-[14ch] text-center text-ink md:col-span-3 md:row-start-1 md:mt-0 md:justify-self-center">
           {content.header.title.text}
@@ -79,17 +80,20 @@ export function PitchBlock({ content }: { content: IntakeContent }) {
           {content.header.sub.text}
         </p>
         {!isOpen && (
-          <button
-            type="button"
-            onClick={() => setExpanded("focus")}
-            className={cn(
-              "mt-8 rounded-pill bg-accent px-7 py-3.5 font-bold text-on-accent md:col-start-2 md:row-start-3 md:self-end",
-              "transition-[background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:bg-accent-deep",
-              "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
-            )}
-          >
-            {content.lead.cta.text}
-          </button>
+          /* chunk 6: magnetic on hover, a squash on press */
+          <Magnetic className="mt-8 md:col-start-2 md:row-start-3 md:self-end">
+            <button
+              type="button"
+              onClick={() => setExpanded("focus")}
+              className={cn(
+                "rounded-pill bg-accent px-7 py-3.5 font-bold text-on-accent",
+                "transition-[background-color,transform,scale] duration-200 ease-out hover:-translate-y-0.5 hover:bg-accent-deep active:scale-[0.97]",
+                "motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100",
+              )}
+            >
+              {content.lead.cta.text}
+            </button>
+          </Magnetic>
         )}
         {/* the reassurance line — aria-live, revalidates on focus */}
         <div className="mt-4 flex justify-center md:col-start-2 md:row-start-4 md:self-start">

@@ -16,7 +16,7 @@ export function SuccessState({ content }: { content: IntakeContent["success"] })
       style={{ transformPerspective: 800 }}
     >
       <div className="flex items-start gap-5">
-        <Memoji name="heart" sizes="96px" className="w-24 shrink-0 -rotate-3" />
+        <Memoji name="heart" sizes="96px" className="bob w-24 shrink-0 -rotate-3" />
         <div className="min-w-0">
           <h4 tabIndex={-1} className="type-display-s text-ink">
             {content.title.text}

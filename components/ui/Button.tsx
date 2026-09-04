@@ -12,7 +12,8 @@ type ButtonProps = {
 };
 
 /**
- * §6.1 — primary: coral, ink text, 10px radius, hover → --accent-deep + 2px lift.
+ * §6.1 — primary: coral, ink text, 10px radius, hover → --accent-deep + 2px lift,
+ * a 3% squash on press (chunk 6; off under reduced motion).
  * secondary: text link in --accent-deep (small coral text rule §13), underline on hover.
  */
 export function Button({
@@ -31,9 +32,9 @@ export function Button({
     variant === "primary"
       ? cn(
           "inline-block rounded-btn bg-accent px-5 py-3 font-bold text-on-accent",
-          "transition-[background-color,transform] duration-200 ease-out",
-          "hover:-translate-y-0.5 hover:bg-accent-deep",
-          "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
+          "transition-[background-color,transform,scale] duration-200 ease-out",
+          "hover:-translate-y-0.5 hover:bg-accent-deep active:scale-[0.97]",
+          "motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100",
         )
       : cn(
           "inline-block font-medium text-ink underline decoration-accent decoration-2 underline-offset-4",
