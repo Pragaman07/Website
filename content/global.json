@@ -43,7 +43,6 @@
     "emailLabel": { "text": "Email", "draft": true },
     "calendarUrl": { "pending": "CALENDAR-URL", "note": "Google Calendar booking link — still owed (4 Sep 2026)." },
     "calendarLabel": { "text": "Book a call", "draft": true },
-    "socials": { "pending": "SOCIAL-LINKS", "note": "LEGACY slot — superseded by socialLinks; removed with chunk 5." },
     "socialLinks": [
       { "label": "Instagram", "href": "https://www.instagram.com/prag.a.man/" },
       { "label": "LinkedIn", "href": "https://www.linkedin.com/in/pragaman-kumar-anurag/" }
@@ -56,6 +55,7 @@
     },
     "counters": { "coffeeLabel": { "text": "Coffee", "draft": true, "note": "Footer readout of counter:coffee; pitched/replied labels reuse intake.json → counter." } },
     "buildLabel": { "text": "BUILD", "draft": true, "note": "Label for the v{age}.{month} build stamp (D-3 scheme) in the footer bottom bar." },
+    "newTabHint": { "text": "opens in a new tab", "draft": true, "note": "CONTENT-DOC.footer-new-tab — sr-only suffix on external footer links (WCAG G201)." },
     "knowScribble": { "text": "lorem ipsum, with love ✌", "draft": true, "note": "PLACEHOLDER — CONTENT-DOC.footer-scribble: Caveat sign-off scribble, Know Me footer only." }
   }
 }

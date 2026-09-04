@@ -85,9 +85,11 @@ const bootScript = `(function(){var d=document.documentElement;d.classList.add("
 /**
  * Footer BUILD stamp — D-3's v{age}.{month} scheme (age from facts.json,
  * month = the build month). Computed ONCE at prerender, module scope, and
- * handed down as a prop: a client-side Date would hydrate differently.
+ * handed down as props (with the © year): a client-side Date would hydrate
+ * differently.
  */
 const buildStamp = `v${getFact("identity.age").value}.${new Date().getMonth() + 1}`;
+const buildYear = new Date().getFullYear();
 
 export default function RootLayout({
   children,
@@ -103,7 +105,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: bootScript }} />
       </head>
       <body>
-        <Shell content={global as GlobalContent} buildStamp={buildStamp}>
+        <Shell content={global as GlobalContent} buildStamp={buildStamp} buildYear={buildYear}>
           {children}
         </Shell>
         {/* Only on Vercel — locally the insights script 404s the console */}

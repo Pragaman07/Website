@@ -97,14 +97,14 @@ export type GlobalContent = {
     emailLabel: CopyString;
     calendarUrl: CopyString;
     calendarLabel: CopyString;
-    /** LEGACY pending slot — superseded by socialLinks; removed with chunk 5. */
-    socials: CopyString;
     socialLinks: Array<{ label: string; href: string }>;
     /** Column headers of the extended footer (§2.3 as amended 3 Sep). */
     columns: { work: CopyString; know: CopyString; contact: CopyString; live: CopyString };
     /** pitched/replied labels come from intake.json → counter; coffee is new here. */
     counters: { coffeeLabel: CopyString };
     buildLabel: CopyString;
+    /** sr-only suffix on target=_blank footer links (WCAG G201). */
+    newTabHint: CopyString;
     knowScribble: CopyString;
   };
 };

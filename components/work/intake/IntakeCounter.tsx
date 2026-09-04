@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import { useCounters } from "@/lib/useCounters";
 import type { Counters } from "@/lib/kv";
 import type { IntakeContent } from "@/lib/content";
 
 /**
- * §10 public counter — `Problems pitched: N · Replies sent: N`, mono-stat,
- * aria-live polite, revalidates on window focus. `override` lets the flow
+ * §10 public counter — `Problems pitched: N · Replies sent: N`, display
+ * numerals, aria-live polite. Reads the shared counters store
+ * (lib/useCounters — one request per page for every readout, revalidated on
+ * focus, updated in place by submits and sips). `override` lets the flow
  * push fresh counters from a submit response (optimistic + reconciled).
  */
 export function IntakeCounter({
@@ -17,29 +19,8 @@ export function IntakeCounter({
   content: IntakeContent["counter"];
   override?: Counters | null;
 }) {
-  const [counters, setCounters] = useState<Counters | null>(null);
-
-  useEffect(() => {
-    let live = true;
-    const load = async () => {
-      try {
-        const res = await fetch("/api/counters");
-        if (!res.ok) return;
-        const data = (await res.json()) as { counters?: Counters };
-        if (live && data.counters) setCounters(data.counters);
-      } catch {
-        /* stays as dashes */
-      }
-    };
-    load();
-    window.addEventListener("focus", load);
-    return () => {
-      live = false;
-      window.removeEventListener("focus", load);
-    };
-  }, []);
-
-  const shown = override ?? counters;
+  const live = useCounters();
+  const shown = override ?? live;
   const num = (n?: number) => (shown && n !== undefined ? String(n) : "—");
 
   return (

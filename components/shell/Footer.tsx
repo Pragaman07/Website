@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useMode } from "@/lib/mode";
 import { getFact } from "@/lib/content";
 import { SHOW_PENDING } from "@/lib/flags";
@@ -48,11 +49,15 @@ const rowClass = "flex min-h-11 items-center md:min-h-0 md:py-1";
 export function Footer({
   content,
   buildStamp,
+  buildYear,
 }: {
   content: GlobalContent;
   buildStamp: string;
+  /** © year, prerendered beside the stamp (same reason: hydration). */
+  buildYear: number;
 }) {
   const { mode } = useMode();
+  const pathname = usePathname();
   const { footer } = content;
   const identity = [
     getFact("identity.title").value,
@@ -77,7 +82,7 @@ export function Footer({
 
         {/* four columns on md+; below: the two nav columns side by side,
             contact and live stacked full-width (the address needs the room) */}
-        <div className="mt-12 flex flex-col gap-10 md:grid md:grid-cols-4">
+        <div className="mt-12 flex flex-col gap-10 md:grid md:grid-cols-[1fr_1fr_minmax(15rem,auto)_1fr]">
           <nav aria-label="Footer" className="grid grid-cols-2 gap-10 md:col-span-2">
             <LinkColumn heading={footer.columns.work} links={content.nav.work} />
             <LinkColumn heading={footer.columns.know} links={content.nav.know} />
@@ -99,7 +104,7 @@ export function Footer({
                     <span className="decoration-accent decoration-2 underline-offset-4 group-hover:underline">
                       {footer.emailLabel.text}
                     </span>
-                    <span className="type-data text-muted transition-colors duration-200 [overflow-wrap:anywhere] group-hover:text-accent-deep">
+                    <span className="type-body-s text-muted transition-colors duration-200 [overflow-wrap:anywhere] group-hover:text-accent-deep">
                       {footer.email.text}
                     </span>
                   </a>
@@ -119,6 +124,7 @@ export function Footer({
                     className={cn(linkClass, rowClass)}
                   >
                     {footer.calendarLabel.text}
+                    <NewTabHint hint={footer.newTabHint} />
                   </a>
                 </li>
               ) : footer.calendarUrl.pending && SHOW_PENDING ? (
@@ -136,6 +142,7 @@ export function Footer({
                     className={cn(linkClass, rowClass)}
                   >
                     {social.label}
+                    <NewTabHint hint={footer.newTabHint} />
                   </a>
                 </li>
               ))}
@@ -186,8 +193,14 @@ export function Footer({
             <MonoLabel>
               {footer.buildLabel.text} · <span className="normal-case">{buildStamp}</span>
             </MonoLabel>
-            <MonoLabel>© {new Date().getFullYear()} · PRAGAMAN</MonoLabel>
-            <MonoLabel>{saveStates.mapCredit.text}</MonoLabel>
+            <MonoLabel>
+              © {buildYear} · {content.wordmark.text}
+            </MonoLabel>
+            {/* attribution rides on every page except the map's own, which
+                already carries it in its figcaption */}
+            {pathname !== "/know-me/save-states" && (
+              <MonoLabel>{saveStates.mapCredit.text}</MonoLabel>
+            )}
           </div>
         </div>
       </div>
@@ -220,4 +233,10 @@ function LinkColumn({ heading, links }: { heading: CopyString; links: NavLink[] 
       </ul>
     </div>
   );
+}
+
+/** sr-only suffix for target=_blank links (WCAG G201) — copy from content. */
+function NewTabHint({ hint }: { hint: CopyString }) {
+  if (!hint.text) return null;
+  return <span className="sr-only"> ({hint.text})</span>;
 }

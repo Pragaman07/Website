@@ -8,6 +8,7 @@ import { SuccessState } from "@/components/work/intake/SuccessState";
 import { IntakeCounter } from "@/components/work/intake/IntakeCounter";
 import { useSfx } from "@/lib/sound";
 import { cn } from "@/lib/cn";
+import { publishCounters, readCounters, refreshCounters } from "@/lib/useCounters";
 import type { Counters } from "@/lib/kv";
 import type { IntakeContent, IntakeStep } from "@/lib/content";
 
@@ -66,7 +67,10 @@ export function IntakeCard({
   // the pitch block's counter). Reverts to null stay local — nothing to show.
   const pushCounters = (next: Counters | null) => {
     setCounters(next);
-    if (next) onCounters?.(next);
+    if (next) {
+      onCounters?.(next);
+      publishCounters(next); // every readout on the page agrees at once
+    }
   };
 
   // Dev-only preview of the success face without pitching for real:
@@ -125,7 +129,10 @@ export function IntakeCard({
     }
     setError(null);
     setStatus("submitting");
-    const optimistic = counters ? { ...counters, pitched: counters.pitched + 1 } : null;
+    // The store's last answer is the optimistic base — the card itself only
+    // holds counters after its first submit response.
+    const base = counters ?? readCounters();
+    const optimistic = base ? { ...base, pitched: base.pitched + 1 } : null;
     if (optimistic) pushCounters(optimistic);
 
     try {
@@ -154,10 +161,12 @@ export function IntakeCard({
       }
       setStatus("filling");
       pushCounters(counters);
+      void refreshCounters(); // reconcile the optimistic tick with the server
       setError(errText(res.status === 429 ? "rateLimited" : "serverError"));
     } catch {
       setStatus("filling");
       pushCounters(counters);
+      void refreshCounters();
       setError(errText("serverError"));
     }
   };
